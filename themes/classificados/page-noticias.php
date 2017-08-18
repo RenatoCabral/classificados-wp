@@ -1,4 +1,7 @@
+<!--Função resposável por incluir o arquivo header.php-->
 <?php get_header();
+
+/*Função está carregando a seção de busca básica para o template atual*/
 get_template_part( 'basic-search'); ?>
 
 
@@ -11,11 +14,18 @@ get_template_part( 'basic-search'); ?>
             </div>
 
             <div class="col s12 m12 l12">
+
+                <!-- Variavel $query recebendo o objeto WP_Query, que realiza a consulta das
+                informações na página ou post e as retorna. Passando que o tipo de variavel é post
+                e apenas uma post por vez.-->
                 <?php
                 $query = new WP_Query([
                     'post_type' => 'post',
                     'posts_per_page' => -1
                 ]);
+
+                /*Verifica se existe post, se não tiver, é exibida a mensagem, caso, tenha a varaivel
+                recebe as informações do post, inseridas no Wordpress.*/
                 if(!$query->have_posts()){
                     echo '<p> Sem notícias no momento </p>';
                 }else {
@@ -23,6 +33,7 @@ get_template_part( 'basic-search'); ?>
                         $query->the_post();
                         $img_src = get_the_post_thumbnail_url(get_the_ID(), 'thumb-news');
 
+                    /*Função responsável por repetir os posts*/
                         render_news($img_src);
                     }
                 }?>

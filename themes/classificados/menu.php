@@ -5,14 +5,15 @@
         </a>
 
         <ul class="right hide-on-med-and-down">
-            <li class="active"><a href="<?php bloginfo('template_directory') ?>/index.php">Início</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="<?php bloginfo('template_directory') ?>/doubts.php">Dúvidas</a></li>
-            <li><a href="<?php bloginfo('template_directory') ?>/news.php">Notícias</a></li>
-            <li><a href="<?php bloginfo('template_directory') ?>/vehicles.php">Veículos</a></li>
-            <li><a href="<?php bloginfo('template_directory') ?>/#">FIPE</a></li>
-            <li><a href="<?php bloginfo('template_directory') ?>/contact.php">Contato</a></li>
-            <li><a href="<?php bloginfo('template_directory') ?>/login-register.php">Entrar/Cadastrar-se</a></li>
+            <li class="active">
+                <a href="<?= home_url() ?>">Início</a></li>
+            <li><a href="<?= get_permalink(get_page_by_path('sobre')) ?>">Sobre</a></li>
+            <li><a href="<?= get_permalink(get_page_by_path('duvidas')) ?>">Dúvidas</a></li>
+            <li><a href="<?= get_permalink(get_page_by_path('noticias')) ?>">Notícias</a></li>
+            <li><a href="#">Veículos</a></li>
+            <li><a href="#">FIPE</a></li>
+            <li><a href="<?= get_permalink(get_page_by_path('contato')) ?>">Contato</a></li>
+            <li><a href="<?= get_permalink(get_page_by_path('minha-conta')) ?>">Entrar/Cadastrar-se</a></li>
         </ul>
     </div>
 </nav>

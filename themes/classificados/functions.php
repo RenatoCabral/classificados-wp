@@ -2,8 +2,11 @@
 
 // Imagens dos posts
 add_theme_support( 'post-thumbnails' );
+
+//Definindo dimensões padrão das imagens dos posts
 add_image_size('thumb-news', '688','516', true);
 
+//Função que irá repetir os posts de noticias
 function render_news($img_src){ ?>
     <div class="col s12 m12 l3">
         <div class="card medium z-depth-1 cards_news_home">

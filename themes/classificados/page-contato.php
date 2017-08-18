@@ -1,11 +1,11 @@
-<?php include 'header.php'?>
+<?php get_header(); ?>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col s12 m12 l12">
             <div class="col s12 m12 l6 doubts-title">
                 <div class="row ">
-                    <h1>Fale conosco</h1>
+                    <h1><?php the_title(); ?></h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid amet beatae consectetur delectus error esse exercitationem facere facilis ipsam porro quam, quas quos repudiandae similique sunt tenetur unde voluptate.</p>
                 </div>
             </div>
@@ -62,4 +62,4 @@
     </div>
 </div>
 
-<?php include 'footer.php'?>
+<?php get_footer(); ?>
