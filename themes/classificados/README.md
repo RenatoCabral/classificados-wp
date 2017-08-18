@@ -1,5 +1,5 @@
 <p align="center">
-<h1 align="center"> Classificados | TCC </h1>
+<h1 align="center"> Classificados WP | TCC </h1>
   <a href="http://materializecss.com/">
     <img src="http://materializecss.com/res/materialize.svg" width="150">
   </a>

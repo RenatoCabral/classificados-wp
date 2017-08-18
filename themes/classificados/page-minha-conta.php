@@ -11,7 +11,7 @@
                 </ul>
 
                 <!--Login-->
-                <div id="test-swipe-1" class="col s12 m12 l12">
+                <div id="test-swipe-1" class="col s12 m12 l12 login">
                     <div class="row">
                         <form class="col s12 m12 l12">
                             <div class="row">
@@ -32,7 +32,7 @@
                         <a href="#">Esqueceu sua senha?</a>
                         <a class="waves-effect waves-light btn right">Acessar</a>
                     </div>
-                    <a href="#test-swipe-2">Ainda não possui uma conta? Registre-se</a>
+<!--                    <a href="#test-swipe-2">Ainda não possui uma conta? Registre-se</a>-->
                 </div>
 
                 <!--cadastro-->
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                         </form>
-                        <a href="#">Já possui uma conta? Faça login</a>
+<!--                        <a href="#">Já possui uma conta? Faça login</a>-->
                         <a class="waves-effect waves-light btn right">Criar Conta</a>
                     </div>
                 </div>
