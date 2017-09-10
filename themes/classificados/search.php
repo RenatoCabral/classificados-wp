@@ -25,6 +25,7 @@ get_template_part( 'basic-search'); ?>
                     $img_src = get_the_post_thumbnail_url(get_the_ID(), 'thumb-news');
 
                     render_news($img_src);
+
                 }
             }?>
 
@@ -32,5 +33,9 @@ get_template_part( 'basic-search'); ?>
         </div>
     </div>
 </div>
+
+<!--
+SELECT * FROM `wp_posts` WHERE `post_title` LIKE '%Evento%' OR `post_content` LIKE '%Evento%'
+-->
 
 <?php get_footer();
