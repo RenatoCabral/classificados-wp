@@ -1,10 +1,6 @@
 <footer class="page-footer z-depth-2 grey lighten-3 ">
     <div class="container-fluid">
         <div class="row">
-            <a href="" class="return-button btn-small waves-effect waves-light btn btn-return right">Inicio</a>
-        </div>
-
-        <div class="row">
             <div class="col l4 s12">
                 <h5 class="black-text title_footer">Sobre nós</h5>
                 <p class="black-text text-lighten-4">

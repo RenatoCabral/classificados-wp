@@ -4,7 +4,8 @@
             <div class="card-image card-image-vehicles">
                 <img src="<?php bloginfo('template_directory') ?>/img/car_05.jpeg" class="responsive-img">
                 <span class="card-title">Cod. 01</span>
-                <a href="<?php bloginfo('template_directory') ?>/single-vehicle.php" class="btn-floating btn-small halfway-fab waves-effect waves-light red transition-300ms icon-view-more">
+                <a href="<?php bloginfo('template_directory') ?>/single-vehicle.php"
+                   class="btn-floating btn-small halfway-fab waves-effect waves-light red transition-300ms icon-view-more">
                     <i class="small material-icons">add</i>
                 </a>
             </div>
@@ -16,3 +17,4 @@
             </div>
         </div>
     </div>
+
