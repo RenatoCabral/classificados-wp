@@ -36,13 +36,9 @@
 
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis et harum illum nesciunt praesentium, repudiandae sed tempora. Animi cumque delectus eius ipsum laboriosam qui quidem tempore tenetur veniam, vitae! Voluptatum.</p>
-                    <input type="text" placeholder="Digite aqui sua busca">
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Buscar</a>
-                </div>
+<!--                funcao responsavel por chamar o arquivo searchform.php - esse arquivo ẽ onde fica o formulario.
+essa é a funcionalidade padrao.-->
+                    <?php get_search_form(); ?>
             </div>
 
             <a class="waves-effect waves-light btn">
