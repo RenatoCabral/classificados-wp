@@ -18,7 +18,7 @@ get_template_part( 'basic-search'); ?>
          <?php
 
             if(!have_posts()){
-                echo '<p> Sem notícias no momento </p>';
+                echo '<h3> Sem notícias no momento </h3>';
             }else {
                 while (have_posts()) {
                     the_post();
