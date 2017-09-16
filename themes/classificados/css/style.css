@@ -426,6 +426,14 @@ Version: 0.0.0
     height:460px!important;
 }
 
+/*************search.php*****************/
+.info_return_search h3{
+    text-align: center;
+}
+
+.info_return_search h3:hover{
+    color:#1d7d74;
+}
 /*****************************media queries*************************/
 
 

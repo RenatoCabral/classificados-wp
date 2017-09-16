@@ -13,23 +13,20 @@ get_template_part( 'basic-search'); ?>
             </div>
         </div>
 
-        <div class="col s12 m12 l12">
+        <div class="col s12 m12 l12 info_return_search">
 
          <?php
 
             if(!have_posts()){
-                echo '<h3> Sem notícias no momento </h3>';
+                echo '<h3> Resultado não encontrado</h3>';
             }else {
                 while (have_posts()) {
                     the_post();
                     $img_src = get_the_post_thumbnail_url(get_the_ID(), 'thumb-news');
 
                     render_news($img_src);
-
                 }
             }?>
-
-
         </div>
     </div>
 </div>

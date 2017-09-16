@@ -1,4 +1,4 @@
-<footer class="page-footer z-depth-2 grey lighten-3 ">
+<footer class="page-footer z-depth-2 grey lighten-3">
     <div class="container-fluid">
         <div class="row">
             <div class="col l4 s12">
@@ -18,7 +18,7 @@
                     <li><a class="black-text text-lighten-3" href="#!">Seguro</a></li>
                 </ul>
             </div>
-            <div class="col l4 s12">
+            <div class="col l4">
                 <h5 class="black-text title_footer">Avaliação Fipe</h5>
                 <ul>
                     <li><a class="black-text text-lighten-3" href="#!">Link 1</a></li>
@@ -32,7 +32,7 @@
     <div class="footer-copyright  grey lighten-3 z-depth-0">
         <div class="container-fluid black-text">
             © 2014 Copyright Text
-            <a class="black-text text-lighten-4 right" href="#!">More Links</a>
+            <a class="black-text text-lighten-4 right" href="#!"></a>
         </div>
     </div>
 </footer>

@@ -21,7 +21,7 @@ Pq tenho a variavel s com valor... s quer dizer search.
         </p>
         <div>
 
-            <input type="TEXT" name="s" placeholder="Digite sua pesquisa aqui" value="<?php the_search_query(); ?>" />
+            <input type="TEXT" name="s" placeholder="Digite sua pesquisa aqui"/>
 
         </div>
 
