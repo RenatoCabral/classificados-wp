@@ -60,16 +60,25 @@ function render_data_meta_box() {
 
     $price = get_post_meta($post_id, 'price', true);
     $doors = get_post_meta($post_id, 'doors', true);
+    $exchange = get_post_meta($post_id, 'exchange', true);
 
 
     ?>
 
     <label>Preço</label>
-    <input type="text" name="price" placeholder="100.000,00" value="<?= $price?>">
+    <input type="text" name="price" placeholder="Preço" value="<?= $price?>">
 
     <br><br>
     <label>Quantidade de Portas</label>
     <input type="number" name="doors" value="<?= $doors?>">
+
+    <br><br>
+        <label for="meta_box_select">Câmbio</label>
+        <select name="exchange" id="meta_box_select">
+            <option value="Selecione" <?php selected( $exchange, 'Selecione' ); ?>>Selecione</option>
+            <option value="Automatico" <?php selected( $exchange, 'Automatico' ); ?>>Automatico</option>
+            <option value="Manual" <?php selected( $exchange, 'Manual' ); ?>>Manual</option>
+        </select>
 
 <?php }
 
@@ -86,6 +95,7 @@ function save_minha_meta_box( $post_id )
 
     update_post_meta( $post_id, 'price', $_POST['price']);
     update_post_meta( $post_id, 'doors', $_POST['doors']);
+    update_post_meta( $post_id, 'exchange', $_POST['exchange']);
 
 }
 
