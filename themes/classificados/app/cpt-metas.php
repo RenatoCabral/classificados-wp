@@ -126,53 +126,52 @@ function save_meta_veiculo ($post_id){
 
 
 
-    /*airbag*/
+
     $airbag = isset( $_POST[ 'airbag' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'airbag', $airbag );
 
 
-    /*farol_de_milha*/
+
     $farol_de_milha = isset( $_POST[ 'farol_de_milha' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'farol_de_milha', $farol_de_milha);
 
 
-    /*som*/
+
     $som = isset( $_POST[ 'som' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'som', $som);
 
-    /*ar_condicionado*/
+
     $ar_condicionado = isset( $_POST[ 'ar_condicionado' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'ar_condicionado', $ar_condicionado);
 
-    /*freios_abs*/
+
     $freios_abs = isset( $_POST[ 'freios_abs' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'freios_abs', $freios_abs);
 
-    /*porta_usb*/
+
     $porta_usb = isset( $_POST[ 'porta_usb' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'porta_usb', $porta_usb);
 
 
-    /*camera_de_re*/
+
     $camera_de_re = isset( $_POST[ 'camera_de_re' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'camera_de_re', $camera_de_re);
 
 
-    /*vidro_eletrico*/
+
     $vidro_eletrico = isset( $_POST[ 'vidro_eletrico' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'vidro_eletrico', $vidro_eletrico);
 
 
-    /*rodas_esportivas*/
+
     $rodas_esportivas = isset( $_POST[ 'rodas_esportivas' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'rodas_esportivas', $rodas_esportivas);
 
 
-    /*bancos_couro*/
+
     $bancos_couro = isset( $_POST[ 'bancos_couro' ] ) ? '1' : '0';
     update_post_meta( $post_id, 'bancos_couro', $bancos_couro);
 
 
-    //obs do vendedor
     update_post_meta( $post_id, 'obs', $_POST['obs']);
 }

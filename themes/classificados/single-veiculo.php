@@ -1,36 +1,40 @@
-<?php include 'header.php'; ?>
-<?php include 'basic-search.php'; ?>
+<?php get_header();
+get_template_part( 'basic-search');
+
+include 'app/partials/public/monta-dados-veiculos.php';
+
+?>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col s12 m12 l4">
             <div class=" col s12 m12 l12 description-vehicle">
-                <h1>Fiat Stilo Duologic 1.8 Attractive Flex 8v 5p </h1>
-                <p><strong>R$ 30.000,00</strong></p>
+                <h1><?php the_title(); ?> </h1>
+                <p><strong>R$ <?= $price ?></strong></p>
             </div>
             <div class=" col s6 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Ano:</strong> 2017/2017</p>
+                <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Ano:</strong> <?= $year ?></p>
             </div>
             <div class=" col s6 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">av_timer</i><strong>KM:</strong> 116000</p>
+                <p><i class="material-icons small left vehicle-details-icon">av_timer</i><strong>KM:</strong> <?= $km ?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">color_lens</i><strong>Cor:</strong> Prata</p>
+                <p><i class="material-icons small left vehicle-details-icon">color_lens</i><strong>Cor:</strong> <?= $color?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Portas:</strong> 4</p>
+                <p><i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Portas</strong> <?= $doors?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Combústivel:</strong> Flex</p>
+                <p><i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Combústivel:</strong> <?= $fuel?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Câmbio:</strong>Automático</p>
+                <p><i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Câmbio:</strong><?= $exchange ?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Conservação:</strong> Seminovo</p>
+                <p><i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Conservação:</strong> <?= $conservation?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Final Placa:</strong> 5</p>
+                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Final Placa:</strong> <?= $final_place ?></p>
             </div>
 
         </div>
@@ -77,27 +81,27 @@
                 <div class="col s12 m12 l12">
                     <div class="row">
                         <div class=" col s6 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Tipo:</strong> Sedan</p>
+                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Tipo:</strong> <?= $tipo[0]->name ?></p>
                         </div>
 
                         <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Cód. Veículo:</strong> 123456</p>
+                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Cód. Veículo:</strong> <?= $post_id ?></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Motor:</strong> 2.0</p>
+                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Motor:</strong> <?= $motor?></p>
                         </div>
                         <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Fabricante:</strong> Ford</p>
+                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Fabricante:</strong> <?= $fabricante[0]->name ?></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Modelo:</strong> Fiat Stilo</p>
+                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Modelo:</strong> <?= $model ?></p>
                         </div>
                         <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Outro:</strong> outro</p>
+                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Outro:</strong> ######</p>
                         </div>
                     </div>
                 </div>
@@ -162,8 +166,7 @@
             <div id="test-swipe-2" class="col s12 m12 l12">
                 <div class="row">
                     <div class="col s12 m12 l12 texto-info">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at, atque culpa dicta dolore facere minima mollitia porro possimus quas, ratione sit, voluptates? Aperiam facilis incidunt ipsam neque ratione, vero?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab adipisci alias architecto at autem dolorem hic, id iusto necessitatibus nesciunt perferendis quam rem saepe sapiente sint veniam veritatis voluptatem?</p>
+                        <?= nl2br($obs)?>
                     </div>
                 </div>
             </div>
@@ -240,4 +243,4 @@
 
 
 
-<?php include 'footer.php'?>
+<?php get_footer();
