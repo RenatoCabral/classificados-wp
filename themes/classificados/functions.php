@@ -49,6 +49,7 @@ function minha_meta_box()
     add_meta_box('meu-id', 'Detalhes veiculo', 'render_data_meta_box', 'veiculo', 'normal', 'high');
     add_meta_box('meu-id2', '+ Informacoes', 'render_mais_info', 'veiculo', 'normal', 'high');
     add_meta_box('meu-id3', 'Opcionais', 'render_opcionais', 'veiculo', 'normal', 'high');
+    add_meta_box('meu-id4', 'Obs. Vendedor', 'render_obs_vendedor', 'veiculo', 'normal', 'high');
 }
 
 
@@ -232,43 +233,43 @@ function render_opcionais() {
 
     ?>
 
-    <input type="checkbox" name="airbag" value="<?= $airbag?>">
+    <input type="checkbox" name="airbag" value="<?= $airbag?>" <?php if ( isset ( $airbag) ) checked( $airbag, '1' ); ?> />
     <label>Airbag</label>
 
     <br><br>
-    <input type="checkbox" name="farol_de_milha" value="<?= $farol_de_milha?>">
+    <input type="checkbox" name="farol_de_milha" value="<?= $farol_de_milha?>" <?php if ( isset ( $farol_de_milha) ) checked( $farol_de_milha, '1' ); ?> />
     <label>Farol de Milha</label>
 
     <br><br>
-    <input type="checkbox" name="som" value="<?= $som?>">
+    <input type="checkbox" name="som" value="<?= $som?>" <?php if ( isset ( $som) ) checked( $som, '1' ); ?> />
     <label>Som</label>
 
     <br><br>
-    <input type="checkbox" name="ar_condicionado" value="<?= $ar_condicionado?>">
+    <input type="checkbox" name="ar_condicionado" value="<?= $ar_condicionado?>" <?php if ( isset ( $ar_condicionado) ) checked( $ar_condicionado, '1' ); ?> />
     <label>Ar Condicionado</label>
 
     <br><br>
-    <input type="checkbox" name="freios_abs" value="<?= $freios_abs?>">
+    <input type="checkbox" name="freios_abs" value="<?= $freios_abs?>" <?php if ( isset ( $freios_abs) ) checked( $freios_abs, '1' ); ?> />
     <label>Freios ABS</label>
 
     <br><br>
-    <input type="checkbox" name="porta_usb" value="<?= $porta_usb?>">
+    <input type="checkbox" name="porta_usb" value="<?= $porta_usb?>" <?php if ( isset ( $porta_usb) ) checked( $porta_usb, '1' ); ?> />
     <label>Porta USB</label>
 
     <br><br>
-    <input type="checkbox" name="camera_de_re" value="<?= $camera_de_re?>">
+    <input type="checkbox" name="camera_de_re" value="<?= $camera_de_re?>" <?php if ( isset ( $camera_de_re) ) checked( $camera_de_re, '1' ); ?> />
     <label>Câmera de ré</label>
 
     <br><br>
-    <input type="checkbox" name="vidro_eletrico" value="<?= $vidro_eletrico?>">
+    <input type="checkbox" name="vidro_eletrico" value="<?= $vidro_eletrico?>" <?php if ( isset ( $vidro_eletrico) ) checked( $vidro_eletrico, '1' ); ?> />
     <label>Vidros Elétricos</label>
 
     <br><br>
-    <input type="checkbox" name="rodas_esportivas" value="<?= $rodas_esportivas?>">
+    <input type="checkbox" name="rodas_esportivas" value="<?= $rodas_esportivas?>" <?php if ( isset ( $rodas_esportivas) ) checked( $rodas_esportivas, '1' ); ?> />
     <label>Rodas Esportivas</label>
 
     <br><br>
-    <input type="checkbox" name="bancos_couro" value="<?= $bancos_couro?>">
+    <input type="checkbox" name="bancos_couro" value="<?= $bancos_couro?>" <?php if ( isset ( $bancos_couro) ) checked( $bancos_couro, '1' ); ?> />
     <label>Bancos de Couro</label>
 
 <?php }
@@ -283,19 +284,112 @@ function save_opcionais( $post_id )
     if( !current_user_can( 'edit_post' ) ) return;
 
 
-    update_post_meta( $post_id, 'airbag', $_POST['airbag']);
-    update_post_meta( $post_id, 'farol_de_milha', $_POST['farol_de_milha']);
-    update_post_meta( $post_id, 'som', $_POST['som']);
-    update_post_meta( $post_id, 'ar_condicionado', $_POST['ar_condicionado']);
-    update_post_meta( $post_id, 'freios_abs', $_POST['freios_abs']);
-    update_post_meta( $post_id, 'porta_usb', $_POST['porta_usb']);
-    update_post_meta( $post_id, 'camera_de_re', $_POST['camera_de_re']);
-    update_post_meta( $post_id, 'vidro_eletrico', $_POST['vidro_eletrico']);
-    update_post_meta( $post_id, 'rodas_esportivas', $_POST['rodas_esportivas']);
-    update_post_meta( $post_id, 'bancos_couro', $_POST['bancos_couro']);
+    /*airbag*/
+    if( isset( $_POST[ 'airbag' ] ) ) {
+        update_post_meta( $post_id, 'airbag', '1' );
+    } else {
+        update_post_meta( $post_id, 'airbag', '0' );
+    }
+
+    /*farol_de_milha*/
+    if( isset( $_POST[ 'farol_de_milha' ] ) ) {
+        update_post_meta( $post_id, 'farol_de_milha', '1' );
+    } else {
+        update_post_meta( $post_id, 'farol_de_milha', '0' );
+    }
+
+    /*som*/
+    if( isset( $_POST[ 'som' ] ) ) {
+        update_post_meta( $post_id, 'som', '1' );
+    } else {
+        update_post_meta( $post_id, 'som', '0' );
+    }
+
+    /*ar_condicionado*/
+    if( isset( $_POST[ 'ar_condicionado' ] ) ) {
+        update_post_meta( $post_id, 'ar_condicionado', '1' );
+    } else {
+        update_post_meta( $post_id, 'ar_condicionado', '0' );
+    }
+
+    /*freios_abs*/
+    if( isset( $_POST[ 'freios_abs' ] ) ) {
+        update_post_meta( $post_id, 'freios_abs', '1' );
+    } else {
+        update_post_meta( $post_id, 'freios_abs', '0' );
+    }
+
+    /*porta_usb*/
+    if( isset( $_POST[ 'porta_usb' ] ) ) {
+        update_post_meta( $post_id, 'porta_usb', '1' );
+    } else {
+        update_post_meta( $post_id, 'porta_usb', '0' );
+    }
+
+    /*camera_de_re*/
+    if( isset( $_POST[ 'camera_de_re' ] ) ) {
+        update_post_meta( $post_id, 'camera_de_re', '1' );
+    } else {
+        update_post_meta( $post_id, 'camera_de_re', '0' );
+    }
+
+    /*vidro_eletrico*/
+    if( isset( $_POST[ 'vidro_eletrico' ] ) ) {
+        update_post_meta( $post_id, 'vidro_eletrico', '1' );
+    } else {
+        update_post_meta( $post_id, 'vidro_eletrico', '0' );
+    }
+
+    /*rodas_esportivas*/
+    if( isset( $_POST[ 'rodas_esportivas' ] ) ) {
+        update_post_meta( $post_id, 'rodas_esportivas', '1' );
+    } else {
+        update_post_meta( $post_id, 'rodas_esportivas', '0' );
+    }
+
+    /*bancos_couro*/
+    if( isset( $_POST[ 'bancos_couro' ] ) ) {
+        update_post_meta( $post_id, 'bancos_couro', '1' );
+    } else {
+        update_post_meta( $post_id, 'bancos_couro', '0' );
+    }
+
+
 
 }
 
+
+                          /*********obs.vendedor*******/
+
+function render_obs_vendedor() {
+    //estudar sobre a global $post
+    global $post;
+    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+
+    $post_id = $post->ID;
+
+    $obs = get_post_meta($post_id, 'obs', true);
+
+    ?>
+
+    <textarea name="obs" cols="50" rows="10"><?=$obs?></textarea>
+
+
+<?php }
+
+add_action( 'save_post', 'save_obs_vendedor' );
+function save_obs_vendedor( $post_id )
+{
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+
+    if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+
+    if( !current_user_can( 'edit_post' ) ) return;
+
+
+    update_post_meta( $post_id, 'obs', $_POST['obs']);
+
+}
 
 
 
