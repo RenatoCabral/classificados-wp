@@ -19,6 +19,14 @@
 <input type="number" name="doors" value="<?= $doors?>">
 
 <br><br>
+<label>Motor</label>
+<input type="text" name="motor" placeholder="Motor" value="<?= $motor?>">
+
+<br><br>
+<label>Modelo</label>
+<input type="text" name="model" placeholder="Modelo" value="<?= $model?>">
+
+<br><br>
 <label for="meta_box_select">Combustível</label>
 <select name="fuel" id="meta_box_select">
     <option value="Selecione" <?php selected( $fuel, 'Selecione' ); ?>>Selecione</option>

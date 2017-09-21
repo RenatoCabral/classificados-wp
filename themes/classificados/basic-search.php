@@ -8,16 +8,11 @@
     <form class="col s12">
         <div class="row">
             <div class="input-field col s12 m2 l2">
-                <input id="code" type="text" class="validate">
-                <label for="code">Código: </label>
-            </div>
-
-            <div class="input-field col s12 m2 l2">
                 <select>
                     <option value="" disabled selected>Estado</option>
-                    <option value="1">Novos</option>
-                    <option value="2">Usados</option>
-                    <option value="3">Seminovos</option>
+                    <option value="1">Goiás</option>
+                    <option value="2">Tocantins</option>
+                    <option value="3">São Paulo</option>
                 </select>
             </div>
 
@@ -39,10 +34,19 @@
 
             <div class="input-field col s12 m2 l2">
                 <select>
-                    <option value="" disabled selected>Marca</option>
-                    <option value="1">Marca 1</option>
-                    <option value="2">Marca 2</option>
-                    <option value="3">Marca 3</option>
+                    <option value="" disabled selected>Categoria</option>
+                    <option value="1">Pickup</option>
+                    <option value="2">Hatch</option>
+                    <option value="3">Sedan</option>
+                </select>
+            </div>
+
+            <div class="input-field col s12 m2 l2">
+                <select>
+                    <option value="" disabled selected>Fabricante</option>
+                    <option value="1">Fabricante 1</option>
+                    <option value="2">Fabricante 2</option>
+                    <option value="3">Fabricante 3</option>
                 </select>
             </div>
 
@@ -77,12 +81,17 @@
 
             <div class="input-field col s12 m2 l2">
                 <input id="inicial_price" type="text" class="validate">
-                <label for="inicial_price">Preço De: </label>
+                <label for="inicial_price">Preço Mínimo: </label>
             </div>
 
             <div class="input-field col s12 m2 l2">
                 <input id="final_price" type="text" class="validate">
-                <label for="final_price">Preço Até: </label>
+                <label for="final_price">Preço Máximo: </label>
+            </div>
+
+            <div class="input-field col s12 m2 l2">
+                <input id="code" type="text" class="validate">
+                <label for="code">Código: </label>
             </div>
 
             <div class="input-field col s12 m2 l2 btn_basic_search">
@@ -90,11 +99,11 @@
                     <i class="material-icons right">search</i>
                 </button>
             </div>
-            <div class="input-field col s12 m2 l2 btn_basic_search">
-                <a href="<?php bloginfo('template_directory') ?>/advanced-search.php" class="btn waves-effect waves-light">Busca Avançada
-                        <i class="material-icons right">send</i>
-                </a>
-            </div>
+<!--            <div class="input-field col s12 m2 l2 btn_basic_search">-->
+<!--                <a href="--><?php //bloginfo('template_directory') ?><!--/advanced-search.php" class="btn waves-effect waves-light">Busca Avançada-->
+<!--                        <i class="material-icons right">send</i>-->
+<!--                </a>-->
+<!--            </div>-->
         </div>
     </form>
 </div>

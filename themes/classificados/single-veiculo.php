@@ -36,6 +36,21 @@ include 'app/partials/public/monta-dados-veiculos.php';
             <div class=" col s12 m6 l6 vehicle-details">
                 <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Final Placa:</strong> <?= $final_place ?></p>
             </div>
+            <div class=" col s12 m6 l6 vehicle-details">
+                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Motor:</strong> <?= $motor?></p>
+            </div>
+
+            <div class=" col s12 m6 l6 vehicle-details">
+                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Cod:</strong> <?= $post_id?></p>
+            </div>
+
+            <div class=" col s12 m6 l6 vehicle-details">
+                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Fabricante:</strong> <?= $fabricante[0]->name ?></p>
+            </div>
+
+            <div class=" col s12 m6 l6 vehicle-details">
+                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Modelo</strong> <?= $model?></p>
+            </div>
 
         </div>
         <div class="col s12 m12 l8">
@@ -73,96 +88,68 @@ include 'app/partials/public/monta-dados-veiculos.php';
     <div class="row">
         <div class="col s12 m12 l6 tabs-home">
             <ul id="tabs-swipe-demo" class="tabs vehicle-details-tabs">
-                <li class="tab col s4"><a class="active link-title-tab" href="#test-swipe-1">+ Informações</a></li>
+                <li class="tab col s4"><a class="active link-title-tab" href="#test-swipe-1">Itens de Série</a></li>
                 <li class="tab col s4"><a class="link-title-tab" href="#test-swipe-2">Obs. Vendedor</a></li>
                 <li class="tab col s4"><a class="link-title-tab" href="#test-swipe-3">Dados do Vendedor</a></li>
             </ul>
             <div id="test-swipe-1" class="col s12 m12 l12">
                 <div class="col s12 m12 l12">
-                    <div class="row">
-                        <div class=" col s6 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Tipo:</strong> <?= $tipo[0]->name ?></p>
-                        </div>
 
-                        <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Cód. Veículo:</strong> <?= $post_id ?></p>
-                        </div>
+                    <div class="row list-opcionals">
+                        <p class="col s12 m6 l3">
+                            <input  type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Air-Bag</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input  type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Ar Condicionado</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Câmera de Ré</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Direção Hidráulica</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input  type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Farol de Neblina</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input  type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Freio ABS</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Vidro Elétrico</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Retrovisor Elétrico</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input  type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Som</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input  type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Porta USB</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Rodas de liga leve</label>
+                        </p>
+                        <p class="col s12 m6 l3">
+                            <input type="checkbox" id="test6" checked="checked" />
+                            <label for="test6">Sensor de estacionamento</label>
+                        </p>
                     </div>
-                    <div class="row">
-                        <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Motor:</strong> <?= $motor?></p>
-                        </div>
-                        <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Fabricante:</strong> <?= $fabricante[0]->name ?></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Modelo:</strong> <?= $model ?></p>
-                        </div>
-                        <div class=" col s12 m6 l6 tab-informacoes">
-                            <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Outro:</strong> ######</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m12 l12 tab-informacoes-opcionais">
-                    <div class="row">
-                        <p class="tab-title-itens-opcionais">Itens e outros opcionais</p>
-                        <form action="#">
-                            <div class="row list-opcionals">
-                                <p class="col s12 m6 l3">
-                                    <input  type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Air-Bag</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input  type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Ar Condicionado</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Câmera de Ré</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Direção Hidráulica</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input  type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Farol de Neblina</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input  type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Freio ABS</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Vidro Elétrico</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Retrovisor Elétrico</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input  type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Som</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input  type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Porta USB</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Rodas de liga leve</label>
-                                </p>
-                                <p class="col s12 m6 l3">
-                                    <input type="checkbox" id="test6" checked="checked" />
-                                    <label for="test6">Sensor de estacionamento</label>
-                                </p>
-                            </div>
-                        </form>
-                    </div>
+
+
                 </div>
             </div>
+
             <div id="test-swipe-2" class="col s12 m12 l12">
                 <div class="row">
                     <div class="col s12 m12 l12 texto-info">

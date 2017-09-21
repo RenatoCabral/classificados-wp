@@ -5,8 +5,7 @@ function meta_box_veiculo()
 {
 
     add_meta_box('meu-id', 'Detalhes veiculo', 'render_data_meta_box', 'veiculo', 'normal', 'high');
-    add_meta_box('meu-id2', '+ Informacoes', 'render_mais_info', 'veiculo', 'normal', 'high');
-    add_meta_box('meu-id3', 'Opcionais', 'render_opcionais', 'veiculo', 'normal', 'high');
+    add_meta_box('meu-id3', 'Itens de Série', 'render_itens_de_serie', 'veiculo', 'normal', 'high');
     add_meta_box('meu-id4', 'Obs. Vendedor', 'render_obs_vendedor', 'veiculo', 'normal', 'high');
 }
 
@@ -28,36 +27,17 @@ function render_data_meta_box() {
     $exchange = get_post_meta($post_id, 'exchange', true);
     $conservation = get_post_meta($post_id, 'conservation', true);
     $final_place = get_post_meta($post_id, 'final_place', true);
+    $motor = get_post_meta($post_id, 'motor', true);
+    $model = get_post_meta($post_id, 'model', true);
 
     include "partials/admin/detalhes-veiculo.php";
 
 }
 
 
+/*******itens de série*****/
 
-/********+ info************/
-function render_mais_info() {
-    //estudar sobre a global $post
-    global $post;
-    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
-
-    $post_id = $post->ID;
-
-    $type = get_post_meta($post_id, 'type', true);
-    $motor = get_post_meta($post_id, 'motor', true);
-    $model = get_post_meta($post_id, 'model', true);
-    $cod_vehicle = get_post_meta($post_id, 'cod_vehicle', true);
-    $fabricator = get_post_meta($post_id, 'fabricator', true);
-    $other = get_post_meta($post_id, 'other', true);
-
-    include 'partials/admin/mais-info-veiculo.php';
-}
-
-
-
-/*******opcionais*****/
-
-function render_opcionais() {
+function render_itens_de_serie() {
     //estudar sobre a global $post
     global $post;
     wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
@@ -76,16 +56,15 @@ function render_opcionais() {
     $bancos_couro = get_post_meta($post_id, 'bancos_couro', true);
 
 
-    include 'partials/admin/detalhes-opcionais.php';
+    include 'partials/admin/detalhes-itens-de-serie.php';
 
 }
 
 
-
 /*********obs.vendedor*******/
 
-function render_obs_vendedor() {
-    //estudar sobre a global $post
+function render_obs_vendedor() {// a função render, renderizada os dados para serem exibidos
+    //global $post, variavel global muito utilizada no Wordpress
     global $post;
     wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
 
@@ -117,14 +96,8 @@ function save_meta_veiculo ($post_id){
     update_post_meta( $post_id, 'final_place', $_POST['final_place']);
 
 
-    update_post_meta( $post_id, 'type', $_POST['type']);
     update_post_meta( $post_id, 'motor', $_POST['motor']);
     update_post_meta( $post_id, 'model', $_POST['model']);
-    update_post_meta( $post_id, 'cod_vehicle', $_POST['cod_vehicle']);
-    update_post_meta( $post_id, 'fabricator', $_POST['fabricator']);
-    update_post_meta( $post_id, 'other', $_POST['other']);
-
-
 
 
     $airbag = isset( $_POST[ 'airbag' ] ) ? '1' : '0';
