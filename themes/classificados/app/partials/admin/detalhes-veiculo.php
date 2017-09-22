@@ -1,3 +1,5 @@
+
+
 <label>Preço</label>
 <input type="text" name="price" placeholder="Preço" value="<?= $price?>">
 
@@ -11,46 +13,54 @@
 <input type="text" name="km" placeholder="Km" value="<?= $km?>">
 
 <br><br>
-<label>Cor</label>
-<input type="text" name="color" placeholder="Cor" value="<?= $color?>">
+
+<?php
+$colors = get_colors();
+$motors = get_motors();
+$fuels = get_fuels();
+$exchanges = get_exchanges();
+$convervations = get_convervations();
+
+?>
+
+<label>
+    Cor <?php handler_options('color',$colors, $color);?>
+</label>
 
 <br><br>
-<label>Quantidade de Portas</label>
+
+<label>Qtde Portas</label>
 <input type="number" name="doors" value="<?= $doors?>">
 
 <br><br>
-<label>Motor</label>
-<input type="text" name="motor" placeholder="Motor" value="<?= $motor?>">
 
-<br><br>
+<label>
+    Motor <?php handler_options('motor', $motors, $motor);?>
+</label
+
+<br><br><br>
+
 <label>Modelo</label>
 <input type="text" name="model" placeholder="Modelo" value="<?= $model?>">
 
 <br><br>
-<label for="meta_box_select">Combustível</label>
-<select name="fuel" id="meta_box_select">
-    <option value="Selecione" <?php selected( $fuel, 'Selecione' ); ?>>Selecione</option>
-    <option value="Gasolina" <?php selected( $fuel, 'Gasolina' ); ?>>Gasolina</option>
-    <option value="Álcool" <?php selected( $fuel, 'Álcool' ); ?>>Álcool</option>
-    <option value="Flex" <?php selected( $fuel, 'Flex' ); ?>>Flex</option>
-</select>
+
+<label>
+    Combustível <?php handler_options('fuel', $fuels, $fuel);?>
+</label>
 
 <br><br>
-<label for="meta_box_select">Câmbio</label>
-<select name="exchange" id="meta_box_select">
-    <option value="Selecione" <?php selected( $exchange, 'Selecione' ); ?>>Selecione</option>
-    <option value="Automatico" <?php selected( $exchange, 'Automatico' ); ?>>Automatico</option>
-    <option value="Manual" <?php selected( $exchange, 'Manual' ); ?>>Manual</option>
-</select>
+
+<label>
+    Câmbio <?php handler_options('exchange', $exchanges, $exchange);?>
+</label>
 
 <br><br>
-<label for="meta_box_select">Comservação</label>
-<select name="conservation" id="meta_box_select">
-    <option value="Selecione" <?php selected( $conservation, 'Selecione' ); ?>>Selecione</option>
-    <option value="Novo" <?php selected( $conservation, 'Novo' ); ?>>Novo</option>
-    <option value="Seminovo" <?php selected( $conservation, 'Seminovo' ); ?>>Seminovo</option>
-    <option value="Usado" <?php selected( $conservation, 'Usado' ); ?>>Usado</option>
-</select>
+
+<label>
+    Conservação <?php handler_options('conservation', $convervations, $conservation);?>
+</label>
+
 
 <br><br>
 <label>Final Placa</label>
