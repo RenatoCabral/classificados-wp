@@ -15,6 +15,22 @@ function handler_options($name, $options, $selected){ ?>
 
 function get_colors() {
     $colors = [
+        'Rosa'          => 'Prata',
+        'Prata'         => 'Prata',
+        'Dourado'       => 'Dourado',
+        'Azul Metálico' => 'Azul Metálico',
+        'Verde'         => 'Verde',
+        'Preto Metálico'=> 'Preto Metálico',
+        'Marrom'        => 'Marrom',
+        'Cromado'       => 'Cromado',
+        'Branco'        => 'Branco',
+        'Vinho'         => 'Vinho',
+        'Roxo'          => 'Roxo',
+        'Preto'         => 'Preto',
+        'Laranja'       => 'Laranja',
+        'Cinza Metálico'=> 'Cinza Metálico',
+        'Bege'          => 'Bege',
+        'Amarelo'       => 'Amarelo',
         'Azul'          => 'Azul',
         'Cinza'         => 'Cinza',
         'Vermelho'      => ' Vermelho'
