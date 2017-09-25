@@ -3,7 +3,7 @@
 add_theme_support( 'post-thumbnails' );
 
 //Definindo dimensões padrão das imagens dos posts
-add_image_size('thumb-news', '688','516', true);
+add_image_size('thumb-news', '688','516', array( 'left', 'top' ));
 
 
 add_action( 'init', 'post_type_veiculo' );
