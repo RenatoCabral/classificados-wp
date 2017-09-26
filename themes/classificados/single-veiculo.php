@@ -10,7 +10,7 @@ include 'app/partials/public/monta-dados-veiculos.php';
         <div class="col s12 m12 l4">
             <div class=" col s12 m12 l12 description-vehicle">
                 <h1><?php the_title(); ?> </h1>
-                <p><strong>R$ <?= $price ?></strong></p>
+                <p><strong>R$ <?= number_format($price, 2, ',', '.'); ?></strong></p>
             </div>
             <div class=" col s6 m6 l6 vehicle-details">
                 <p><i class="material-icons small left vehicle-details-icon">date_range</i><strong>Ano:</strong> <?= $year ?></p>

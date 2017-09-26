@@ -20,7 +20,7 @@ $img_src = get_the_post_thumbnail_url($post_id, 'thumb-news');
                 </a>
             </div>
             <div class="card-content">
-                <h5>R$ <?=$price?></h5>
+                <h5>R$ <?= number_format($price, 2, ',', '.'); ?></h5>
                 <p><?= the_title()?></p>
                 <p><?= $km?> Km</p>
                 <p><?= $fabricante[0]->name ?> - <?= $year?></p>
