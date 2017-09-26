@@ -42,6 +42,10 @@ Version: 0.0.0
     float: right;
     margin-right: 20px;
 }
+
+.icon-menu-mobile:hover{
+    color: #1d7d74!important;
+}
 /**********************Fim Header******************/
 
 /************news e fipe******************/
