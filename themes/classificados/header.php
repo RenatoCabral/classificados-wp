@@ -29,26 +29,47 @@
 </div> <!--pesquisa e anuncie aqui-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col s12 m12 l6 offset-l9 button_anuncie_aqui show-on-large hide-on-med-and-down">
+        <div class="col s12 m12 l12 button_anuncie_aqui show-on-large hide-on-med-and-down">
+
+            <a class="waves-effect waves-light btn btn-anuncie-aqui">
+                <i class="large material-icons left">attach_money</i>Anuncie Aqui
+            </a>
 
             <!-- Modal Trigger -->
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1"> <i class="material-icons teal lighten-1 left" >search</i>Pesquisa</a>
+            <a class="waves-effect waves-light btn modal-trigger btn-pesquisa-news" href="#modal1"> <i class="material-icons teal lighten-1 left" >search</i>Pesquisa</a>
 
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
-<!--                funcao responsavel por chamar o arquivo searchform.php - esse arquivo ẽ onde fica o formulario.
-essa é a funcionalidade padrao.-->
-                    <?php get_search_form(); ?>
+                <!--                funcao responsavel por chamar o arquivo searchform.php - esse arquivo ẽ onde fica o formulario.
+                essa é a funcionalidade padrao.-->
+                <?php get_search_form(); ?>
             </div>
+        </div>
 
-            <a class="waves-effect waves-light btn">
+        <div class="col s12 m12 l12 button_anuncie_aqui show-on-small show-on-medium hide-on-large-only">
+
+            <a class="waves-effect waves-light btn btn-anuncie-aqui">
                 <i class="large material-icons left">attach_money</i>Anuncie Aqui
             </a>
+
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger btn-pesquisa-news" href="#modal1"> <i class="material-icons teal lighten-1 left" >search</i>Pesquisa</a>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <!--                funcao responsavel por chamar o arquivo searchform.php - esse arquivo ẽ onde fica o formulario.
+                essa é a funcionalidade padrao.-->
+                <?php get_search_form(); ?>
+            </div>
         </div>
 
-        <div class="col s12 m2 l2 button_anuncie_aqui show-on-small show-on-medium hide-on-large-only grey lighten-2">
-            <a class="waves-effect waves-light btn">Anuncie Aqui</a>
-        </div>
+<!--        <div class="col s6 m12 l2 show-on-small show-on-medium hide-on-large-only">-->
+<!--            <a class="waves-effect waves-light btn btn-pesquisa-news">Pesquisa</a>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="col s6 m12 l2 show-on-small show-on-medium hide-on-large-only">-->
+<!--            <a class="waves-effect waves-light btn btn-anuncie-aqui">Anuncie Aqui</a>-->
+<!--        </div>-->
     </div>
 </div>
 

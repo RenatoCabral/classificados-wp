@@ -158,11 +158,43 @@ include 'app/partials/public/monta-dados-veiculos.php';
                 </div>
             </div>
             <div id="test-swipe-3" class="col s12 m12 l12 texto-info">
-                <p><strong>Nome:</strong> José Ribamar</p>
-                <p><strong>Email:</strong> teste@teste.com</p>
-                <p><strong>Telefone:</strong> (64)99632-2365</p>
-                <p><strong>Estado:</strong> Goiás</p>
-                <p><strong>Cidade:</strong> Jataí</p>
+                <div class="row">
+                    <form class="col s12 m12 l12">
+                        <div class="row">
+                            <div class="input-field col s12 m8 l8">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">Nome</label>
+                            </div>
+                            <div class="input-field col s12 m8 l8">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="icon_telephone" type="tel" class="validate">
+                                <label for="icon_telephone">Telefone</label>
+                            </div>
+                            <div class="input-field col s12 m8 l8">
+                                <i class="material-icons prefix">phone_iphone</i>
+                                <input id="telefone" type="tel" class="validate">
+                                <label for="telefone">Celular: </label>
+                            </div>
+                            <div class="input-field col col s12 m8 l8">
+                                <i class="material-icons prefix">markunread</i>
+                                <input id="email" type="email" class="validate">
+                                <label for="email">E-mail</label>
+                            </div>
+                            <div class="input-field col col s12 m8 l8">
+                                <i class="material-icons prefix">location_city</i>
+                                <input id="city" type="text" class="validate">
+                                <label for="city">Cidade/Estado</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!--                <p><strong>Nome:</strong> José Ribamar</p>-->
+<!--                <p><strong>Email:</strong> teste@teste.com</p>-->
+<!--                <p><strong>Telefone:</strong> (64)99632-2365</p>-->
+<!--                <p><strong>Estado:</strong> Goiás</p>-->
+<!--                <p><strong>Cidade:</strong> Jataí</p>-->
             </div>
         </div>
 

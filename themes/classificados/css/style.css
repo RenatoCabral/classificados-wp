@@ -31,6 +31,16 @@ Version: 0.0.0
 
 .button_anuncie_aqui{
     float: right;
+    margin-left: inherit!important;
+}
+
+.btn-anuncie-aqui{
+    float: right;
+}
+
+.btn-pesquisa-news{
+    float: right;
+    margin-right: 20px;
 }
 /**********************Fim Header******************/
 
