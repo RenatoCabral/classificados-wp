@@ -14,7 +14,7 @@
             <li><a href="<?= get_permalink(get_page_by_path('contato')) ?>">Contato</a></li>
             <li><a href="<?= get_permalink(get_page_by_path('minha-conta')) ?>">Entrar/Cadastrar-se</a></li>
         </ul>
-        <ul class="side-nav" id="mobile-demo">
+        <ul class="side-nav menu-mobile" id="mobile-demo">
 <!--            <li><a href="#"</a></li>-->
             <li class="active"><a href="<?= home_url() ?>">Início</a></li>
             <li><a href="<?= get_permalink(get_page_by_path('sobre')) ?>">Sobre</a></li>

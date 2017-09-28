@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col s12 m12 l12">
+        <div class="col s12 m12 l12 div-pag">
             <div class="col s12 m12 l6 doubts-title">
                 <div class="row ">
                     <!--Pegar o título da página-->

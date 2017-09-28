@@ -1,8 +1,8 @@
 <?php
 
 function handler_options($name, $options, $selected){ ?>
-    <select name="<?= $name ?>">
-        <option value="-1">Selecione</option>
+    <select required name="<?= $name ?>">
+        <option value="">Selecione</option>
 
 <?php        foreach ( $options as $code => $name ) { ?>
             <option value="<?= $code; ?>" <?php selected( $selected, $code ); ?> ><?= $name; ?></option>

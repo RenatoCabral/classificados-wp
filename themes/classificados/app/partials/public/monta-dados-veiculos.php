@@ -23,17 +23,4 @@ $categorias= get_the_terms($post_id, 'categoria');
 
 
 
-//itens de série
-$airbag = get_post_meta($post_id, 'airbag', true);
-$farol_de_milha = get_post_meta($post_id, 'farol_de_milha', true);
-$som = get_post_meta($post_id, 'som', true);
-$ar_condicionado = get_post_meta($post_id, 'ar_condicionado', true);
-$freios_abs = get_post_meta($post_id, 'freios_abs', true);
-$porta_usb = get_post_meta($post_id, 'porta_usb', true);
-$camera_de_re = get_post_meta($post_id, 'camera_de_re', true);
-$vidro_eletrico = get_post_meta($post_id, 'vidro_eletrico', true);
-$rodas_esportivas = get_post_meta($post_id, 'rodas_esportivas', true);
-$bancos_couro = get_post_meta($post_id, 'bancos_couro', true);
-
-
 

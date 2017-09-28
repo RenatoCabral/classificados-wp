@@ -22,13 +22,13 @@ include 'app/partials/public/monta-dados-veiculos.php';
                 <p><i class="material-icons small left vehicle-details-icon">color_lens</i><strong>Cor:</strong> <?= $color?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Portas</strong> <?= $doors?></p>
+                <p><i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Portas: </strong> <?= $doors?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
                 <p><i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Combústivel:</strong> <?= $fuel?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Câmbio:</strong><?= $exchange ?></p>
+                <p><i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Câmbio: </strong><?= $exchange ?></p>
             </div>
             <div class=" col s12 m6 l6 vehicle-details">
                 <p><i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Conservação:</strong> <?= $conservation?></p>
@@ -49,7 +49,7 @@ include 'app/partials/public/monta-dados-veiculos.php';
             </div>
 
             <div class=" col s12 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Modelo</strong> <?= $model?></p>
+                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Modelo: </strong> <?= $model?></p>
             </div>
 
         </div>
@@ -96,54 +96,7 @@ include 'app/partials/public/monta-dados-veiculos.php';
                 <div class="col s12 m12 l12">
 
                     <div class="row list-opcionals">
-                        <p class="col s12 m6 l3">
-                            <input  type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Air-Bag</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input  type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Ar Condicionado</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Câmera de Ré</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Direção Hidráulica</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input  type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Farol de Neblina</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input  type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Freio ABS</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Vidro Elétrico</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Retrovisor Elétrico</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input  type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Som</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input  type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Porta USB</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Rodas de liga leve</label>
-                        </p>
-                        <p class="col s12 m6 l3">
-                            <input type="checkbox" id="test6" checked="checked" />
-                            <label for="test6">Sensor de estacionamento</label>
-                        </p>
+                        <?php display_itens_de_serie($post_id) ?>
                     </div>
 
 
@@ -168,12 +121,12 @@ include 'app/partials/public/monta-dados-veiculos.php';
                             </div>
                             <div class="input-field col s12 m8 l8">
                                 <i class="material-icons prefix">phone</i>
-                                <input id="icon_telephone" type="tel" class="validate">
+                                <input id="telefone" type="text" class="validate phone">
                                 <label for="icon_telephone">Telefone</label>
                             </div>
                             <div class="input-field col s12 m8 l8">
                                 <i class="material-icons prefix">phone_iphone</i>
-                                <input id="telefone" type="tel" class="validate">
+                                <input id="celular" type="text" class="validate phone">
                                 <label for="telefone">Celular: </label>
                             </div>
                             <div class="input-field col col s12 m8 l8">
@@ -218,12 +171,12 @@ include 'app/partials/public/monta-dados-veiculos.php';
             <div class="row">
                 <div class="input-field col s12 m12 l6">
                     <i class="material-icons prefix">phone</i>
-                    <input id="telefone" type="email" class="validate">
+                    <input id="telefone" type="text" class="validate phone">
                     <label for="telefone">Telefone: </label>
                 </div>
                 <div class="input-field col s12 m12 l6">
                     <i class="material-icons prefix">phone_iphone</i>
-                    <input id="telefone" type="email" class="validate">
+                    <input id="telefone" type="text" class="validate phone">
                     <label for="telefone">Celular: </label>
                 </div>
             </div>

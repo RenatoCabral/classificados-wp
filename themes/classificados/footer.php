@@ -12,6 +12,7 @@
                             Cum morbi proident, adipisicing anim corporis nunc ipsum. Nonummy
                             sociosqu, pellentesque semper, urna. Eveniet, purus dictum quaerat
                             exercitation congue adipisicing risus praesentium quam aliqua occaecati.
+                            Eveniet, purus dictum quaerat exercitation congue adipisici
                         </p>
                     </div>
                 </div>
@@ -51,6 +52,7 @@
 <script src="<?php bloginfo('template_directory') ?>/js/materialize.min.js"></script>
 <script src="<?php bloginfo('template_directory') ?>/js/slick.js"></script>
 <script src="<?php bloginfo('template_directory') ?>/js/jquery.fancybox.js"></script>
+<script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
 <script src="<?php bloginfo('template_directory') ?>/js/app.js"></script>
 
 <?php wp_footer(); ?>

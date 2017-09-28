@@ -1,16 +1,16 @@
 
 
 <label>Preço</label>
-<input type="text" name="price" placeholder="Preço" value="<?= $price?>">
+<input type="text" name="price" placeholder="Preço" required value="<?= $price?>">
 
 <br><br>
 
 <label>Ano</label>
-<input type="text" name="year" placeholder="Ano" value="<?= $year?>">
+<input type="text" name="year" placeholder="Ano" required value="<?= $year?>">
 
 <br><br>
 <label>Km</label>
-<input type="text" name="km" placeholder="Km" value="<?= $km?>">
+<input type="text" name="km" placeholder="Km" required value="<?= $km?>">
 
 <br><br>
 
@@ -30,7 +30,7 @@ $convervations = get_convervations();
 <br><br>
 
 <label>Qtde Portas</label>
-<input type="number" name="doors" value="<?= $doors?>">
+<input type="number" name="doors" required value="<?= $doors?>">
 
 <br><br>
 
@@ -41,7 +41,7 @@ $convervations = get_convervations();
 <br><br><br>
 
 <label>Modelo</label>
-<input type="text" name="model" placeholder="Modelo" value="<?= $model?>">
+<input type="text" name="model" placeholder="Modelo" required value="<?= $model?>">
 
 <br><br>
 
@@ -64,4 +64,4 @@ $convervations = get_convervations();
 
 <br><br>
 <label>Final Placa</label>
-<input type="text" name="final_place" placeholder="Final da Placa" value="<?= $final_place?>">
+<input type="text" name="final_place" placeholder="Final da Placa" required value="<?= $final_place?>">

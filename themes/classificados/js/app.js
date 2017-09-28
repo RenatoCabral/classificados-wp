@@ -5,13 +5,12 @@
 $(".button-collapse").sideNav();
 
 $(document).ready(function() {
+    makeMasks();
     $('select').material_select();
 
     $('.modal').modal();
 
-});
 
-$(document).ready(function(){
     $('.collapsible').collapsible();
 });
 
@@ -53,4 +52,18 @@ $('.datepicker').pickadate({
     close: 'Ok',
     closeOnSelect: false // Close upon selecting a date,
 });
+
+
+
+function makeMasks(){
+    var cellphoneMask=function(val){
+        return val.replace(/\D/g,'').length===11?'(00) 00000-0000':'(00) 0000-00009';
+    },
+    cellphoneOptions={onKeyPress:function(val,e,field,options){
+            field.mask(cellphoneMask.apply({},arguments),options);
+        }};
+    $('.phone').mask(cellphoneMask,cellphoneOptions);
+}
+
+
 

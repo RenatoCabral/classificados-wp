@@ -46,6 +46,10 @@ Version: 0.0.0
 .icon-menu-mobile:hover{
     color: #1d7d74!important;
 }
+
+.menu-mobile{
+    top: inherit!important;
+}
 /**********************Fim Header******************/
 
 /************news e fipe******************/
@@ -456,6 +460,13 @@ Version: 0.0.0
 .login{
     height:460px!important;
 }
+
+/***************sobre***************/
+.div-pag{
+    height: 600px!important;
+}
+
+
 
 /*************search.php*****************/
 .info_return_search h3{
