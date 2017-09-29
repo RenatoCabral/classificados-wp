@@ -72,16 +72,37 @@
 <label>Desembaçador Traseiro</label>
 
 <br><br>
+
+<input type="checkbox" name="espelhos_eletricos" value="<?= $espelhos_eletricos?>" <?php if ( isset ( $espelhos_eletricos) ) checked( $espelhos_eletricos, '1' ); ?> />
+<label>Espelhos Elétricos</label>
+
+<br><br>
 <input type="checkbox" name="farol_de_milha" value="<?= $farol_de_milha?>" <?php if ( isset ( $farol_de_milha) ) checked( $farol_de_milha, '1' ); ?> />
 <label>Farol de Milha</label>
 
 <br><br>
-<input type="checkbox" name="som" value="<?= $som?>" <?php if ( isset ( $som) ) checked( $som, '1' ); ?> />
-<label>Som</label>
+
+<input type="checkbox" name="farol_de_milha_neblina" value="<?= $farol_de_milha_neblina?>" <?php if ( isset ( $farol_de_milha_neblina) ) checked( $farol_de_milha_neblina, '1' ); ?> />
+<label>Farol de Milha e Neblina</label>
 
 <br><br>
+
+<input type="checkbox" name="farol_de_neblina" value="<?= $farol_de_neblina?>" <?php if ( isset ( $farol_de_neblina) ) checked( $farol_de_neblina, '1' ); ?> />
+<label>Farol de Neblina</label>
+
+<br><br>
+
 <input type="checkbox" name="freios_abs" value="<?= $freios_abs?>" <?php if ( isset ( $freios_abs) ) checked( $freios_abs, '1' ); ?> />
 <label>Freios ABS</label>
+
+<br><br>
+
+<input type="checkbox" name="insulfilme" value="<?= $insulfilme?>" <?php if ( isset ( $insulfilme) ) checked( $insulfilme, '1' ); ?> />
+<label>Insulfilme</label>
+
+<br><br>
+<input type="checkbox" name="som" value="<?= $som?>" <?php if ( isset ( $som) ) checked( $som, '1' ); ?> />
+<label>Som</label>
 
 <br><br>
 <input type="checkbox" name="porta_usb" value="<?= $porta_usb?>" <?php if ( isset ( $porta_usb) ) checked( $porta_usb, '1' ); ?> />
