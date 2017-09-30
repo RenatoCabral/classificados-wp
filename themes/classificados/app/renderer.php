@@ -64,8 +64,6 @@ function display_itens_de_serie($post_id){
     $travas_eletricas = get_post_meta($post_id, 'travas_eletricas', true);
     $vidro_eletrico = get_post_meta($post_id, 'vidro_eletrico', true);
     $volante_regulagem_altura = get_post_meta($post_id, 'volante_regulagem_altura', true);
-    $porta_usb = get_post_meta($post_id, 'porta_usb', true);
-    $som = get_post_meta($post_id, 'som', true);
 
 
 
@@ -77,11 +75,16 @@ function display_itens_de_serie($post_id){
         'Ar Condicionado'        => $ar_condicionado,
         'Banco Elétrico'         => $banco_eletrico,
         'Bancos de Couro'        => $banco_couro,
+        'Bancos com regulagem de altura'        => $banco_regulagem_altura,
+        'Bancos dianteiros com aquecimento'        => $banco_dianteiro_com_aquecimento,
         'Blindagem'              => $blindagem,
-        'CD Player Mp3'          => $cd_player_mp3,
+        'Câmera de ré'              => $camera_de_re,
+        'Capota maritima'              => $capota_maritima,
+        'CD Mp3 Player'          => $cd_mp3_player,
         'Central Multimídia'     => $central_multimidia,
         'Computador de Bordo'    => $computador_bordo,
         'Controle de Tração'     => $controle_tracao,
+        'Controle de Velocidade'     => $controle_de_velocidade,
         'Direção Hidráulica'     => $direcao_hidraulica,
         'Direção Elétrica'       => $direcao_eletrica,
         'Desembaçador Traseiro'  => $desembacador_traseiro,
@@ -89,9 +92,23 @@ function display_itens_de_serie($post_id){
         'Farol de Milha'         => $farol_de_milha,
         'Farol de Milha e Neblina'=> $farol_de_milha_neblina,
         'Farol de Neblina'       => $farol_de_neblina,
+        'Farol de Xenônio'       => $farol_de_xenonio,
         'Freios ABS'             => $freios_abs,
         'Insulfilme'             => $insulfilme,
-        'Som'                    => $som,
+        'Limpador traseiro'             => $limpador_traseiro,
+        'Piloto automático'             => $piloto_automatico,
+        'Pneu reserva'             => $pneu_reserva,
+        'Rodas de liga leve'             => $rodas_liga_leve,
+        'Radio'             => $radio,
+        'Radio e toca fitas'             => $radio_toca_fitas,
+        'Sensor estacionamento'             => $sensor_estacionamento,
+        'Sensor chuva'             => $sensor_chuva,
+        'Teto solar'             => $teto_solar,
+        '$tracao_4x4'             => $tracao_4x4,
+        'Travas elétricas'             => $travas_eletricas,
+        'Vidro elétrico'             => $vidro_eletrico,
+        'Vidro elétrico'             => $vidro_eletrico,
+        'Volante com regulagem de altura'             => $volante_regulagem_altura,
 
 
     ];
