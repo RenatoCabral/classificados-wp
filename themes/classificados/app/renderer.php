@@ -118,7 +118,7 @@ function display_itens_de_serie($post_id){
     foreach ($options as $option => $value){
         if($value === '1'){ ?>
             <p class="col s12 m6 l3">
-                <input  type="checkbox" checked="checked" />
+                <input  type="checkbox" checked="checked"/>
                 <label><?= $option ?></label>
             </p>
         <?php }

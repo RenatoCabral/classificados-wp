@@ -78,7 +78,7 @@
 
 <br><br>
 
-input type="checkbox" name="controle_de_velocidade" value="<?= $controle_de_velocidade?>" <?php if ( isset ( $controle_de_velocidade) ) checked( $controle_de_velocidade, '1' ); ?> />
+<input type="checkbox" name="controle_de_velocidade" value="<?= $controle_de_velocidade?>" <?php if ( isset ( $controle_de_velocidade) ) checked( $controle_de_velocidade, '1' ); ?> />
 <label>Controle de Velocidade</label>
 
 <br><br>
@@ -137,11 +137,6 @@ input type="checkbox" name="controle_de_velocidade" value="<?= $controle_de_velo
 
 <br><br>
 
-<input type="checkbox" name="porta_usb" value="<?= $porta_usb?>" <?php if ( isset ( $porta_usb) ) checked( $porta_usb, '1' ); ?> />
-<label>Porta USB</label>
-
-<br><br>
-
 <input type="checkbox" name="piloto_automatico" value="<?= $piloto_automatico?>" <?php if ( isset ( $piloto_automatico) ) checked( $piloto_automatico, '1' ); ?> />
 <label>Piloto Automático</label>
 
@@ -167,10 +162,6 @@ input type="checkbox" name="controle_de_velocidade" value="<?= $controle_de_velo
 
 <br><br>
 
-<input type="checkbox" name="som" value="<?= $som?>" <?php if ( isset ( $som) ) checked( $som, '1' ); ?> />
-<label>Som</label>
-
-<br><br>
 
 <input type="checkbox" name="sensor_estacionamento" value="<?= $sensor_estacionamento?>" <?php if ( isset ( $sensor_estacionamento) ) checked( $sensor_estacionamento, '1' ); ?> />
 <label>Sensor de estacionamento</label>
