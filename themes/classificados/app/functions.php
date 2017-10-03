@@ -147,3 +147,98 @@ function get_item_series(){
 
 
 }
+
+
+function get_uf() {
+	$options = [
+		'AC'               => 'Acre',
+		'AL'            => 'Alagoas',
+		'AP'              => 'Amapá',
+		'AM'           => 'Amazonas',
+		'BA'              => 'Bahia ',
+		'CE'              => 'Ceará',
+		'DF'   => 'Distrito Federal',
+		'ES'     => 'Espírito Santo',
+		'GO'              => 'Goiás',
+		'MA'           => 'Maranhão',
+		'MT'        => 'Mato Grosso',
+		'MS' => 'Mato Grosso do Sul',
+		'MG'       => 'Minas Gerais',
+		'PA'               => 'Pará',
+		'PB'            => 'Paraíba',
+		'PR'             => 'Paraná',
+		'PE'         => 'Pernambuco',
+		'PI'              => 'Piauí',
+		'RJ'     => 'Rio de Janeiro',
+		'RN'                 => 'Rio Grande do Norte',
+		'RS'  => 'Rio Grande do Sul',
+		'RO'           => 'Rôndonia',
+		'RR'            => 'Roraima',
+		'SC'     => 'Santa Catarina',
+		'SP'          => 'São Paulo',
+		'SE'            => 'Sergipe',
+		'TO'          => 'Tocantins'
+	];
+
+	return $options;
+}
+
+
+
+function admin_scripts(){
+    //https://pt.stackoverflow.com/questions/186880/formul%C3%A1rio-ajax-javascript-e-php/186923
+    global $typenow;
+
+    if(is_admin() && $typenow == 'veiculo'){ ?>
+
+        <script>
+        jQuery(document).ready(function() {
+
+
+             //jquery var do select dos estados
+            var $selectUf = jQuery("#selectUf");
+
+            //jquery var do select das cidades
+            var $selectCidades = jQuery("#selectCidade");
+
+            //será atribuido um valor nessa variável sempre que ele escolher um UF
+            var estadoSelecionado;
+            var cidadeSelecionada;
+
+
+            //mesma ideia da função de cima porém nessa pegaremos a cidade de acordoo com a UF escolhida
+            var getCidades = function(estadoSelecionado,responseFunction){
+              jQuery.ajax({
+                method: "GET",
+                url: "http://api.londrinaweb.com.br/PUC/Cidades/"+estadoSelecionado+"/BR/0/10000",
+                dataType: "jsonp",
+                success: responseFunction
+              });
+            };
+
+
+            //essa função só é chamada quando escolhe algum estado da UF
+            var populandoSelectCidades = function(response){
+              //limpando o html do select
+              $selectCidades.html("");
+              jQuery.each(response,function(i,item){
+                $selectCidades.append('<option value="'+item+'">'+item+'</option>')
+              });
+            };
+
+
+            //sempre quando escolher uma UF coloca o valor selecionado na variavel estado selecionado
+            //e depois disso lista as cidades correspodente a UF Escolhida
+            $selectUf.change(function(){
+              estadoSelecionado = jQuery(this).val();
+              getCidades(estadoSelecionado,populandoSelectCidades);
+            });
+
+            $selectCidades.change(function(){
+              cidadeSelecionada = jQuery(this).val();
+            });
+
+        });
+    </script>
+<?php }
+}
