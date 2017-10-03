@@ -100,7 +100,7 @@ function get_item_series(){
 
 
     $options = [
-        'airbags' => 'airbags',
+        'airbags' => 'Airbags',
         'airbag_motorista' => 'airbag_motorista',
         'alarme' => 'alarme',
         'ar_quente' => 'ar_quente',
