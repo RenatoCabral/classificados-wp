@@ -269,6 +269,10 @@ Version: 0.0.0
     text-align: center;
 }
 
+.cod-vehicle:hover{
+   font-weight: bold;
+}
+
 /********Fim  veiculos_destaque**************/
 
 /*********************footer***********************/
@@ -404,6 +408,10 @@ Version: 0.0.0
 .thumb-single-news img{
     margin: 0 auto;
     display: block;
+    /*width: 50%;*/
+    /*height: 50%;*/
+    /*width: 1024px!important;*/
+    /*height: 683px!important;*/
 }
 
 .content-single-news{
@@ -422,7 +430,7 @@ Version: 0.0.0
 }
 
 .div-single-date{
-    width: 150px;
+    width: 200px;
     margin: 0 auto;
 }
 
@@ -433,7 +441,7 @@ Version: 0.0.0
 .div-single-date p{
     margin: 0;
     padding-top: 3px;
-    float: left;
+    /*float: left;*/
 }
 
 /*********************advanced search****************/

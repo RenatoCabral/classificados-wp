@@ -33,7 +33,6 @@ function display_itens_de_serie($post_id){
     $banco_regulagem_altura = get_post_meta($post_id, 'banco_regulagem_altura', true);
     $banco_dianteiro_com_aquecimento = get_post_meta($post_id, 'banco_dianteiro_com_aquecimento', true);
     $blindagem = get_post_meta($post_id, 'blindagem', true);
-    $cd_player_mp3 = get_post_meta($post_id, 'cd_player_mp3', true);
     $central_multimidia = get_post_meta($post_id, 'central_multimidia', true);
     $computador_bordo = get_post_meta($post_id, 'computador_bordo', true);
     $controle_tracao = get_post_meta($post_id, 'controle_tracao', true);

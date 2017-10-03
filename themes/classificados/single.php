@@ -5,7 +5,7 @@ get_template_part('basic-search');
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col s12 m12 l12 ">
+        <div class="col s12 m12 l12">
             <div class="title-news-date">
                 <!--Função que irá exibir o título do post-->
                 <h1><?php the_title(); ?></h1>
@@ -21,11 +21,11 @@ get_template_part('basic-search');
 
             <!--Função que verifica se o post possui uma imagem anexada, imagem principal-->
             <?php if(has_post_thumbnail()){ ?>
-                <div class="thumb-single-news">
-                    <!--Função responsável por exibir a miniatura da imagem, outra imagem
-                    vinculada ao post-->
-                    <?php the_post_thumbnail();?>
-                </div>
+                    <div class="thumb-single-news">
+                        <!--Função responsável por exibir a miniatura da imagem, outra imagem
+                        vinculada ao post-->
+                        <?php the_post_thumbnail();?>
+                    </div>
            <?php } ?>
 
             <div class="content-single-news">

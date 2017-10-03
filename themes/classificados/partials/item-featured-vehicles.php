@@ -13,7 +13,7 @@ $img_src = get_the_post_thumbnail_url($post_id, 'thumb-news');
         <div class="card z-depth-1 card-vehicles">
             <div class="card-image card-image-vehicles">
                 <img src="<?= $img_src?>" class="responsive-img">
-                <span class="card-title">Cod. <?= $post_id?></span>
+                <span class="card-title cod-vehicle">Cod. <?= $post_id?></span>
                 <a href="<?php the_permalink()?>"
                    class="btn-floating btn-small halfway-fab waves-effect waves-light red transition-300ms icon-view-more">
                     <i class="small material-icons">add</i>
