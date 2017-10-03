@@ -405,13 +405,14 @@ Version: 0.0.0
 #dpsp-content-bottom ul{
     display: -webkit-inline-box !important;
 }
+
 .thumb-single-news img{
     margin: 0 auto;
     display: block;
-    /*width: 50%;*/
-    /*height: 50%;*/
-    /*width: 1024px!important;*/
-    /*height: 683px!important;*/
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+
 }
 
 .content-single-news{
@@ -441,8 +442,14 @@ Version: 0.0.0
 .div-single-date p{
     margin: 0;
     padding-top: 3px;
-    /*float: left;*/
 }
+
+.content-single-news img{
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
 
 /*********************advanced search****************/
 
