@@ -8,11 +8,17 @@
     <form class="col s12">
         <div class="row">
             <div class="input-field col s12 m2 l2">
-                <select>
+                <?php $states = get_uf(); ?>
+                <select required name="uf" id="selectUf">
                     <option value="" disabled selected>Estado(UF)</option>
-                    <option value="1">Goiás</option>
-                    <option value="2">Tocantins</option>
-                    <option value="3">São Paulo</option>
+                    <?php foreach ($states as $state => $value){ ?>
+                        <option value="<?= $state; ?>" <?php selected( $uf, $state ); ?> ><?= $value; ?></option>
+
+                    <?php } ?>
+
+<!--                    <option value="1">Goiás</option>-->
+<!--                    <option value="2">Tocantins</option>-->
+<!--                    <option value="3">São Paulo</option>-->
                 </select>
             </div>
 

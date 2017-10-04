@@ -253,6 +253,11 @@ Version: 0.0.0
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+.card-anuncie-home:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}
+
 .card-image-vehicles:hover .icon-view-more{
     visibility: visible;
     opacity: 1;

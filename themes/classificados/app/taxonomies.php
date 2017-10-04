@@ -2,17 +2,17 @@
 
 
 
-function create_tipo_taxonomy()
-{
-    register_taxonomy(
-        'tipo',
-        'veiculo',
-        array(
-            'label' => 'Tipo',
-            'hierarchical' => true,
-        )
-    );
-}
+//function create_tipo_taxonomy()
+//{
+//    register_taxonomy(
+//        'tipo',
+//        'veiculo',
+//        array(
+//            'label' => 'Tipo',
+//            'hierarchical' => true,
+//        )
+//    );
+//}
 
 function create_fabricante_taxonomy()
 {
