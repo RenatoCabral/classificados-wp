@@ -101,45 +101,45 @@ function get_item_series(){
 
     $options = [
         'airbags' => 'Airbags',
-        'airbag_motorista' => 'airbag_motorista',
-        'alarme' => 'alarme',
-        'ar_quente' => 'ar_quente',
-        'ar_condicionado' => 'ar_condicionado',
-        'banco_eletrico' => 'banco_eletrico',
-        'banco_couro' => 'banco_couro',
-        'banco_regulagem_altura' => 'banco_regulagem_altura',
-        'banco_dianteiro_com_aquecimento' => 'banco_dianteiro_com_aquecimento',
-        'blindagem' => 'blindagem',
-        'central_multimidia' => 'central_multimidia',
-        'computador_bordo' => 'computador_bordo',
-        'controle_tracao' => 'controle_tracao',
-        'camera_de_re' => 'camera_de_re',
-        'capota_maritima' => 'capota_maritima',
-        'cd_mp3_player' => 'cd_mp3_player',
-        'controle_de_velocidade' => 'controle_de_velocidade',
-        'direcao_hidraulica' => 'direcao_hidraulica',
-        'direcao_eletrica' => 'direcao_eletrica',
-        'desembacador_traseiro' => 'desembacador_traseiro',
-        'espelhos_eletricos' => 'espelhos_eletricos',
-        'farol_de_milha' => 'farol_de_milha',
-        'farol_de_milha_neblina' => 'farol_de_milha_neblina',
-        'farol_de_neblina' => 'farol_de_neblina',
-        'farol_de_xenonio' => 'farol_de_xenonio',
-        'freios_abs' => 'freios_abs',
-        'insulfilme' => 'insulfilme',
-        'limpador_traseiro' => 'limpador_traseiro',
-        'piloto_automatico' => 'piloto_automatico',
-        'pneu_reserva' => 'pneu_reserva',
-        'rodas_liga_leve' => 'rodas_liga_leve',
-        'radio' => 'radio',
-        'radio_toca_fitas' => 'radio_toca_fitas',
-        'sensor_estacionamento' => 'sensor_estacionamento',
-        'sensor_chuva' => 'sensor_chuva',
-        'teto_solar' => 'teto_solar',
-        'tracao_4x4' => 'tracao_4x4',
-        'travas_eletricas' => 'travas_eletricas',
-        'vidro_eletrico' => 'vidro_eletrico',
-        'volante_regulagem_altura' => 'volante_regulagem_altura',
+        'airbag_motorista' => 'Airbag Motorista',
+        'alarme' => 'Alarme',
+        'ar_quente' => 'Ar Quente',
+        'ar_condicionado' => 'Ar Condicionado',
+        'banco_eletrico' => 'Banco Elétrico',
+        'banco_couro' => 'Banco Couro',
+        'banco_regulagem_altura' => 'Banco Regulagem Altura',
+        'banco_dianteiro_com_aquecimento' => 'Banco Dianteiro com Aquecimento',
+        'blindagem' => 'Blindagem',
+        'central_multimidia' => 'Central Multimídia',
+        'computador_bordo' => 'Computador Bordo',
+        'controle_tracao' => 'Controle de Tração',
+        'camera_de_re' => 'Câmera de ré',
+        'capota_maritima' => 'Capota Marítima',
+        'cd_mp3_player' => 'CD Mp3 Player',
+        'controle_de_velocidade' => 'Controle de Velocidade',
+        'direcao_hidraulica' => 'Direção Hidráulica',
+        'direcao_eletrica' => 'Direção Elétrica',
+        'desembacador_traseiro' => 'Desembaçador Traseiro',
+        'espelhos_eletricos' => 'Espelhos Elétricos',
+        'farol_de_milha' => 'Farol de Milha',
+        'farol_de_milha_neblina' => 'Farol de Milha e Neblina',
+        'farol_de_neblina' => 'Farol de Neblina',
+        'farol_de_xenonio' => 'Farol de Xenônio',
+        'freios_abs' => 'Freios ABS',
+        'insulfilme' => 'Insulfilme',
+        'limpador_traseiro' => 'Limpador Traseiro',
+        'piloto_automatico' => 'Piloto Automático',
+        'pneu_reserva' => 'Pneu Reserva(Step)',
+        'rodas_liga_leve' => 'Rodas de Liga Leve',
+        'radio' => 'Rádio',
+        'radio_toca_fitas' => 'Rádio e Toca Fitas',
+        'sensor_estacionamento' => 'Sensor de Estacionamento',
+        'sensor_chuva' => 'Sensor de Chuva',
+        'teto_solar' => 'Teto Solar',
+        'tracao_4x4' => 'Tração 4x4',
+        'travas_eletricas' => 'Travas Elétricas',
+        'vidro_eletrico' => 'Vidro Elétrico',
+        'volante_regulagem_altura' => 'Volante com Regulagem de altura',
     ];
 
 
@@ -149,6 +149,7 @@ function get_item_series(){
 }
 
 
+/*função que carrega os estados*/
 function get_uf() {
 	$options = [
 		'AC'               => 'Acre',
@@ -206,7 +207,7 @@ function admin_scripts(){
             var cidadeSelecionada;
 
 
-            //mesma ideia da função de cima porém nessa pegaremos a cidade de acordoo com a UF escolhida
+            //mesma ideia da função de cima porém nessa pegaremos a cidade de acordo com a UF escolhida
             var getCidades = function(estadoSelecionado,responseFunction){
               jQuery.ajax({
                 method: "GET",

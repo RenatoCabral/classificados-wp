@@ -4,11 +4,27 @@
 function meta_box_veiculo()
 {
 
-    add_meta_box('meu-id', 'Detalhes veiculo', 'render_data_meta_box', 'veiculo', 'normal', 'high');
+    add_meta_box('meu-id', 'Detalhes do Carro', 'render_data_meta_box', 'veiculo', 'normal', 'high');
+    add_meta_box('meu-id2', 'Localização do Carro', 'render_localizacao', 'veiculo', 'normal', 'high');
     add_meta_box('meu-id3', 'Itens de Série', 'render_itens_de_serie', 'veiculo', 'normal', 'high');
     add_meta_box('meu-id4', 'Obs. Vendedor', 'render_obs_vendedor', 'veiculo', 'normal', 'high');
 }
 
+
+function render_localizacao(){
+    global $post;
+    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+
+    $post_id = $post->ID;
+
+    $uf = get_post_meta($post_id, 'uf', true);
+    $city = get_post_meta($post_id, 'city', true);
+
+//    include "partials/admin/detalhes-veiculo.php";
+    include  "partials/admin/localizacao-veiculo.php";
+}
+
+/*função que irá renderizar as informações do veiculo e também cidade e estado*/
 
 /*****detalhes veiculo****/
 function render_data_meta_box() {
@@ -18,8 +34,8 @@ function render_data_meta_box() {
 
     $post_id = $post->ID;
 
-    $uf = get_post_meta($post_id, 'uf', true);
-    $city = get_post_meta($post_id, 'city', true);
+//    $uf = get_post_meta($post_id, 'uf', true);
+//    $city = get_post_meta($post_id, 'city', true);
 
     $price = get_post_meta($post_id, 'price', true);
     $year = get_post_meta($post_id, 'year', true);
@@ -39,6 +55,7 @@ function render_data_meta_box() {
 
 }
 
+/*funçao que irá renderizar os intes de série*/
 
 /*******itens de série*****/
 
@@ -61,6 +78,7 @@ function render_itens_de_serie() {
 
 }
 
+/*função que irá renderizar o que estiver na informação do vendedor*/
 
 /*********obs.vendedor*******/
 
@@ -75,7 +93,8 @@ function render_obs_vendedor() {// a função render, renderizada os dados para 
     include 'partials/admin/obs-vendedor.php';
 }
 
-
+/*função que irá salvar as informações do veículo, itens de série, observação, cidade, estado ou seja, todos
+os dados do veiculo*/
 
 function save_meta_veiculo ($post_id){
     if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
