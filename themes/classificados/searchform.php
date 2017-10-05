@@ -22,6 +22,8 @@ Pq tenho a variavel s com valor... s quer dizer search.
         <div>
 
             <input type="TEXT" name="s" placeholder="Digite sua pesquisa aqui"/>
+            <input type="hidden" name="post_type" value="post">  <!-- irá buscar apenas o post type posts,
+            assim nao trará paginas e/ou veiculos -->
 
         </div>
 
