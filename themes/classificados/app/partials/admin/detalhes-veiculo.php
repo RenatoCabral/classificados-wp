@@ -1,65 +1,72 @@
-<label>Preço</label>
-<input type="text" name="price" placeholder="Preço" required value="<?= $price?>">
+<p class="item-detalhes">
+    <label>Preço</label>
+    <input type="text" name="price" placeholder="Preço" required value="<?= $price?>">
+</p>
 
-<br><br>
 
-<label>Ano</label>
-<input type="text" name="year" placeholder="Ano" required value="<?= $year?>">
+<p class="item-detalhes">
+    <label>Ano</label>
+    <input type="text" name="year" placeholder="Ano" required value="<?= $year?>">
+</p>
 
-<br><br>
-<label>Km</label>
-<input type="text" name="km" placeholder="Km" required value="<?= $km?>">
 
-<br><br>
+<p class="item-detalhes">
+    <label>Km</label>
+    <input type="text" name="km" placeholder="Km" required value="<?= $km?>">
+</p>
+
 
 <?php
 $colors = get_colors();
 $motors = get_motors();
 $fuels = get_fuels();
 $exchanges = get_exchanges();
-$convervations = get_convervations();
+$conservations = get_conservations();
 
 ?>
 
-<label>
-    Cor <?php handler_options('color',$colors, $color);?>
-</label>
+<p class="item-detalhes">
+    <label>
+        Cor <?php handler_options('color',$colors, $color);?>
+    </label>
+</p>
 
-<br><br>
+<p class="item-detalhes">
+    <label>Quantidade Portas</label>
+    <input type="number" name="doors" required value="<?= $doors?>">
+</p>
 
-<label>Qtde Portas</label>
-<input type="number" name="doors" required value="<?= $doors?>">
+<p class="item-detalhes">
+    <label>
+        Motor <?php handler_options('motor', $motors, $motor);?>
+    </label
+</p>
 
-<br><br>
+<p class="item-detalhes">
+    <label>Modelo</label>
+    <input type="text" name="model" placeholder="Modelo" required value="<?= $model?>">
+</p>
 
-<label>
-    Motor <?php handler_options('motor', $motors, $motor);?>
-</label
-
-<br><br><br>
-
-<label>Modelo</label>
-<input type="text" name="model" placeholder="Modelo" required value="<?= $model?>">
-
-<br><br>
-
-<label>
-    Combustível <?php handler_options('fuel', $fuels, $fuel);?>
-</label>
-
-<br><br>
-
-<label>
-    Câmbio <?php handler_options('exchange', $exchanges, $exchange);?>
-</label>
-
-<br><br>
-
-<label>
-    Conservação <?php handler_options('conservation', $convervations, $conservation);?>
-</label>
+<p class="item-detalhes">
+    <label>
+        Combustível <?php handler_options('fuel', $fuels, $fuel);?>
+    </label>
+</p>
 
 
-<br><br>
-<label>Final Placa</label>
-<input type="text" name="final_place" placeholder="Final da Placa" required value="<?= $final_place?>">
+<p class="item-detalhes">
+    <label>
+        Câmbio <?php handler_options('exchange', $exchanges, $exchange);?>
+    </label>
+</p>
+
+<p class="item-detalhes">
+    <label>
+        Conservação <?php handler_options('conservation', $conservations, $conservation);?>
+    </label>
+</p>
+
+<p class="item-detalhes">
+    <label>Final Placa</label>
+    <input type="text" name="final_place" placeholder="Final da Placa" required value="<?= $final_place?>">
+</p>

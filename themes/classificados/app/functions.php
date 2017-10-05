@@ -12,7 +12,6 @@ function handler_options($name, $options, $selected){ ?>
 }
 
 
-
 function get_colors() {
     $colors = [
         'Amarelo'       => 'Amarelo',
@@ -68,8 +67,6 @@ function get_fuels() {
         'Gasolina e álcool'      => 'Gasolina e álcool',
         'Gasolina e eletrico' => 'Gasolina e eletrico',
 
-
-
     ];
     return $fuels;
 }
@@ -85,16 +82,15 @@ function get_exchanges() {
     return $exchanges;
 }
 
-function get_convervations() {
-    $convervations = [
+function get_conservations() {
+    $conservations = [
         'Novo'        => 'Novo',
         'Seminovo'    => 'Seminovo',
         'Usado'       => 'Usado'
 
     ];
-    return $convervations;
+    return $conservations;
 }
-
 
 function get_item_series(){
 
@@ -191,7 +187,21 @@ function admin_scripts(){
     global $typenow;
 //scripts serao carregados no admin onde o post type for veiculos
     if(is_admin() && $typenow == 'veiculo'){ ?>
-      <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
+       <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
+
+        <style>
+            .item-serie{
+                margin: 8px;
+                display: inline-block;
+            }
+            .item-detalhes{
+                display: inline-block;
+                margin-right: 15px;
+            }
+            #edit-slug-box{
+            display: none;
+            }
+        </style>
 
         <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
         <script>
