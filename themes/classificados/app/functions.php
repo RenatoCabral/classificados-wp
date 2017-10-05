@@ -189,11 +189,16 @@ function get_uf() {
 function admin_scripts(){
     //https://pt.stackoverflow.com/questions/186880/formul%C3%A1rio-ajax-javascript-e-php/186923
     global $typenow;
-
+//scripts serao carregados no admin onde o post type for veiculos
     if(is_admin() && $typenow == 'veiculo'){ ?>
+      <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
 
+        <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
         <script>
         jQuery(document).ready(function() {
+
+            jQuery('.select-localizacao').select2();
+
 
 
              //jquery var do select dos estados
@@ -232,10 +237,12 @@ function admin_scripts(){
             //e depois disso lista as cidades correspodente a UF Escolhida
             $selectUf.change(function(){
               estadoSelecionado = jQuery(this).val();
+                jQuery('.selecione-cidade').text('Carregando...');
               getCidades(estadoSelecionado,populandoSelectCidades);
             });
 
             $selectCidades.change(function(){
+                 jQuery('.selecione-cidade').text('Carregando...');
               cidadeSelecionada = jQuery(this).val();
             });
 
