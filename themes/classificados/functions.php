@@ -6,6 +6,7 @@ require 'app/taxonomies.php';
 require 'app/cpt-metas.php';
 require 'app/renderer.php';
 require 'app/functions.php';
+require 'app/gallery-metabox.php';
 
 
 
