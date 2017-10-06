@@ -63,13 +63,10 @@
             </div>
         </div>
 
-<!--        <div class="col s6 m12 l2 show-on-small show-on-medium hide-on-large-only">-->
-<!--            <a class="waves-effect waves-light btn btn-pesquisa-news">Pesquisa</a>-->
-<!--        </div>-->
-<!---->
-<!--        <div class="col s6 m12 l2 show-on-small show-on-medium hide-on-large-only">-->
-<!--            <a class="waves-effect waves-light btn btn-anuncie-aqui">Anuncie Aqui</a>-->
-<!--        </div>-->
     </div>
 </div>
 
+<?php
+if ( class_exists( 'WP_Flash_Messages' ) )
+	WP_Flash_Messages::show();
+?>

@@ -12,7 +12,7 @@
             <li><a href="#">Veículos</a></li>
             <li><a href="#">FIPE</a></li>
             <li><a href="<?= get_permalink(get_page_by_path('contato')) ?>">Contato</a></li>
-            <li><a href="<?= get_permalink(get_page_by_path('minha-conta')) ?>">Entrar/Cadastrar-se</a></li>
+            <li><a href="<?= get_permalink(get_page_by_path('minha-conta')) ?>">Entrar/Cadastrar</a></li>
         </ul>
         <ul class="side-nav menu-mobile" id="mobile-demo">
 <!--            <li><a href="#"</a></li>-->
@@ -23,7 +23,7 @@
             <li><a href="#">Veículos</a></li>
             <li><a href="#">FIPE</a></li>
             <li><a href="<?= get_permalink(get_page_by_path('contato')) ?>">Contato</a></li>
-            <li><a href="<?= get_permalink(get_page_by_path('minha-conta')) ?>">Entrar/Cadastrar-se</a></li>
+            <li><a href="<?= get_permalink(get_page_by_path('minha-conta')) ?>">Entrar/Cadastrar</a></li>
         </ul>
     </div>
 </nav>
