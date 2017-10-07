@@ -6,6 +6,7 @@ $(".button-collapse").sideNav();
 
 $(document).ready(function() {
     makeMasks();
+    makeActiveMenu();
     $('select').material_select();
 
     $('.modal').modal();
@@ -17,6 +18,7 @@ $(document).ready(function() {
 
 $('.item-slider').slick({
     dots: true,
+    arrows: true,
     autoplay: true,
     autoplaySpeed: 2000,
     infinite: true,
@@ -66,5 +68,12 @@ function makeMasks(){
 }
 
 
-
+function makeActiveMenu(){
+    var currentUrl = window.location.pathname.substr(1);
+        if(currentUrl === ''){
+        $('[data-menu="inicio"]').addClass('active');
+    }else{
+        $('[data-menu="'+currentUrl+'"]').addClass('active');
+    }
+}
 

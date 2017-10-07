@@ -1,10 +1,15 @@
 <!--Função resposável por incluir o arquivo header.php-->
-<?php get_header();
+<?php get_header(); ?>
 
-/*Função está carregando a seção de busca básica para o template atual*/
-get_template_part( 'basic-search'); ?>
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger btn-pesquisa-news" href="#modal1"> <i class="material-icons teal lighten-1 left" >search</i>Pesquisa</a>
 
-
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <!--                funcao responsavel por chamar o arquivo searchform.php - esse arquivo ẽ onde fica o formulario.
+	essa é a funcionalidade padrao.-->
+	<?php get_search_form(); ?>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col s12 m12 l12">
