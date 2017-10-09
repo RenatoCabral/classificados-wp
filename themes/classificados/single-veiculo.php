@@ -65,59 +65,7 @@ include 'app/partials/public/monta-dados-veiculos.php';
                 <p class="title-proposta">FICOU INTERESSADO?</p>
                 <br>
                 <div class="row">
-                    <div class="input-field col s12 m12 l6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="nome" type="text" class="validate">
-                        <label for="nome">Nome Completo: </label>
-                    </div>
-                    <div class="input-field col s12 m12 l6">
-                        <i class="material-icons prefix">markunread</i>
-                        <input id="email" type="email" class="validate">
-                        <label for="email">E-mail: </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l6">
-                        <i class="material-icons prefix">phone</i>
-                        <input id="telefone" type="text" class="validate phone">
-                        <label for="telefone">Telefone: </label>
-                    </div>
-                    <div class="input-field col s12 m12 l6">
-                        <i class="material-icons prefix">phone_iphone</i>
-                        <input id="telefone" type="text" class="validate phone">
-                        <label for="telefone">Celular: </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <form action="#" class="col s12 m12 l12">
-                        <div class="file-field input-field col s12 m12 l12">
-                            <div class="btn">
-                                <span>Arquivo</span>
-                                <input type="file" multiple>
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Deseja incluir outro veículo no negócio? Anexe fotos.">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12 m12 l12">
-                                <i class="material-icons prefix">mode_edit</i>
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Detalhe sua Proposta</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="input-field col s12 m12 l12 btn_basic_search">
-                    <button class="btn waves-effect waves-light button-send-proposta" type="submit" name="action">Enviar
-                        Proposta
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <?= do_shortcode('[contact-form-7 id="63" title="Interesse"]'); ?>
                 </div>
             </div>
         </div>
