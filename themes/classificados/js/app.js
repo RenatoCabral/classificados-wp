@@ -4,7 +4,7 @@
 
 $(".button-collapse").sideNav();
 
-$(document).ready(function() {
+$(document).ready(function () {
     makeMasks();
     makeActiveMenu();
     $('select').material_select();
@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('.collapsible').collapsible();
 });
 
-
+//http://kenwheeler.github.io/slick/
 $('.item-slider').slick({
     dots: true,
     arrows: true,
@@ -45,35 +45,26 @@ $('.slider-nav').slick({
     adaptiveHeight: false
 });
 
-/*search_all_news*/
-$('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-});
 
-
-
-function makeMasks(){
-    var cellphoneMask=function(val){
-        return val.replace(/\D/g,'').length===11?'(00) 00000-0000':'(00) 0000-00009';
-    },
-    cellphoneOptions={onKeyPress:function(val,e,field,options){
-            field.mask(cellphoneMask.apply({},arguments),options);
-        }};
-    $('.phone').mask(cellphoneMask,cellphoneOptions);
+function makeMasks() {
+    var cellphoneMask = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        },
+        cellphoneOptions = {
+            onKeyPress: function (val, e, field, options) {
+                field.mask(cellphoneMask.apply({}, arguments), options);
+            }
+        };
+    $('.phone').mask(cellphoneMask, cellphoneOptions);
 }
 
 
-function makeActiveMenu(){
+function makeActiveMenu() {
     var currentUrl = window.location.pathname.substr(1);
-        if(currentUrl === ''){
+    if (currentUrl === '') {
         $('[data-menu="inicio"]').addClass('active');
-    }else{
-        $('[data-menu="'+currentUrl+'"]').addClass('active');
+    } else {
+        $('[data-menu="' + currentUrl + '"]').addClass('active');
     }
 }
 

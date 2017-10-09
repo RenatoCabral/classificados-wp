@@ -33,7 +33,8 @@ function get_colors() {
         'Roxo'          => 'Roxo',
         'Verde'         => 'Verde',
         'Vermelho'      => ' Vermelho',
-        'Vinho'         => 'Vinho'
+        'Vinho'         => 'Vinho',
+        'Outros'        => 'Outros'
 
     ];
 
@@ -49,7 +50,8 @@ function get_motors() {
         '2.0'       =>  '2.0',
         'Turbo'     =>  'Turbo',
         'V6'        =>  'V6',
-        'V8'        =>  'V8'
+        'V8'        =>  'V8',
+        'Outro'        =>  'Outro'
 
     ];
 
@@ -185,7 +187,7 @@ function get_uf() {
 function admin_scripts(){
     //https://pt.stackoverflow.com/questions/186880/formul%C3%A1rio-ajax-javascript-e-php/186923
     global $typenow;
-//scripts serao carregados no admin onde o post type for veiculos
+    //scripts serao carregados no admin onde o post type for veiculos
     if(is_admin() && $typenow == 'veiculo'){ ?>
        <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
 
@@ -199,17 +201,45 @@ function admin_scripts(){
                 margin-right: 15px;
             }
             #edit-slug-box{
-            display: none;
+            /*display: none;*/
             }
         </style>
 
         <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
+        <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
         <script>
         jQuery(document).ready(function() {
+            autoComplete();
+            selectEstadoCidade();
+            mask();
 
-            jQuery('.select-localizacao').select2();
+        });
 
+        function mask(){
+             jQuery('#ano').mask('0000');
+        }
 
+        function autoComplete(){
+            //autocompletar os modelos de veículos
+            <?php
+                global $wpdb;
+	            $modelo = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'model'" );
+	        ?>
+            var modelo = <?= json_encode( $modelo ); ?>;
+            var i;
+
+            for(i=0;i<modelo.length;i++){
+                if(modelo[i] == null){
+                    modelo.splice(i,1);
+                    i--;
+                }
+                console.log(modelo[i]);
+            }
+            jQuery("#modelo").autocomplete({source:modelo});
+        }
+
+        function selectEstadoCidade(){
+           jQuery('.select-localizacao').select2();
 
              //jquery var do select dos estados
             var $selectUf = jQuery("#selectUf");
@@ -221,7 +251,6 @@ function admin_scripts(){
             var estadoSelecionado;
             var cidadeSelecionada;
 
-
             //mesma ideia da função de cima porém nessa pegaremos a cidade de acordo com a UF escolhida
             var getCidades = function(estadoSelecionado,responseFunction){
               jQuery.ajax({
@@ -232,7 +261,6 @@ function admin_scripts(){
               });
             };
 
-
             //essa função só é chamada quando escolhe algum estado da UF
             var populandoSelectCidades = function(response){
               //limpando o html do select
@@ -241,7 +269,6 @@ function admin_scripts(){
                 $selectCidades.append('<option value="'+item+'">'+item+'</option>')
               });
             };
-
 
             //sempre quando escolher uma UF coloca o valor selecionado na variavel estado selecionado
             //e depois disso lista as cidades correspodente a UF Escolhida
@@ -255,8 +282,10 @@ function admin_scripts(){
                  jQuery('.selecione-cidade').text('Carregando...');
               cidadeSelecionada = jQuery(this).val();
             });
+        }
 
-        });
+
     </script>
+
 <?php }
 }

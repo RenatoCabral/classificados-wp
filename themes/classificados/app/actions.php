@@ -4,6 +4,8 @@ add_theme_support( 'post-thumbnails' );
 
 //Definindo dimensões padrão das imagens dos posts
 add_image_size('thumb-news', '500','516', array( 'left', 'top' ));
+add_image_size('full-single-slide-veiculo', '618','380', array( 'left', 'top' ));
+add_image_size('thumb-single-slide-veiculo', '200','200', array( 'left', 'top' ));
 
 
 add_action( 'init', 'post_type_veiculo' );

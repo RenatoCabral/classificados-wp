@@ -19,33 +19,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col s12 m4 l4">
-                <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo.png" class="responsive-img"></a>
+                <a href="<?= home_url(); ?>">
+                    <img class="logo-header" src="<?php bloginfo('template_directory') ?>/img/logo.png"></a>
             </div>
             <div class="col s12 m8 l8">
                 <?php get_template_part ('menu'); ?>
             </div>
         </div>
     </div>
-</div> <!--pesquisa e anuncie aqui-->
-<div class="container-fluid">
-<!--    <div class="row">-->
-<!--        <div class="col s12 m12 l12 button_anuncie_aqui show-on-large hide-on-med-and-down">-->
-<!---->
-<!--            <a class="waves-effect waves-light btn btn-anuncie-aqui">-->
-<!--                <i class="large material-icons left">attach_money</i>Anuncie Aqui-->
-<!--            </a>-->
-<!---->
-<!--        </div>-->
-<!---->
-<!--        <div class="col s12 m12 l12 button_anuncie_aqui show-on-small show-on-medium hide-on-large-only">-->
-<!---->
-<!--            <a class="waves-effect waves-light btn btn-anuncie-aqui">-->
-<!--                <i class="large material-icons left">attach_money</i>Anuncie Aqui-->
-<!--            </a>-->
-<!---->
-<!--        </div>-->
-<!---->
-<!--    </div>-->
 </div>
 
 <?php
