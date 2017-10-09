@@ -38,76 +38,74 @@ function display_itens_de_serie( $post_id ) {
 
 }
 
-function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conservation, $final_place, $motor, $post_id, $fabricante, $model ) { ?>
+function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conservation, $final_place, $motor, $post_id, $fabricante, $model, $uf, $city, $categoria ) { ?>
+    <div class=" col s12 m6 l6 vehicle-details">
+        <p>
+            <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Cod:</strong> <?= $post_id ?>
+        </p>
+    </div>
 	<?php if ( ! empty( $year ) ) { ?>
         <div class=" col s6 m6 l6 vehicle-details">
             <p>
                 <i class="material-icons small left vehicle-details-icon">date_range</i><strong>Ano:</strong> <?= $year ?>
             </p>
         </div>
-
-		<?php if ( ! empty( $km ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">av_timer</i><strong>KM:</strong> <?= $km ?>
-                </p>
-            </div>
-		<?php }
-		if ( ! empty( $color ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">color_lens</i><strong>Cor:</strong> <?= $color ?>
-                </p>
-            </div>
-		<?php }
-		if ( ! empty( $doors ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Portas: </strong> <?= $doors ?>
-                </p>
-            </div>
-		<?php } ?>
-
-		<?php if ( ! empty( $fuel ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Combústivel:</strong> <?= $fuel ?>
-                </p>
-            </div>
-		<?php }
-		if ( ! empty( $exchange ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Câmbio: </strong><?= $exchange ?>
-                </p>
-            </div>
-		<?php }
-		if ( ! empty( $conservation ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Conservação:</strong> <?= $conservation ?>
-                </p>
-            </div>
-		<?php }
-		if ( ! empty( $final_place ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Final
-                        Placa:</strong> <?= $final_place ?></p>
-            </div>
-		<?php }
-		if ( ! empty( $motor ) ) { ?>
-            <div class=" col s6 m6 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Motor:</strong> <?= $motor ?>
-                </p>
-            </div>
-		<?php } ?>
-        <div class=" col s12 m6 l6 vehicle-details">
-            <p>
-                <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Cod:</strong> <?= $post_id ?>
+	<?php }
+	if ( ! empty( $km ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p><i class="material-icons small left vehicle-details-icon">av_timer</i><strong>KM:</strong> <?= $km ?>
             </p>
         </div>
 	<?php }
-	if ( $fabricante != ''  ) { ?>
+	if ( ! empty( $color ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">color_lens</i><strong>Cor:</strong> <?= $color ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $doors ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Portas: </strong> <?= $doors ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $fuel ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">local_gas_station</i><strong>Combústivel:</strong> <?= $fuel ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $exchange ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Câmbio: </strong><?= $exchange ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $conservation ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">directions_car</i><strong>Conservação:</strong> <?= $conservation ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $final_place ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p><i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Final
+                    Placa:</strong> <?= $final_place ?></p>
+        </div>
+	<?php }
+	if ( ! empty( $motor ) ) { ?>
+        <div class=" col s6 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Motor:</strong> <?= $motor ?>
+            </p>
+        </div>
+	<?php }
+	if ( $fabricante != '' ) { ?>
         <div class=" col s12 m6 l6 vehicle-details">
             <p>
                 <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Fabricante:</strong> <?= $fabricante ?>
@@ -118,6 +116,27 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
         <div class=" col s12 m6 l6 vehicle-details">
             <p>
                 <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Modelo: </strong> <?= $model ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $categoria != '' ) ) { ?>
+        <div class=" col s12 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Categoria: </strong> <?= $categoria ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $uf ) ) { ?>
+        <div class=" col s12 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Estado: </strong> <?= $uf ?>
+            </p>
+        </div>
+	<?php }
+	if ( ! empty( $city ) ) { ?>
+        <div class=" col s12 m6 l6 vehicle-details">
+            <p>
+                <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Cidade: </strong> <?= $city ?>
             </p>
         </div>
 	<?php }
@@ -163,3 +182,30 @@ function display_gallery() { ?>
 
 
 <?php }
+
+function display_author_data( $post_id ) {
+	$author_id  = get_post_field( 'post_author', $post_id );
+	$first_name = get_user_meta( $author_id, 'first_name', true );
+	$last_name  = get_user_meta( $author_id, 'last_name', true );
+	$phone      = get_user_meta( $author_id, 'idx_user_phone', true );
+	?>
+
+    <div class=" col s12 m12 l12">
+        <p>
+            <i class="material-icons icon-vendedor">account_circle</i>
+            Nome: <?= $first_name . ' ' . $last_name ?>
+        </p>
+
+        <p>
+            <i class="material-icons icon-vendedor">phone</i>
+            Telefone: <?= $phone ?>
+        </p>
+
+        <p>
+            <i class="material-icons icon-vendedor">markunread</i>
+            E-mail: <?php the_author_meta( 'user_email', $author_id ); ?>
+        </p>
+    </div>
+	<?php
+}
+

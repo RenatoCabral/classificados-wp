@@ -19,7 +19,6 @@ function render_localizacao() {
 	$uf   = get_post_meta( $post_id, 'uf', true );
 	$city = get_post_meta( $post_id, 'city', true );
 
-//    include "partials/admin/detalhes-veiculo.php";
 	include "partials/admin/localizacao-veiculo.php";
 }
 

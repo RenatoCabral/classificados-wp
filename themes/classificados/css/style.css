@@ -493,8 +493,10 @@ body {
     display: block;
 }
 
-.texto-info p {
-    font-size: 18px;
+.texto-info{
+    font-size: 1rem;
+    color: #9e9e9e;
+    padding-left: 35px !important;
 }
 
 .link-title-tab {
@@ -518,6 +520,13 @@ body {
 
 .list-opcionals p {
     word-break: break-all !important;
+}
+.div-vendedor{
+    margin-top: 20px;
+}
+.icon-vendedor{
+    position: relative;
+    top: 6px;
 }
 
 /*****single news****/
