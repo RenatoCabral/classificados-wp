@@ -13,7 +13,9 @@ include 'app/partials/public/monta-dados-veiculos.php';
                 <p class="price-veiculo"><strong>R$ <?= number_format($price, 2, ',', '.'); ?></strong></p>
             </div>
 
-            <?php display_details($year, $km, $color, $doors, $fuel, $exchange, $conservation, $final_place, $motor, $post_id, $fabricante[0]->name, $model); ?>
+            <?php
+            $fabricante = is_array($fabricante) ? $fabricante : '';
+            display_details($year, $km, $color, $doors, $fuel, $exchange, $conservation, $final_place, $motor, $post_id, $fabricante, $model); ?>
         </div>
         <?php display_gallery(); ?>
     </div>
@@ -22,7 +24,7 @@ include 'app/partials/public/monta-dados-veiculos.php';
 <!-- Tabs -->
 <div class="container-fluid container-tabs-form">
     <div class="row">
-        <div class="col s12 m12 l5 tabs-home">
+        <div class="col s12 m12 l6 tabs-home">
             <ul id="tabs-swipe-demo" class="tabs vehicle-details-tabs">
                 <li class="tab col s4"><a class="active link-title-tab" href="#test-swipe-1">Itens de Série</a></li>
                 <li class="tab col s4"><a class="link-title-tab" href="#test-swipe-2">Obs. Vendedor</a></li>

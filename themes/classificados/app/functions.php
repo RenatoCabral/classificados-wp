@@ -96,7 +96,6 @@ function get_conservations() {
 
 function get_item_series(){
 
-
     $options = [
         'airbags' => 'Airbags',
         'airbag_motorista' => 'Airbag Motorista',

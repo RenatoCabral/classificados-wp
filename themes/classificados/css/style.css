@@ -460,7 +460,16 @@ body {
 .vehicle-details-button-enviar-proposta {
     display: table;
 }
-
+.div-item-serie{
+    margin-top: 10px;
+    padding: 13px !important;
+}
+.div-item-serie label{
+    cursor: default !important;
+    float: left;
+    height: auto;
+    line-height: 20px;
+}
 /*****************tab +informações*******************/
 .container-tabs-form {
     min-height: 630px;
