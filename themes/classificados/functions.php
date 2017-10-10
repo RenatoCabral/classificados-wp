@@ -8,6 +8,7 @@ require 'app/renderer.php';
 require 'app/functions.php';
 require 'app/gallery-metabox.php';
 require 'app/handler-users.php';
+require 'app/mais-vistos.php';
 
 
 //filtro para remover a tag span do formulario de contato
@@ -17,6 +18,8 @@ add_filter('wpcf7_form_elements', function($content) {
 	return $content;
 });
 
+//disable css contact form 7
+add_filter( 'wpcf7_load_css', '__return_false' );
 
 
 

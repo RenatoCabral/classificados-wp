@@ -2,7 +2,7 @@
 get_template_part( 'basic-search' );
 
 include 'app/partials/public/monta-dados-veiculos.php';
-
+setPostViews( $post_id );
 ?>
 
     <div class="container-fluid">
@@ -65,10 +65,13 @@ include 'app/partials/public/monta-dados-veiculos.php';
                 <p class="title-proposta">FICOU INTERESSADO?</p>
                 <br>
                 <div class="row">
-                    <?= do_shortcode('[contact-form-7 id="63" title="Interesse"]'); ?>
+                    <?= do_shortcode('[contact-form-7 id="64" title="Interesse em veiculo"]'); ?>
                 </div>
             </div>
         </div>
+
+        <?php render_outros_veiculos($post_id, $categorias[0]->slug) ?>
+
     </div>
 
 

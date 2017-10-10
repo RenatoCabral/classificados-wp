@@ -22,7 +22,9 @@ body {
     -ms-text-stroke: 1px transparent;
     text-stroke: 1px transparent;
 }
-
+a{
+    color: #000;
+}
 :focus {
     outline: -webkit-focus-ring-color auto 0;
 }
@@ -374,6 +376,7 @@ body {
     display: block;
     margin: 0 auto;
     width: 150px;
+    clear: both;
 }
 
 .box-view-more-button-news-home {
@@ -383,10 +386,20 @@ body {
     text-align: center;
 }
 
-.cod-vehicle:hover {
-    font-weight: bold;
+.cod-vehicle{
+    font-size: 10px;
 }
 
+.card .card-content{
+    padding: 10px !important;
+}
+.price{
+    color: #26a69a !important;
+    font-size: 20px;
+}
+.dados-veiculos p{
+ color: #000; !important;
+}
 /********Fim  veiculos_destaque**************/
 
 /*********************footer***********************/
@@ -412,8 +425,16 @@ body {
 /****************Fim footer*****************/
 
 /*********** detalhes dos veiculos**********/
-
-.img-thumb-single img {
+.slick-track{
+    margin: 0 auto;
+}
+.img-thumb-single img{
+    cursor: pointer;
+}
+.img-thumb-single img:hover{
+    opacity: 0.7;
+}
+.img-thum.b-single img {
     padding: 3px;
     cursor: pointer;
 }
@@ -616,7 +637,53 @@ body {
 .info_return_search h3:hover {
     color: #1d7d74;
 }
+/*Contact Form 7*/
+.screen-reader-response, .wpcf7-not-valid-tip {
+    display: none;
+}
+.required-fields{
+    color: #888888;
+    font-size: 12px;
+    text-align: center;
 
+}
+.wpcf7-response-output{
+    color: #888888;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    overflow: auto;
+}
+
+/**** Pagination ***/
+.paginacao {
+    clear:both;
+    padding: 20px 0;
+    position:relative;
+    margin-left:10px;
+}
+.paginacao span, .paginacao a,.paginacao .current, .paginacao .current a{
+    font-size:18px !important;
+    padding: 4px 7px;
+    margin: 1px 2px 0 2px;
+    text-transform: capitalize;
+}
+.paginacao span, .paginacao a {
+    display:block;
+    float:left;
+    background: #26a69a;
+    color: #FFF !important;
+    border:1px solid #FFF;
+}
+.paginacao .current, .paginacao .current a {
+    color: #1f7b70 !important;
+    background: #f0f0f0;
+}
+.paginacao a:hover{
+    text-decoration:none !important;
+    background:#26a69a;
+    border:1px solid #CCC;
+}
 /*****************************media queries*************************/
 
 @media only screen and (max-width: 1024px) {
@@ -633,6 +700,7 @@ body {
     }
 
 }
+
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 600px) {

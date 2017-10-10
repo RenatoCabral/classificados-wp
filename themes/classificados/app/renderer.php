@@ -163,7 +163,7 @@ function display_gallery() { ?>
 				<?php }
 			} else { ?>
                 <a href="<?= $img_src ?>" data-fancybox="gallery">
-                    <img src="<?= $img_src ?>" class="" alt="<?php the_title(); ?>"/>
+                    <img src="<?= $img_src ?>" alt="<?php the_title(); ?>"/>
                 </a>
 			<?php } ?>
         </div>
@@ -173,7 +173,7 @@ function display_gallery() { ?>
             <div class="slider-vehicle-details img-thumb-single slider-nav">
 				<?php for ( $i = 0; $i < count( $images ); $i ++ ) {
 					$url_thumb = wp_get_attachment_image_src( $images [ $i ], 'thumb-single-slide-veiculo' ); ?>
-                    <img src="<?= $url_thumb[0] ?>" class="" alt="<?php the_title(); ?>">
+                    <img src="<?= $url_thumb[0] ?>" alt="<?php the_title(); ?>">
 				<?php } ?>
             </div>
 		<?php } ?>
@@ -209,3 +209,67 @@ function display_author_data( $post_id ) {
 	<?php
 }
 
+function render_outros_veiculos( $post_id, $term ) {
+
+	$query = new WP_Query( [
+		'post_type'      => 'veiculo',
+		'post_status'    => 'publish',
+		'posts_per_page' => 4,
+		'post__not_in'   => [ $post_id ],
+		'tax_query'      => [
+			[
+				'taxonomy' => 'categoria',
+				'field'    => 'slug',
+				'terms'    => $term
+			]
+		]
+	] );
+	if ( $query->have_posts() ) { ?>
+        <div class="row title_div_cars">
+            <h5>Outros Veículos</h5>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12">
+				<?php while ( $query->have_posts() ) {
+					$query->the_post();
+					require 'partials/public/item-featured-vehicles.php';
+				} ?>
+            </div>
+        </div>
+		<?php
+	}
+}
+
+function render_most_viewed() {
+	$query = new WP_Query(
+		[
+			'post_type'      => 'veiculo',
+			'posts_per_page' => 8,
+			'orderby'        => 'random',
+			'meta_key'       => 'post_views_count',
+			'post_status'    => 'publish',
+		]
+	);
+	if ( $query->have_posts() ) { ?>
+
+        <div class="container-fluid">
+            <div class="row title_div_cars">
+                <h5>Veículos em destaque</h5>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12 m12 l12 list-featured-vehicles">
+					<?php while ( $query->have_posts() ) {
+						$query->the_post();
+						require 'partials/public/item-featured-vehicles.php';
+					} ?>
+
+                    <a href="<?= get_post_type_archive_link( 'veiculo' ) ?>"
+                       class="waves-effect waves-light btn-large view-more-button">Ver Mais</a>
+                </div>
+            </div>
+        </div>
+	<?php }
+}
