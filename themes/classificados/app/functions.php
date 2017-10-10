@@ -209,8 +209,8 @@ function admin_scripts(){
         <script>
         jQuery(document).ready(function() {
             autoComplete();
-            selectEstadoCidade();
             mask();
+            jQuery('.select-localizacao').select2();
 
         });
 
@@ -237,51 +237,6 @@ function admin_scripts(){
             jQuery("#modelo").autocomplete({source:modelo});
         }
 
-        function selectEstadoCidade(){
-           jQuery('.select-localizacao').select2();
-
-             //jquery var do select dos estados
-            var $selectUf = jQuery("#selectUf");
-
-            //jquery var do select das cidades
-            var $selectCidades = jQuery("#selectCidade");
-
-            //será atribuido um valor nessa variável sempre que ele escolher um UF
-            var estadoSelecionado;
-            var cidadeSelecionada;
-
-            //mesma ideia da função de cima porém nessa pegaremos a cidade de acordo com a UF escolhida
-            var getCidades = function(estadoSelecionado,responseFunction){
-              jQuery.ajax({
-                method: "GET",
-                url: "http://api.londrinaweb.com.br/PUC/Cidades/"+estadoSelecionado+"/BR/0/10000",
-                dataType: "jsonp",
-                success: responseFunction
-              });
-            };
-
-            //essa função só é chamada quando escolhe algum estado da UF
-            var populandoSelectCidades = function(response){
-              //limpando o html do select
-              $selectCidades.html("");
-              jQuery.each(response,function(i,item){
-                $selectCidades.append('<option value="'+item+'">'+item+'</option>')
-              });
-            };
-
-            //sempre quando escolher uma UF coloca o valor selecionado na variavel estado selecionado
-            //e depois disso lista as cidades correspodente a UF Escolhida
-            $selectUf.change(function(){
-              estadoSelecionado = jQuery(this).val();
-                jQuery('.selecione-cidade').text('Carregando...');
-              getCidades(estadoSelecionado,populandoSelectCidades);
-            });
-
-            $selectCidades.change(function(){
-                 jQuery('.selecione-cidade').text('Carregando...');
-              cidadeSelecionada = jQuery(this).val();
-            });
-        }
 
 
     </script>

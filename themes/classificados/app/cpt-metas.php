@@ -4,25 +4,14 @@
 function meta_box_veiculo() {
 
 	add_meta_box( 'meu-id', 'Detalhes do Carro', 'render_data_meta_box', 'veiculo', 'normal', 'high' );
-	add_meta_box( 'meu-id2', 'Localização do Carro', 'render_localizacao', 'veiculo', 'normal', 'high' );
 	add_meta_box( 'meu-id3', 'Itens de Série', 'render_itens_de_serie', 'veiculo', 'normal', 'high' );
 	add_meta_box( 'meu-id4', 'Obs. Vendedor', 'render_obs_vendedor', 'veiculo', 'normal', 'high' );
 }
 
 
-function render_localizacao() {
-	global $post;
-	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
 
-	$post_id = $post->ID;
 
-	$uf   = get_post_meta( $post_id, 'uf', true );
-	$city = get_post_meta( $post_id, 'city', true );
-
-	include "partials/admin/localizacao-veiculo.php";
-}
-
-/*função que irá renderizar as informações do veiculo e também cidade e estado*/
+/*função que irá renderizar as informações do veiculo*/
 
 /*****detalhes veiculo****/
 function render_data_meta_box() {
@@ -32,8 +21,6 @@ function render_data_meta_box() {
 
 	$post_id = $post->ID;
 
-//    $uf = get_post_meta($post_id, 'uf', true);
-//    $city = get_post_meta($post_id, 'city', true);
 
 	$price        = get_post_meta( $post_id, 'price', true );
 	$year         = get_post_meta( $post_id, 'year', true );
@@ -106,8 +93,6 @@ function save_meta_veiculo( $post_id ) {
 		return;
 	}
 
-	update_post_meta( $post_id, 'uf', $_POST['uf'] );
-	update_post_meta( $post_id, 'city', $_POST['city'] );
 
 	update_post_meta( $post_id, 'price', $_POST['price'] );
 	update_post_meta( $post_id, 'doors', $_POST['doors'] );
