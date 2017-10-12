@@ -423,6 +423,7 @@ function render_search_veiculo( $code ) {
 
 		$search_loop = new WP_Query( $final_query );
 		if ( $search_loop->have_posts() ) {
+		    echo '<h4>qtd de veiculos'. $search_loop->post_count . '</h4>';
 			while ( $search_loop->have_posts() ) {
 				$search_loop->the_post();
 				require 'partials/public/item-featured-vehicles.php';

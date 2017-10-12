@@ -1,16 +1,16 @@
 var $ = jQuery;
-$('#convervacao').change(function () {
+$('#conservacao').change(function () {
 
     switch ($(this).val()) {
-        case 'novo':
+        case 'Novo':
             retrievePrices(0, 100000, 1000000, '.price_min');
             retrievePrices(0, 100000, 9000000, '.price_max');
             break;
-        case 'seminovo':
+        case 'Seminovo':
             retrievePrices(0, 100000, 100000, '.price_min');
             retrievePrices(0, 100000, 8000000, '.price_max');
             break;
-        case 'usado':
+        case 'Usado':
             retrievePrices(0, 100000, 200000, '.price_min');
             retrievePrices(0, 100000, 7000000, '.price_max');
             break;
@@ -46,16 +46,16 @@ $('.price_min').change(function () {
     $('.price_max').empty();
     if ($(this).val() !== '-1') {
         var next = '';
-        switch ($('#convervacao').val()) {
-            case 'novo':
+        switch ($('#conservacao').val()) {
+            case 'Novo':
                 next = parseInt($(this).val()) + 1000;
                 retrievePrices(next, 100000, 9000000, '.price_max');
                 break;
-            case 'seminovo':
+            case 'Seminovo':
                 next = parseInt($(this).val()) + 100000;
                 retrievePrices(next, 100000, 8000000, '.price_max', true);
                 break;
-            case 'usado':
+            case 'Usado':
                 next = parseInt($(this).val()) + 100000;
                 retrievePrices(next, 100000, 7000000, '.price_max', true);
                 break;

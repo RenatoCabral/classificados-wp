@@ -115,13 +115,13 @@
 
 
                 <div class="col s12 m2 l2">
-                    <select name="price_min" id="price_min" class="select-searchform">
+                    <select name="price_min" id="price_min" class="price_min select-searchform">
                         <option value="-1">Valor Mínimo</option>
                     </select>
                 </div>
 
                 <div class="col s12 m2 l2">
-                    <select name="price_max" id="price_max" class="select-searchform">
+                    <select name="price_max" id="price_max" class="price_max select-searchform">
                         <option value="-1">Valor Máximo</option>
                     </select>
                 </div>
