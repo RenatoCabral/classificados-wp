@@ -12,24 +12,18 @@
         <div class="col s12 m12 l12 info_return_search">
 
 			<?php
+			$code = isset($_GET['code']) ? $_GET['code'] :  '' ;
+			$s   = $_GET[ 's' ];
 
-			if ( ! have_posts() ) {
-				echo '<h3> Resultado não encontrado</h3>';
+			if ($code != '' || $s == '-1' ) {
+				render_search_veiculo( $code );
 			} else {
-				while ( have_posts() ) {
-					the_post();
-					$img_src = get_the_post_thumbnail_url( get_the_ID(), 'thumb-news' );
-
-					render_blog( $img_src );
-				}
+				render_search_blog();
 			}
-			post_pagination(); ?>
+			?>
+
         </div>
     </div>
 </div>
-
-<!--
-SELECT * FROM `wp_posts` WHERE `post_title` LIKE '%Evento%' OR `post_content` LIKE '%Evento%'
--->
 
 <?php get_footer();

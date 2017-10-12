@@ -298,3 +298,138 @@ function render_most_viewed() {
         </div>
 	<?php }
 }
+
+function render_search_blog() {
+	if ( ! have_posts() ) {
+		echo '<h4> Resultado não encontrado</h4>';
+	} else {
+		while ( have_posts() ) {
+			the_post();
+			$img_src = get_the_post_thumbnail_url( get_the_ID(), 'thumb-news' );
+			render_blog( $img_src );
+		}
+	}
+	post_pagination();
+}
+
+function render_search_veiculo( $code ) {
+	if ( ! empty( $code ) ) {
+		$query = new WP_Query( [
+			'post_type'   => 'veiculo',
+			'post_status' => 'publish',
+			'p'           => $code
+		] );
+
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) : $query->the_post();
+				?>
+                <script>
+                    var link = <?= json_encode( get_permalink( get_the_ID() ) ); ?>;
+                    window.location.href = link;
+                </script>
+				<?php
+			endwhile;
+		} else { ?>
+
+            <script>
+                var link = <?= json_encode( get_bloginfo( 'url' ) ); ?>;
+                link += '/404';
+                window.location.href = link;
+            </script>
+		<?php }
+	} else {
+
+		$estado      = $_GET['estado'];
+		$cidade      = $_GET['cidade'];
+		$conservacao = $_GET['conservacao'];
+		$categoria   = $_GET['categoria'];
+		$fabricante  = $_GET['fabricante'];
+		$modelo      = $_GET['modelo'];
+		$ano         = $_GET['ano'];
+		$price_min   = $_GET['price_min'];
+		$price_max   = $_GET['price_max'];
+
+		$final_query = [
+			'post_type'      => 'veiculo',
+			'posts_per_page' => '2',
+			'paged'          => 1,
+			'post_status'    => 'publish'
+		];
+
+		//taxonomias
+		if ( $categoria != - 1 ) {
+			$query_category = [ 'categoria' => $categoria ];
+			$final_query    = array_merge( $final_query, $query_category );
+		}
+		if ( $fabricante != - 1 ) {
+			$query_fabricante = [ 'fabricante' => $fabricante ];
+			$final_query      = array_merge( $final_query, $query_fabricante );
+		}
+
+		//post meta de ano
+		if ( $ano != - 1 ) {
+			$query_ano   = [ 'key' => 'year', 'compare' => '==', 'value' => $ano ];
+			$final_query = array_merge( $final_query, $query_ano );
+		}
+
+		//post meta de estado
+		if ( $estado != - 1 ) {
+			$query_estado = [ 'key' => 'br_la_state', 'compare' => '==', 'value' => $estado ];
+			$final_query  = array_merge( $final_query, $query_estado );
+		}
+
+		//post meta de cidade
+		if ( $cidade != - 1 ) {
+			$query_cidade = [ 'key' => 'br_la_city', 'compare' => '==', 'value' => $cidade ];
+			$final_query  = array_merge( $final_query, $query_cidade );
+		}
+
+		//post meta de conservacao
+		if ( $conservacao != - 1 ) {
+			$query_conservacao = [ 'key' => 'br_la_city', 'compare' => '==', 'value' => $conservacao ];
+			$final_query       = array_merge( $final_query, $query_conservacao );
+		}
+
+		//post meta de modelo
+		if ( $modelo != - 1 ) {
+			$query_modelo = [ 'key' => 'model', 'compare' => '==', 'value' => $modelo ];
+			$final_query  = array_merge( $final_query, $query_modelo );
+		}
+
+		//post meta de precos
+		$has_min         = false;
+		$has_max         = false;
+		$query_price_min = '';
+		$query_price_max = '';
+		if ( $price_min != - 1 ) {
+			$query_price_min = [ 'key' => 'price', 'type' => 'numeric', 'compare' => '>=', 'value' => $price_min ];
+			$has_min         = true;
+		}
+
+		if ( $price_max != - 1 ) {
+			$query_price_max = [ 'key' => 'price', 'type' => 'numeric', 'compare' => '<=', 'value' => $price_max ];
+			$has_max         = true;
+		}
+		$meta_price = [];
+		if ( $has_min && $has_max ) {
+			$meta_price = [ 'meta_query' => [ 'relation' => 'AND', $query_price_min, $query_price_max ] ];
+		} else if ( $has_min && ! $has_max ) {
+			$meta_price = [ 'meta_query' => [ 'relation' => 'AND', $query_price_min ] ];
+		} else if ( ! $has_min && $has_max ) {
+			$meta_price = [ 'meta_query' => [ 'relation' => 'AND', $query_price_max ] ];
+		}
+
+		$final_query = array_merge( $final_query, $meta_price );
+
+		$search_loop = new WP_Query( $final_query );
+		if ( $search_loop->have_posts() ) {
+			while ( $search_loop->have_posts() ) {
+				$search_loop->the_post();
+				require 'partials/public/item-featured-vehicles.php';
+			}
+			post_pagination();
+		} else {
+			echo '<p>Não há imóveis de acordo com sua pesquisa</p>';
+		}
+	}
+}
