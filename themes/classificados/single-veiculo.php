@@ -47,7 +47,12 @@ setPostViews( $post_id );
                         <div class="col s12 m12 l12 texto-info">
                             <br><br>
                             <!--  nl2br é uma funcao php que faz a quebra de linha do texto-->
-							<?= nl2br( $obs ) ?>
+							<?php if ( ! empty( $obs ) ) {
+								echo nl2br( $obs ) ;
+                            } else{
+							    echo '<p>*** Não há observações sobre o veículo ***</p>';
+                            }?>
+
                         </div>
                     </div>
                 </div>
@@ -65,12 +70,12 @@ setPostViews( $post_id );
                 <p class="title-proposta">FICOU INTERESSADO?</p>
                 <br>
                 <div class="row">
-                    <?= do_shortcode('[contact-form-7 id="64" title="Interesse em veiculo"]'); ?>
+					<?= do_shortcode( '[contact-form-7 id="64" title="Interesse em veiculo"]' ); ?>
                 </div>
             </div>
         </div>
 
-        <?php render_outros_veiculos($post_id, $categorias[0]->slug) ?>
+		<?php render_outros_veiculos( $post_id, $categorias[0]->slug ) ?>
 
     </div>
 

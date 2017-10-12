@@ -13,3 +13,17 @@ function post_type_veiculo() {
         )
     );
 }
+
+function post_type_blog() {
+	register_post_type( 'blog',
+		array(
+			'labels' => array(
+				'name' => 'Blog',
+				'singular_name' => 'Blog'
+			),
+			'public' => true,
+			'has_archive' => true,
+			'supports' => array( 'title', 'editor', 'thumbnail')
+		)
+	);
+}

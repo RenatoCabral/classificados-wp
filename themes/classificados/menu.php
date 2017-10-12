@@ -14,14 +14,14 @@
             <li data-menu="duvidas/">
                 <a class="link-menu transition-300ms " href="<?= get_permalink( get_page_by_path( 'duvidas' ) ) ?>">Dúvidas</a>
             </li>
-            <li data-menu="noticias/">
-                <a class="link-menu transition-300ms " href="<?= get_permalink( get_page_by_path( 'noticias' ) ) ?>">Notícias</a>
+            <li data-menu="blog/">
+                <a class="link-menu transition-300ms " href="<?= get_post_type_archive_link('blog'); ?>">Blog</a>
             </li>
             <li data-menu="veiculos/">
-                <a class="link-menu transition-300ms " href="#">Veículos</a>
+                <a class="link-menu transition-300ms " href="<?= get_post_type_archive_link('veiculo'); ?>">Veículos</a>
             </li>
             <li>
-                <a class="link-menu transition-300ms " href="#">FIPE</a>
+                <a class="link-menu transition-300ms " target="_blank" href="http://veiculos.fipe.org.br/">Fipe</a>
             </li>
             <li data-menu="contato/">
                 <a class="link-menu transition-300ms " href="<?= get_permalink( get_page_by_path( 'contato' ) ) ?>">Contato</a>
@@ -35,9 +35,9 @@
             <li class="active"><a href="<?= home_url() ?>">Início</a></li>
             <li><a href="<?= get_permalink( get_page_by_path( 'sobre' ) ) ?>">Sobre</a></li>
             <li><a href="<?= get_permalink( get_page_by_path( 'duvidas' ) ) ?>">Dúvidas</a></li>
-            <li><a href="<?= get_permalink( get_page_by_path( 'noticias' ) ) ?>">Notícias</a></li>
-            <li><a href="#">Veículos</a></li>
-            <li><a href="#">FIPE</a></li>
+            <li><a href="<?= get_post_type_archive_link('blog'); ?>">Blog</a></li>
+            <li><a href="<?= get_post_type_archive_link('veiculo'); ?>">Veículos</a></li>
+            <li><a target="_blank" href="http://veiculos.fipe.org.br/">Fipe</a></li>
             <li><a href="<?= get_permalink( get_page_by_path( 'contato' ) ) ?>">Contato</a></li>
             <li><a href="<?= get_permalink( get_page_by_path( 'minha-conta' ) ) ?>">Minha Conta</a></li>
         </ul>

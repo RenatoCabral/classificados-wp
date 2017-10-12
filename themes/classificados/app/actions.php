@@ -9,6 +9,7 @@ add_image_size('thumb-single-slide-veiculo', '200','200', array( 'left', 'top' )
 
 
 add_action( 'init', 'post_type_veiculo' );
+add_action( 'init', 'post_type_blog' );
 
 //metabox - campos pernalizados
 add_action( 'add_meta_boxes', 'meta_box_veiculo');

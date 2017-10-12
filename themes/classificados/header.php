@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/slick.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/slick-theme.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/style.css">
+    <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/classicarros.css">
     <?php wp_head(); ?>
 </head>
 <body>

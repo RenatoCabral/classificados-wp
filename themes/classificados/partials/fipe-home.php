@@ -5,11 +5,12 @@
             <i class="material-icons medium">drive_eta</i>
             <i class="material-icons medium">drive_eta</i>
         </div>
-        <h4>Consulta <strong>FIPE</strong></h4>
+
         <p>Comprar ou vender, mas não sabe o preço?<br>
             Consulte na tabela <strong>FIPE</strong>!</p>
         <div class="row fipe_button">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Consultar
-            </button>
+            <a target="_blank" href="http://veiculos.fipe.org.br/" class="btn waves-effect waves-light" >
+                Consultar
+            </a>
         </div>
 </div>

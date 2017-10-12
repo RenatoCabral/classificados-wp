@@ -2,7 +2,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <h1>Veículos</h1>
+            <h1 class="title_news title-archive">Veículos</h1>
             <div class="col s12 m12 l12 list-featured-vehicles">
 				<?php while ( have_posts() ) {
 					the_post();

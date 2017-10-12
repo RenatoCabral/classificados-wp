@@ -1,6 +1,4 @@
-<?php get_header();
-get_template_part('basic-search');
-?>
+<?php get_header(); ?>
 
 
 <div class="container-fluid">
