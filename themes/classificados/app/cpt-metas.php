@@ -87,7 +87,7 @@ function save_meta_veiculo( $post_id ) {
 		return;
 	}
 
-	if ( ! current_user_can( 'edit_post' ) ) {
+	if ( ! current_user_can( 'edit_posts' ) ) {
 		return;
 	}
 
@@ -129,7 +129,7 @@ function render_slider_details( $post ) {
 	$link = get_post_meta( $post->ID, 'link', true );
 	$open_target_blank_slide = get_post_meta( $post->ID, 'open-target-blank-slide', true );
 
-	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+	wp_nonce_field( 'my_meta_box_nonce1', 'meta_box_nonce1' );
 	require 'partials/admin/slide-home.php';
 }
 
@@ -138,11 +138,11 @@ function update_slide_details( $post_id ) {
 		return;
 	}
 
-	if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) {
+	if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce1'], 'my_meta_box_nonce1' ) ) {
 		return;
 	}
 
-	if ( ! current_user_can( 'edit_post' ) ) {
+	if ( ! current_user_can( 'edit_posts' ) ) {
 		return;
 	}
 

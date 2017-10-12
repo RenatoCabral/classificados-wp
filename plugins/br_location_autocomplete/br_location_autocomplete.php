@@ -166,10 +166,10 @@ function add_scripts() {
 	);
 	wp_enqueue_style( 'jquery-ui-styles' );
 	wp_register_style(
-		'imoveis-inputs',
-		plugin_dir_url( __FILE__ ) . '/assets/css/imoveis.css'
+		'location-inputs',
+		plugin_dir_url( __FILE__ ) . '/assets/css/location.css'
 	);
-	wp_enqueue_style( 'imoveis-inputs' );
+	wp_enqueue_style( 'location-inputs' );
 }
 
 function save_location_meta_boxes( $post_id ) {
@@ -179,16 +179,16 @@ function save_location_meta_boxes( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
-	if ( ! current_user_can( 'edit_post' ) ) {
+	if ( ! current_user_can( 'edit_posts' ) ) {
 		return;
 	}
 
-	$state      = isset( $_POST['br_la_state'] ) ? $_POST['br_la_state'] : '';
-	$city       = isset( $_POST['br_la_city'] ) ? $_POST['br_la_city'] : '';
+	$state      =  $_POST['br_la_state']  ;
+	$city       =  $_POST['br_la_city'] ;
 
 	update_post_meta( $post_id, 'br_la_state', $state );
 	update_post_meta( $post_id, 'br_la_city', $city );
 
 }
 
-add_action( 'save_post', 'save_location_meta_boxes' );
+add_action( 'save_post_veiculo', 'save_location_meta_boxes' );
