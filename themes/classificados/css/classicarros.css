@@ -22,11 +22,17 @@ body {
     -ms-text-stroke: 1px transparent;
     text-stroke: 1px transparent;
 }
-a{
+
+a {
     color: #000;
 }
+
 :focus {
     outline: -webkit-focus-ring-color auto 0;
+}
+
+select {
+    display: block;
 }
 
 .alert {
@@ -66,9 +72,10 @@ a{
 }
 
 /*************Header.php - NavBar, search e anuncie aqui***********/
-.logo-header{
+.logo-header {
     margin-top: 10px;
 }
+
 .menu-desktop {
     padding-top: 20px;
 }
@@ -386,20 +393,24 @@ a{
     text-align: center;
 }
 
-.cod-vehicle{
+.cod-vehicle {
     font-size: 10px;
 }
 
-.card .card-content{
+.card .card-content {
     padding: 10px !important;
 }
-.price{
+
+.price {
     color: #26a69a !important;
     font-size: 20px;
 }
-.dados-veiculos p{
- color: #000; !important;
+
+.dados-veiculos p {
+    color: #000;
+!important;
 }
+
 /********Fim  veiculos_destaque**************/
 
 /*********************footer***********************/
@@ -425,15 +436,18 @@ a{
 /****************Fim footer*****************/
 
 /*********** detalhes dos veiculos**********/
-.slick-track{
+.slick-track {
     margin: 0 auto;
 }
-.img-thumb-single img{
+
+.img-thumb-single img {
     cursor: pointer;
 }
-.img-thumb-single img:hover{
+
+.img-thumb-single img:hover {
     opacity: 0.7;
 }
+
 .img-thum.b-single img {
     padding: 3px;
     cursor: pointer;
@@ -481,16 +495,19 @@ a{
 .vehicle-details-button-enviar-proposta {
     display: table;
 }
-.div-item-serie{
+
+.div-item-serie {
     margin-top: 10px;
     padding: 13px !important;
 }
-.div-item-serie label{
+
+.div-item-serie label {
     cursor: default !important;
     float: left;
     height: auto;
     line-height: 20px;
 }
+
 /*****************tab +informações*******************/
 .container-tabs-form {
     min-height: 630px;
@@ -514,7 +531,7 @@ a{
     display: block;
 }
 
-.texto-info{
+.texto-info {
     font-size: 1rem;
     color: #9e9e9e;
     padding-left: 35px !important;
@@ -542,10 +559,12 @@ a{
 .list-opcionals p {
     word-break: break-all !important;
 }
-.div-vendedor{
+
+.div-vendedor {
     margin-top: 20px;
 }
-.icon-vendedor{
+
+.icon-vendedor {
     position: relative;
     top: 6px;
 }
@@ -637,17 +656,20 @@ a{
 .info_return_search h3:hover {
     color: #1d7d74;
 }
+
 /*Contact Form 7*/
 .screen-reader-response, .wpcf7-not-valid-tip {
     display: none;
 }
-.required-fields{
+
+.required-fields {
     color: #888888;
     font-size: 12px;
     text-align: center;
 
 }
-.wpcf7-response-output{
+
+.wpcf7-response-output {
     color: #888888;
     font-size: 12px;
     text-align: center;
@@ -657,56 +679,150 @@ a{
 
 /**** Pagination ***/
 .paginacao {
-    clear:both;
+    clear: both;
     padding: 20px 0;
-    position:relative;
-    margin-left:10px;
+    position: relative;
+    margin-left: 10px;
 }
-.paginacao span, .paginacao a,.paginacao .current, .paginacao .current a{
-    font-size:18px !important;
+
+.paginacao span, .paginacao a, .paginacao .current, .paginacao .current a {
+    font-size: 18px !important;
     padding: 4px 7px;
     margin: 1px 2px 0 2px;
     text-transform: capitalize;
 }
+
 .paginacao span, .paginacao a {
-    display:block;
-    float:left;
+    display: block;
+    float: left;
     background: #26a69a;
     color: #FFF !important;
-    border:1px solid #FFF;
+    border: 1px solid #FFF;
 }
+
 .paginacao .current, .paginacao .current a {
     color: #1f7b70 !important;
     background: #f0f0f0;
 }
-.paginacao a:hover{
-    text-decoration:none !important;
-    background:#26a69a;
-    border:1px solid #CCC;
+
+.paginacao a:hover {
+    text-decoration: none !important;
+    background: #26a69a;
+    border: 1px solid #CCC;
 }
-.title-archive{
+
+.title-archive {
     font-size: 30px;
+}
+
+/*select2 searchform*/
+
+.select2-container--default .select2-selection--single {
+    height: 38px;
+    border: 0 solid #9e9e9e;
+    border-bottom-width: 1px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    height: 38px;
+    line-height: 38px;
+    text-align: left;
+    color: #9e9e9e;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 92%;
+}
+
+.select2-results__option {
+    color: #fff;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #1e847a;
+    color: #fff;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background: #1e847a;
+}
+
+.select2-dropdown {
+    background: #26a69a;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 4px 12px;
+}
+
+.select2-results {
+    text-align: center;
+}
+
+.select2-search--dropdown input {
+    background-color: #fff !important;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 20px !important;
+    width: inherit !important;
+    font-size: inherit !important;
+    margin: 0 !important;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+
+}
+
+
+.input-searchform{
+    margin-top: 0;
+}
+.input-searchform input{
+    height: 38px !important;
+}
+
+.input-searchform label{
+    font-size: 14px !important;
+}
+
+.input-searchform button{
+    display: block;
+    margin: 0 auto;
 }
 
 
 /*search form blog*/
-.div-searchform-blog{
+.div-searchform-blog {
     text-align: center;
 }
 
-input[type=search] {
+#searchform-blog input[type=search] {
+    height: 10px !important;
     -webkit-appearance: textfield;
     -webkit-box-sizing: content-box;
     font-family: inherit;
     font-size: 100%;
     border-bottom: none !important;
 }
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button {
+
+#searchform-blog input::-webkit-search-decoration,
+#searchform-blog input::-webkit-search-cancel-button {
     display: none;
 }
 
-input[type=search] {
+#searchform-blog input[type=search] {
     background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
     border: solid 1px #ccc;
     padding: 9px 10px 9px 32px;
@@ -720,33 +836,35 @@ input[type=search] {
     -moz-transition: all .5s;
     transition: all .5s;
 }
-input[type=search]:focus {
+
+#searchform-blog input[type=search]:focus {
     width: 130px;
     background-color: #fff;
     border-color: #66CC75;
 
-    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-    box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5);
 }
 
-
-input:-moz-placeholder {
-    color: #999;
-}
-input::-webkit-input-placeholder {
+#searchform-blog input:-moz-placeholder {
     color: #999;
 }
 
+#searchform-blog input::-webkit-input-placeholder {
+    color: #999;
+}
 
 #searchform-blog input[type=search] {
     width: 50px;
     color: transparent;
     cursor: pointer;
 }
+
 #searchform-blog input[type=search]:hover {
     background-color: #fff;
 }
+
 #searchform-blog input[type=search]:focus {
     width: 130px;
     padding-left: 32px;
@@ -754,12 +872,15 @@ input::-webkit-input-placeholder {
     background-color: #fff;
     cursor: auto;
 }
+
 #searchform-blog input:-moz-placeholder {
     color: transparent;
 }
+
 #searchform-blog input::-webkit-input-placeholder {
     color: transparent;
 }
+
 .content-sobre p {
     line-height: 30px;
 }
@@ -781,19 +902,20 @@ input::-webkit-input-placeholder {
 
 }
 
-
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 600px) {
-    .description-vehicle h1, .price-veiculo{
+    .description-vehicle h1, .price-veiculo {
         text-align: center;
     }
-    .description-vehicle, .description-vehicle p{
+
+    .description-vehicle, .description-vehicle p {
         border: none;
     }
 
-    .img-slide-full{
+    .img-slide-full {
         margin: 0 auto;
     }
+
     .anuncie-mobile {
         display: block;
         margin: 20px auto;

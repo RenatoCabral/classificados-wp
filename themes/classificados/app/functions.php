@@ -143,41 +143,6 @@ function get_item_series(){
 
 }
 
-/*função que carrega os estados*/
-function get_uf() {
-	$options = [
-		'AC'               => 'Acre',
-		'AL'            => 'Alagoas',
-		'AP'              => 'Amapá',
-		'AM'           => 'Amazonas',
-		'BA'              => 'Bahia ',
-		'CE'              => 'Ceará',
-		'DF'   => 'Distrito Federal',
-		'ES'     => 'Espírito Santo',
-		'GO'              => 'Goiás',
-		'MA'           => 'Maranhão',
-		'MT'        => 'Mato Grosso',
-		'MS' => 'Mato Grosso do Sul',
-		'MG'       => 'Minas Gerais',
-		'PA'               => 'Pará',
-		'PB'            => 'Paraíba',
-		'PR'             => 'Paraná',
-		'PE'         => 'Pernambuco',
-		'PI'              => 'Piauí',
-		'RJ'     => 'Rio de Janeiro',
-		'RN'                 => 'Rio Grande do Norte',
-		'RS'  => 'Rio Grande do Sul',
-		'RO'           => 'Rôndonia',
-		'RR'            => 'Roraima',
-		'SC'     => 'Santa Catarina',
-		'SP'          => 'São Paulo',
-		'SE'            => 'Sergipe',
-		'TO'          => 'Tocantins'
-	];
-
-	return $options;
-}
-
 function admin_scripts(){
     //https://pt.stackoverflow.com/questions/186880/formul%C3%A1rio-ajax-javascript-e-php/186923
     global $typenow;
@@ -238,7 +203,7 @@ function admin_scripts(){
 
 <?php }
 }
-//Paginacao
+
 function post_pagination($pages = '', $range = 2) {
 	$showitems = ($range * 2)+1;
 
@@ -271,3 +236,60 @@ function post_pagination($pages = '', $range = 2) {
 	}
 }
 
+function get_cities_by_ajax() {
+	?>
+	<script>
+		var ajaxurl = "<?= admin_url('admin-ajax.php'); ?>";
+		jQuery('#estado').on('change', function () {
+			jQuery('#cidade').html('').append('<option value="-1">Carregando...</option>');
+			var state = jQuery('#estado').val();
+			var data = {
+				action: 'get_valid_cities_by_state_id',
+				state_id: state
+			};
+
+			jQuery.ajax({
+				url: ajaxurl,
+                type: 'post',
+                data: data,
+				success: function (response) {
+				    console.log('SUCCESS');
+				    console.log(response);
+					jQuery('#cidade').html('');
+				    jQuery('#cidade').append('<option value="-1">Selecione uma Cidade</option>');
+				    response = jQuery.parseJSON(response);
+
+				    var option = '';
+				    jQuery.each(response, function(index, data){
+				    	option += '<option value="' + data+ '">'+ data + '</option>';
+				    	                    jQuery('#cidade').append(option);
+
+
+					});
+				 },
+				error: function (response) {
+                    console.log('ERROR');
+                    console.log(response)
+                }
+             });
+        });
+	</script>
+<?php }
+
+function get_valid_cities_by_state_id() {
+	global $wpdb;
+	$tablename = $wpdb->prefix . 'br_la_city';
+	$state     = isset( $_POST[ 'state_id' ] ) ? intval($_POST[ 'state_id' ]) : '';
+
+	$sql        = "SELECT nome from $tablename where estado = $state";
+	$all_cities = $wpdb->get_col( $sql );
+
+
+	$sql_cities   = "SELECT DISTINCT meta_value from $wpdb->postmeta WHERE meta_key = 'br_la_city' and meta_value <> ''";
+	$valid_cities = $wpdb->get_col( $sql_cities );
+
+	$result = array_intersect( $valid_cities, $all_cities );
+
+	echo json_encode( $result );
+	die;
+}

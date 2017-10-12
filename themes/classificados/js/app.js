@@ -7,10 +7,8 @@ $(".button-collapse").sideNav();
 $(document).ready(function () {
     makeMasks();
     makeActiveMenu();
-    $('select').material_select();
 
-    $('.modal').modal();
-
+    jQuery('.select-searchform').select2();
 
     $('.collapsible').collapsible();
 });

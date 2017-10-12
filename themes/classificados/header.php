@@ -14,12 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/materialize.css" media="screen,projection">
 
-
-<!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/material-icons.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/slick.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/slick-theme.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/classicarros.css">
     <?php wp_head(); ?>
 </head>
