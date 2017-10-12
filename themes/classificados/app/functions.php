@@ -11,7 +11,6 @@ function handler_options($name, $options, $selected){ ?>
     echo ' </select>';
 }
 
-
 function get_colors() {
     $colors = [
         'Amarelo'       => 'Amarelo',
@@ -40,7 +39,6 @@ function get_colors() {
 
     return $colors;
 }
-
 
 function get_motors() {
     $motors = [
@@ -145,7 +143,6 @@ function get_item_series(){
 
 }
 
-
 /*função que carrega os estados*/
 function get_uf() {
 	$options = [
@@ -180,8 +177,6 @@ function get_uf() {
 
 	return $options;
 }
-
-
 
 function admin_scripts(){
     //https://pt.stackoverflow.com/questions/186880/formul%C3%A1rio-ajax-javascript-e-php/186923

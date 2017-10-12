@@ -2,10 +2,7 @@
     <div class="row">
         <div class="col s12 m9 l9 ">
             <div class="item-slider slider-home ">
-                <img src="<?php bloginfo( 'template_directory' ) ?>/img/car_01.jpg" alt="">
-                <img src="<?php bloginfo( 'template_directory' ) ?>/img/car_02.jpg" alt="">
-                <img src="<?php bloginfo( 'template_directory' ) ?>/img/car_03.jpg" alt="">
-                <img src="<?php bloginfo( 'template_directory' ) ?>/img/car_04.jpg" alt="">
+                <?php render_slide_home(); ?>
             </div>
         </div>
         <div class="col s12 m3 l3 div-anuncie-home">

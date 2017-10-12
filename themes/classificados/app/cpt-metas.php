@@ -9,8 +9,6 @@ function meta_box_veiculo() {
 }
 
 
-
-
 /*função que irá renderizar as informações do veiculo*/
 
 /*****detalhes veiculo****/
@@ -112,10 +110,44 @@ function save_meta_veiculo( $post_id ) {
 
 	foreach ( $items as $item => $value ) {
 
-        ${"{$item}"} = isset($_POST[ "{$item}"])  ? '1' : '0';
-        update_post_meta( $post_id, "{$item}", ${"{$item}"} );
+		${"{$item}"} = isset( $_POST["{$item}"] ) ? '1' : '0';
+		update_post_meta( $post_id, "{$item}", ${"{$item}"} );
 
 	}
 
 
+}
+
+
+//Slides
+function add_slide_details_to_admin() {
+	add_meta_box( 'sliders_details', 'Link', 'render_slider_details', 'sliders', 'normal',
+		'high' );
+}
+
+function render_slider_details( $post ) {
+	$link = get_post_meta( $post->ID, 'link', true );
+	$open_target_blank_slide = get_post_meta( $post->ID, 'open-target-blank-slide', true );
+
+	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+	require 'partials/admin/slide-home.php';
+}
+
+function update_slide_details( $post_id ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_post' ) ) {
+		return;
+	}
+
+	update_post_meta( $post_id, 'link', $_POST['link'] );
+	$open_target_blank_slide = ( isset( $_POST['open-target-blank-slide'] ) && $_POST['open-target-blank-slide'] == '_blank' ) ? '_blank' : '_self';
+	update_post_meta( $post_id, 'open-target-blank-slide', $open_target_blank_slide );
+	return;
 }

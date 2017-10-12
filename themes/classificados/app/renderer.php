@@ -1,4 +1,27 @@
 <?php
+function render_slide_home() {
+	$query = new WP_Query(
+		[
+			'post_type'      => 'sliders',
+			'post_status'    => 'publish',
+			'posts_per_page' => - 1,
+		]
+	);
+	while ( $query->have_posts() ) {
+		$query->the_post();
+		$thumb_id  = get_post_thumbnail_id( get_the_ID() );
+		$thumb_url = wp_get_attachment_image_src( $thumb_id, 'slide-home' );
+		$link      = get_post_meta( get_the_ID(), 'link', true );
+		$target    = get_post_meta( get_the_ID(), 'open-target-blank-slide', true );
+		?>
+
+        <a style="<?= empty( $link ) ? 'cursor:default;' : '' ?>" href="<?= ! empty( $link ) ? $link : '#' ?>"
+           target="<?= $target ?>">
+            <img class="responsive-img" src="<?= $thumb_url[0]; ?>">
+        </a>
+	<?php }
+	wp_reset_query();
+}
 
 function render_blog( $img_src ) {
 	?>
@@ -13,13 +36,13 @@ function render_blog( $img_src ) {
             <div class="card-content news_paragraph">
                 <span class="card-title activator grey-text text-darken-4">
                     <a href="<?php the_permalink(); ?>"></a>
-                    <?php the_title(); ?>
+	                <?php the_title(); ?>
                 </span>
             </div>
         </div>
     </div>
 
-<?php
+	<?php
 }
 
 function display_itens_de_serie( $post_id ) {
