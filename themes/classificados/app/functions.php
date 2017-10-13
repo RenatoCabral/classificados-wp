@@ -166,6 +166,9 @@ function admin_scripts(){
            .item-modelo .select2{
                 width: 150px !important;
            }
+           .item-ano .select2{
+                width: 120px !important;
+           }
             .item-detalhes{
                 display: inline-block;
                 margin-right: 15px;
@@ -181,11 +184,12 @@ function admin_scripts(){
         jQuery(document).ready(function() {
             fipeMarcas();
             fipeModelos();
-//            fipeAno();
+            fipeAno();
             mask();
             jQuery('.select-localizacao').select2();
             jQuery('.marca').select2();
             jQuery('.modelo').select2();
+            jQuery('.ano').select2();
 
         });
 
@@ -224,7 +228,8 @@ function admin_scripts(){
             fipeModelos()
         });
          jQuery(document).on('change','.modelo', function () {
-//            fipeAno()
+               jQuery('.ano').html('').select2({data: {id:null, text: null}});
+                fipeAno()
         });
 
         function fipeModelos(){
@@ -235,11 +240,8 @@ function admin_scripts(){
 
                if(marca === undefined){
                      marca = jQuery('.marca').data('marca-selected').split(/-([^-]*)$/)[1];
-
-
                }
-             console.log('marca: '+marca);
-             console.log('modeloSelected: '+modeloSelected);
+
 
             var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca+".json");
             jQuery.ajax({
@@ -266,39 +268,47 @@ function admin_scripts(){
             });
         }
 
-//        function fipeAno(){
-//            var anoSelected = jQuery('.ano').data('ano-selected');
-//            var modeloId = jQuery('.modelo').data('modelo-selected');
-//
-//            var modelo = modeloId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
-//
-//             console.log('modelo: '+modelo);
-//
-////            var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculos/"+modelo+".json");
-////            jQuery.ajax({
-////                url: URL,
-////                type: 'post',
-////                dataType: "jsonp",
-////                cache: false,
-////                success: function (response) {
-////                    console.log('SUCCESS');
-////                    var data = response.contents;
-////                    console.log(data);
-////                    var option = '';
-////                    data = jQuery.parseJSON(data);
-////                    jQuery.each(data, function(i, item) {
-////                        var selected = anoSelected === item.name ? 'selected' : '';
-////                        option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
-////                    });
-////                    jQuery('.ano').append(option);
-////
-////                },
-////                error: function (response) {
-////                    console.log('ERROR modelo');
-////                    console.log(response)
-////                }
-////            });
-//        }
+        function fipeAno(){
+           var marcaId = jQuery('.marca').val();
+           var anoSelected = jQuery('.ano').data('ano-selected'); // pega o modelo selecionado
+           var modeloId = jQuery('.modelo').val();
+
+           var marca = marcaId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
+
+           if(marca === undefined){
+                marca = jQuery('.marca').data('marca-selected').split(/-([^-]*)$/)[1];
+           }
+
+           var modelo = modeloId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
+
+           if(modelo === undefined){
+                 modelo = jQuery('.modelo').data('modelo-selected').split(/-([^-]*)$/)[1];
+           }
+
+              var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculo/"+marca+"/"+modelo+".json");
+              console.log(URL);
+               jQuery.ajax({
+               url: URL,
+               type: 'post',
+               dataType: "jsonp",
+               cache: false,
+               success: function (response) {
+                   console.log('SUCCESS');
+                   var data = response.contents;
+                   var option = '';
+                   data = jQuery.parseJSON(data);
+                   jQuery.each(data, function(i, item) {
+                       var selected = anoSelected === item.name ? 'selected' : '';
+                       option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
+                   });
+                   jQuery('.ano').append(option);
+               },
+               error: function (response) {
+                   console.log('ERROR ano');
+                   console.log(response)
+               }
+            });
+        }
 
 
         function mask(){

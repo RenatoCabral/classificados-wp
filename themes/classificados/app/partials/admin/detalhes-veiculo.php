@@ -53,9 +53,8 @@ $conservations = get_conservations();
 
 <p class="item-detalhes item-ano">
     <label>Ano</label>
-    <select name="year" class="year" data-ano-selected="<?= $year; ?>">
+    <select name="year" class="ano" data-ano-selected="<?= $year; ?>">
         <option value="">Selecione</option>
-
     </select>
 </p>
 
