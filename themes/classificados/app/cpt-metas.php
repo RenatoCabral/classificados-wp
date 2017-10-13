@@ -30,6 +30,7 @@ function render_data_meta_box() {
 	$conservation = get_post_meta( $post_id, 'conservation', true );
 	$final_place  = get_post_meta( $post_id, 'final_place', true );
 	$motor        = get_post_meta( $post_id, 'motor', true );
+	$manufacturer = get_post_meta( $post_id, 'manufacturer', true );
 	$model        = get_post_meta( $post_id, 'model', true );
 
 
@@ -102,6 +103,8 @@ function save_meta_veiculo( $post_id ) {
 	update_post_meta( $post_id, 'conservation', $_POST['conservation'] );
 	update_post_meta( $post_id, 'final_place', $_POST['final_place'] );
 	update_post_meta( $post_id, 'motor', $_POST['motor'] );
+	update_post_meta( $post_id, 'manufacturer', $_POST['manufacturer'] );
+
 	update_post_meta( $post_id, 'model', $_POST['model'] );
 	update_post_meta( $post_id, 'obs', $_POST['obs'] );
 
@@ -126,7 +129,7 @@ function add_slide_details_to_admin() {
 }
 
 function render_slider_details( $post ) {
-	$link = get_post_meta( $post->ID, 'link', true );
+	$link                    = get_post_meta( $post->ID, 'link', true );
 	$open_target_blank_slide = get_post_meta( $post->ID, 'open-target-blank-slide', true );
 
 	wp_nonce_field( 'my_meta_box_nonce1', 'meta_box_nonce1' );
@@ -149,5 +152,6 @@ function update_slide_details( $post_id ) {
 	update_post_meta( $post_id, 'link', $_POST['link'] );
 	$open_target_blank_slide = ( isset( $_POST['open-target-blank-slide'] ) && $_POST['open-target-blank-slide'] == '_blank' ) ? '_blank' : '_self';
 	update_post_meta( $post_id, 'open-target-blank-slide', $open_target_blank_slide );
+
 	return;
 }

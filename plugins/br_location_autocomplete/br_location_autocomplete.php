@@ -183,8 +183,8 @@ function save_location_meta_boxes( $post_id ) {
 		return;
 	}
 
-	$state      =  $_POST['br_la_state']  ;
-	$city       =  $_POST['br_la_city'] ;
+	$state = isset( $_POST['br_la_state'] ) ? $_POST['br_la_state'] : '';
+	$city  = isset( $_POST['br_la_city'] ) ? $_POST['br_la_city'] : '';
 
 	update_post_meta( $post_id, 'br_la_state', $state );
 	update_post_meta( $post_id, 'br_la_city', $city );

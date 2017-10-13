@@ -65,18 +65,16 @@
                 </div>
 
                 <div class="col s12 m2 l2">
-					<?php wp_dropdown_categories(
-						[
-							'show_option_none' => 'Fabricante',
-							'selected'         => - 1,
-							'taxonomy'         => 'fabricante',
-							'name'             => 'fabricante',
-							'value_field'      => 'term_id',
-							'orderby'          => 'name',
-							'hide_empty'       => true,
-							'class'            => 'select-searchform'
-						]
-					); ?>
+	                <?php
+	                global $wpdb;
+	                $fabricantes = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'manufacturer'" );
+	                ?>
+
+                    <select name="fabricante" id="fabricante" class="select-searchform">
+                        <option value="-1">Fabricante</option>
+		                <?php foreach ( $fabricantes as $fabricante ) { ?>
+                            <option value="<?= $fabricante ?>"><?= $fabricante ?></option>
+		                <?php } ?>
                 </div>
 
             </div>

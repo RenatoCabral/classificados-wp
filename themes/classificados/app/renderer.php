@@ -130,7 +130,7 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
             </p>
         </div>
 	<?php }
-	if ( $fabricante != '' ) { ?>
+	if ( ! empty( $fabricante ) ) { ?>
         <div class=" col s12 m6 l6 vehicle-details">
             <p>
                 <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Fabricante:</strong> <?= $fabricante ?>
@@ -362,21 +362,19 @@ function render_search_veiculo( $code = '' ) {
 			$query_categoria = [ 'categoria' => $categoria ];
 			$final_query     = array_merge( $final_query, $query_categoria );
 		}
-		if ( $fabricante != '-1' ) {
-			$query_fabricante = [ 'fabricante' => $fabricante ];
-			$final_query      = array_merge( $final_query, $query_fabricante );
-		}
 
 		//post meta de ano
 		$has_ano           = false;
 		$has_estado        = false;
 		$has_cidade        = false;
 		$has_conservacao   = false;
+		$has_fabricante        = false;
 		$has_modelo        = false;
 		$query_ano         = '';
 		$query_estado      = '';
 		$query_cidade      = '';
 		$query_conservacao = '';
+		$query_fabricante      = '';
 		$query_modelo      = '';
 		if ( $ano != '-1' ) {
 			$query_ano = [ 'key' => 'year', 'compare' => '==', 'value' => $ano ];
@@ -401,13 +399,18 @@ function render_search_veiculo( $code = '' ) {
 			$has_conservacao   = true;
 		}
 
+
+		//post meta de fabricante
+		if ( $fabricante != '-1' ) {
+			$query_fabricante = [ 'key' => 'manufacturer', 'compare' => '==', 'value' => $fabricante ];
+			$has_fabricante   = true;
+		}
+
 		//post meta de modelo
 		if ( $modelo != '-1' ) {
 			$query_modelo = [ 'key' => 'model', 'compare' => '==', 'value' => $modelo ];
 			$has_modelo   = true;
 		}
-
-
 
 
 		$metas = [];

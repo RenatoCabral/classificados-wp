@@ -43,8 +43,24 @@ $conservations = get_conservations();
 </p>
 
 <p class="item-detalhes">
+    <label>Marca</label>
+    <select name="manufacturer" class="marca" data-marca-selected="<?= $manufacturer; ?>">
+        <option value="">Selecione</option>
+    </select>
+</p>
+
+<!--<p class="item-detalhes">-->
+<!--    <label>Modelo</label>-->
+<!--    <input type="text" name="model" id="modelo" placeholder="Focus" value="--><?//= $model ?><!--">-->
+<!--</p>-->
+
+
+<p class="item-detalhes">
     <label>Modelo</label>
-    <input type="text" name="model" id="modelo" placeholder="Focus" value="<?= $model ?>">
+    <select name="model" class="model">
+        <option value="">Selecione</option>
+
+    </select>
 </p>
 
 <p class="item-detalhes">

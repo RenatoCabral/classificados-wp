@@ -173,11 +173,41 @@ function admin_scripts(){
         <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
         <script>
         jQuery(document).ready(function() {
+            fipeMarcas();
             autoComplete();
             mask();
             jQuery('.select-localizacao').select2();
 
         });
+
+        function fipeMarcas(){
+            var marcaSelected = jQuery('.marca').data('marca-selected');
+
+            var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/marcas.json");
+            jQuery.ajax({
+                url: URL,
+                dataType: "jsonp",
+                cache: false,
+                success: function (response) {
+                    console.log('SUCCESS');
+                    var data = response.contents;
+                    console.log(data);
+                    var option = '';
+                    data = jQuery.parseJSON(data);
+                    jQuery.each(data, function(i, item) {
+                        var selected = marcaSelected === item.name ? 'selected' : '';
+                        option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
+                    });
+                    jQuery('.marca').append(option);
+
+                },
+                error: function (response) {
+                    console.log('ERROR marca');
+                    console.log(response)
+                }
+            });
+        }
+
 
         function mask(){
              jQuery('#ano').mask('0000');
@@ -197,7 +227,7 @@ function admin_scripts(){
                     modelo.splice(i,1);
                     i--;
                 }
-                console.log(modelo[i]);
+//                console.log(modelo[i]);
             }
             jQuery("#modelo").autocomplete({source:modelo});
         }

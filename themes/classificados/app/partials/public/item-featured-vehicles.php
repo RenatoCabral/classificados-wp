@@ -3,7 +3,7 @@
 $post_id    = get_the_ID();
 $price      = get_post_meta( $post_id, 'price', true );
 $km         = get_post_meta( $post_id, 'km', true );
-$fabricante = get_the_terms( $post_id, 'fabricante' );
+$fabricante = get_post_meta( $post_id, 'manufacturer', true );
 $year       = get_post_meta( $post_id, 'year', true );
 
 
@@ -31,7 +31,7 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
                 <p class="price">R$ <?= number_format( $price, 2, ',', '.' ); ?></p>
                 <p><?= the_title() ?></p>
                 <p><?= $km ?> Km</p>
-                <p><?= $fabricante[0]->name ?> - <?= $year ?></p>
+                <p><?= $fabricante ?> - <?= $year ?></p>
             </a>
         </div>
     </div>

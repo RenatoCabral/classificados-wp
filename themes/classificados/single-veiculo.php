@@ -14,7 +14,7 @@ setPostViews( $post_id );
                 </div>
 
 				<?php
-				$fabricante = is_array( $fabricante ) ? $fabricante[0]->name : '';
+
 				$categoria  = is_array( $categorias ) ? $categorias[0]->name : '';
 				display_details( $year, $km, $color, $doors, $fuel, $exchange, $conservation, $final_place, $motor, $post_id, $fabricante, $model, $uf, $city, $categoria ); ?>
             </div>
