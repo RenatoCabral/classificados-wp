@@ -160,6 +160,12 @@ function admin_scripts(){
                 margin: 8px;
                 display: inline-block;
             }
+            .item-marca .select2{
+                width: 130px !important;
+           }
+           .item-modelo .select2{
+                width: 150px !important;
+           }
             .item-detalhes{
                 display: inline-block;
                 margin-right: 15px;
@@ -174,9 +180,11 @@ function admin_scripts(){
         <script>
         jQuery(document).ready(function() {
             fipeMarcas();
-            autoComplete();
+            fipeModelos();
             mask();
             jQuery('.select-localizacao').select2();
+            jQuery('.marca').select2();
+            jQuery('.modelo').select2();
 
         });
 
@@ -189,14 +197,14 @@ function admin_scripts(){
                 dataType: "jsonp",
                 cache: false,
                 success: function (response) {
-                    console.log('SUCCESS');
                     var data = response.contents;
-                    console.log(data);
                     var option = '';
                     data = jQuery.parseJSON(data);
                     jQuery.each(data, function(i, item) {
-                        var selected = marcaSelected === item.name ? 'selected' : '';
-                        option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
+                        var selected = marcaSelected === item.id ? 'selected' : '';
+                        option += '<option '+selected+'  value="' + item.id+ '">'+ item.name + '</option>';
+
+
                     });
                     jQuery('.marca').append(option);
 
@@ -209,29 +217,45 @@ function admin_scripts(){
         }
 
 
+        jQuery('.marca').on('change', function () {
+            fipeModelos()
+        });
+
+        function fipeModelos(){
+            var modeloSelected = jQuery('.modelo').data('modelo-selected');
+            var marca = jQuery('.marca').data('marca-selected');
+             console.log('marca: '+marca);
+
+            var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca+".json");
+            jQuery.ajax({
+                url: URL,
+                type: 'post',
+                dataType: "jsonp",
+                cache: false,
+                success: function (response) {
+                    console.log('SUCCESS');
+                    var data = response.contents;
+                    console.log(data);
+                    var option = '';
+                    data = jQuery.parseJSON(data);
+                    jQuery.each(data, function(i, item) {
+                        var selected = modeloSelected === item.name ? 'selected' : '';
+                        option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
+                    });
+                    jQuery('.modelo').append(option);
+
+                },
+                error: function (response) {
+                    console.log('ERROR modelo');
+                    console.log(response)
+                }
+            });
+        }
+
+
         function mask(){
              jQuery('#ano').mask('0000');
         }
-
-        function autoComplete(){
-            //autocompletar os modelos de veículos
-            <?php
-                global $wpdb;
-	            $modelo = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'model'" );
-	        ?>
-            var modelo = <?= json_encode( $modelo ); ?>;
-            var i;
-
-            for(i=0;i<modelo.length;i++){
-                if(modelo[i] == null){
-                    modelo.splice(i,1);
-                    i--;
-                }
-//                console.log(modelo[i]);
-            }
-            jQuery("#modelo").autocomplete({source:modelo});
-        }
-
 
 
     </script>
