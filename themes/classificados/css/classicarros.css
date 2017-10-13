@@ -802,7 +802,9 @@ select {
     margin: 0 auto;
 }
 
-
+.select2-container--default .select2-results>.select2-results__options{
+    max-height: 224px !important;
+}
 /*search form blog*/
 .div-searchform-blog {
     text-align: center;

@@ -84,45 +84,45 @@
             <div class="row div-item-input-search-form">
                 <div class="col s12 m2 l2">
 
-	                <?php
-	                global $wpdb;
-	                $modelos = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'model'" );
-	                ?>
+					<?php
+					global $wpdb;
+					$modelos = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'model'" );
+					?>
 
                     <select name="modelo" id="modelo" class="select-searchform">
                         <option value="-1">Modelos</option>
-		                <?php foreach ( $modelos as $modelo ) { ?>
+						<?php foreach ( $modelos as $modelo ) { ?>
                             <option value="<?= $modelo ?>"><?= $modelo ?></option>
-		                <?php } ?>
+						<?php } ?>
 
                     </select>
                 </div>
 
                 <div class=" col s12 m2 l2">
-	                <?php
-	                global $wpdb;
-	                $anos = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'year'" );
-	                ?>
+					<?php
+					global $wpdb;
+					$anos = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'year'" );
+					?>
 
                     <select name="ano" id="ano" class="select-searchform">
                         <option value="-1">Ano</option>
-		                <?php foreach ( $anos as $ano ) { ?>
+						<?php foreach ( $anos as $ano ) { ?>
                             <option value="<?= $ano ?>"><?= $ano ?></option>
-		                <?php } ?>
+						<?php } ?>
 
                     </select>
                 </div>
 
 
                 <div class="col s12 m2 l2">
-                    <select name="price_min" id="price_min" class="price_min select-searchform">
-                        <option value="-1">Valor Mínimo</option>
-                    </select>
-                </div>
-
-                <div class="col s12 m2 l2">
-                    <select name="price_max" id="price_max" class="price_max select-searchform">
+                    <select name="price_max" id="price_max" class="select-searchform">
                         <option value="-1">Valor Máximo</option>
+                        <option value="20000">R$ 20.000</option>
+                        <option value="30000">R$ 30.000</option>
+                        <option value="40000">R$ 40.000</option>
+                        <option value="50000">R$ 50.000</option>
+                        <option value="100000">R$ 100.000</option>
+                        <option value="999999">+ que R$ 100.000</option>
                     </select>
                 </div>
 

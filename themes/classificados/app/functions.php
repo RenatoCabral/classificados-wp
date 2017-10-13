@@ -1,4 +1,9 @@
 <?php
+function define_ajaxurl() { ?>
+	<script type="text/javascript">
+		var ajaxurl = '<?=admin_url('admin-ajax.php'); ?>';
+	</script>
+<?php }
 
 function handler_options($name, $options, $selected){ ?>
     <select required name="<?= $name ?>">
@@ -236,46 +241,6 @@ function post_pagination($pages = '', $range = 2) {
 	}
 }
 
-function get_cities_by_ajax() {
-	?>
-	<script>
-		var ajaxurl = "<?= admin_url('admin-ajax.php'); ?>";
-		jQuery('#estado').on('change', function () {
-			jQuery('#cidade').html('').append('<option value="-1">Carregando...</option>');
-			var state = jQuery('#estado').val();
-			var data = {
-				action: 'get_valid_cities_by_state_id',
-				state_id: state
-			};
-
-			jQuery.ajax({
-				url: ajaxurl,
-                type: 'post',
-                data: data,
-				success: function (response) {
-				    console.log('SUCCESS');
-				    console.log(response);
-					jQuery('#cidade').html('');
-				    jQuery('#cidade').append('<option value="-1">Selecione uma Cidade</option>');
-				    response = jQuery.parseJSON(response);
-
-				    var option = '';
-				    jQuery.each(response, function(index, data){
-				    	option += '<option value="' + data+ '">'+ data + '</option>';
-				    	                    jQuery('#cidade').append(option);
-
-
-					});
-				 },
-				error: function (response) {
-                    console.log('ERROR');
-                    console.log(response)
-                }
-             });
-        });
-	</script>
-<?php }
-
 function get_valid_cities_by_state_id() {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'br_la_city';
@@ -293,3 +258,38 @@ function get_valid_cities_by_state_id() {
 	echo json_encode( $result );
 	die;
 }
+
+
+
+function get_models_by_manufacturer() {
+	if ( isset( $_POST['fabricante'] ) ) {
+		$posts = new WP_Query([
+			'post_type'   => 'veiculo',
+			'post_status' => 'publish',
+			'posts_per_page' => -1,
+			'tax_query'   =>
+				[
+					[
+						'taxonomy' => 'fabricante',
+						'field'    => 'term_id',
+						'terms'    => $_POST['fabricante']
+					]
+				]
+		]);
+
+		$models = [];
+		$output = '<option value="">Modelo</option>';
+		while ( $posts->have_posts() ) : $posts->the_post();
+			$model = get_post_meta( get_the_ID(), 'model', true );
+			if ( ! empty( $model ) ) {
+				if ( ! in_array( $model, $models ) ) {
+					$output .= '<option value="' . $model . '">' . $model . '</option>';
+					$models[] = $model;
+				}
+			}
+		endwhile;
+		echo $output;
+	}
+	exit;
+}
+

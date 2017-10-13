@@ -4,7 +4,7 @@ function render_slide_home() {
 		[
 			'post_type'      => 'sliders',
 			'post_status'    => 'publish',
-			'posts_per_page' => - 1,
+			'posts_per_page' => '-1',
 		]
 	);
 	while ( $query->have_posts() ) {
@@ -312,7 +312,7 @@ function render_search_blog() {
 	post_pagination();
 }
 
-function render_search_veiculo( $code ) {
+function render_search_veiculo( $code = '' ) {
 	if ( ! empty( $code ) ) {
 		$query = new WP_Query( [
 			'post_type'   => 'veiculo',
@@ -339,6 +339,7 @@ function render_search_veiculo( $code ) {
 		<?php }
 	} else {
 
+
 		$estado      = $_GET['estado'];
 		$cidade      = $_GET['cidade'];
 		$conservacao = $_GET['conservacao'];
@@ -351,86 +352,94 @@ function render_search_veiculo( $code ) {
 
 		$final_query = [
 			'post_type'      => 'veiculo',
-			'posts_per_page' => '2',
+			'posts_per_page' => '-1',
 			'paged'          => 1,
 			'post_status'    => 'publish'
 		];
 
 		//taxonomias
-		if ( $categoria != - 1 ) {
-			$query_category = [ 'categoria' => $categoria ];
-			$final_query    = array_merge( $final_query, $query_category );
+		if ( $categoria != '-1' ) {
+			$query_categoria = [ 'categoria' => $categoria ];
+			$final_query     = array_merge( $final_query, $query_categoria );
 		}
-		if ( $fabricante != - 1 ) {
+		if ( $fabricante != '-1' ) {
 			$query_fabricante = [ 'fabricante' => $fabricante ];
 			$final_query      = array_merge( $final_query, $query_fabricante );
 		}
 
 		//post meta de ano
-		if ( $ano != - 1 ) {
-			$query_ano   = [ 'key' => 'year', 'compare' => '==', 'value' => $ano ];
-			$final_query = array_merge( $final_query, $query_ano );
+		$has_ano           = false;
+		$has_estado        = false;
+		$has_cidade        = false;
+		$has_conservacao   = false;
+		$has_modelo        = false;
+		$query_ano         = '';
+		$query_estado      = '';
+		$query_cidade      = '';
+		$query_conservacao = '';
+		$query_modelo      = '';
+		if ( $ano != '-1' ) {
+			$query_ano = [ 'key' => 'year', 'compare' => '==', 'value' => $ano ];
+			$has_ano   = true;
 		}
 
 		//post meta de estado
-		if ( $estado != - 1 ) {
+		if ( $estado != '-1' ) {
 			$query_estado = [ 'key' => 'br_la_state', 'compare' => '==', 'value' => $estado ];
-			$final_query  = array_merge( $final_query, $query_estado );
+			$has_estado   = true;
 		}
 
 		//post meta de cidade
-		if ( $cidade != - 1 ) {
+		if ( $cidade != '-1' ) {
 			$query_cidade = [ 'key' => 'br_la_city', 'compare' => '==', 'value' => $cidade ];
-			$final_query  = array_merge( $final_query, $query_cidade );
+			$has_cidade   = true;
 		}
 
 		//post meta de conservacao
-		if ( $conservacao != - 1 ) {
+		if ( $conservacao != '-1' ) {
 			$query_conservacao = [ 'key' => 'br_la_city', 'compare' => '==', 'value' => $conservacao ];
-			$final_query       = array_merge( $final_query, $query_conservacao );
+			$has_conservacao   = true;
 		}
 
 		//post meta de modelo
-		if ( $modelo != - 1 ) {
+		if ( $modelo != '-1' ) {
 			$query_modelo = [ 'key' => 'model', 'compare' => '==', 'value' => $modelo ];
-			$final_query  = array_merge( $final_query, $query_modelo );
+			$has_modelo   = true;
 		}
 
-		//post meta de precos
-		$has_min         = false;
-		$has_max         = false;
-		$query_price_min = '';
-		$query_price_max = '';
-		if ( $price_min != - 1 ) {
-			$query_price_min = [ 'key' => 'price', 'type' => 'numeric', 'compare' => '>=', 'value' => $price_min ];
-			$has_min         = true;
+
+
+
+		$metas = [];
+		if ( $has_ano && $has_estado && $has_cidade && $has_conservacao && $has_modelo ) {
+			$metas = [
+				'meta_query' => [
+					'relation' => 'AND',
+					$query_ano,
+					$query_estado,
+					$query_cidade,
+					$query_conservacao,
+					$query_modelo
+				]
+			];
 		}
 
-		if ( $price_max != - 1 ) {
-			$query_price_max = [ 'key' => 'price', 'type' => 'numeric', 'compare' => '<=', 'value' => $price_max ];
-			$has_max         = true;
-		}
-		$meta_price = [];
-		if ( $has_min && $has_max ) {
-			$meta_price = [ 'meta_query' => [ 'relation' => 'AND', $query_price_min, $query_price_max ] ];
-		} else if ( $has_min && ! $has_max ) {
-			$meta_price = [ 'meta_query' => [ 'relation' => 'AND', $query_price_min ] ];
-		} else if ( ! $has_min && $has_max ) {
-			$meta_price = [ 'meta_query' => [ 'relation' => 'AND', $query_price_max ] ];
-		}
+		$final_query = array_merge( $final_query, $metas );
 
-		$final_query = array_merge( $final_query, $meta_price );
+
+//		var_dump($final_query); die();
 
 		$search_loop = new WP_Query( $final_query );
 		if ( $search_loop->have_posts() ) {
-		    echo '<h4>qtd de veiculos'. $search_loop->post_count . '</h4>';
+
+			echo '<h4>qtd de veiculos' . $search_loop->post_count . '</h4>';
 			while ( $search_loop->have_posts() ) {
 				$search_loop->the_post();
 				require 'partials/public/item-featured-vehicles.php';
 			}
 			post_pagination();
 		} else {
-			echo '<p>Não há imóveis de acordo com sua pesquisa</p>';
+			echo '<p style="text-align: center">Não há imóveis de acordo com sua pesquisa</p>';
 		}
 	}
 }

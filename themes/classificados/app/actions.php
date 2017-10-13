@@ -25,6 +25,11 @@ add_action( 'init', 'create_categoria_taxonomy' );
 
 add_action('admin_head','admin_scripts');
 
-add_action( 'wp_footer', 'get_cities_by_ajax' );
+add_action( 'wp_head', 'define_ajaxurl' );
+
 add_action( 'wp_ajax_nopriv_get_valid_cities_by_state_id', 'get_valid_cities_by_state_id' );
 add_action( 'wp_ajax_get_valid_cities_by_state_id', 'get_valid_cities_by_state_id' );
+
+add_action( 'wp_ajax_get_models_by_manufacturer', 'get_models_by_manufacturer' );
+add_action( 'wp_ajax_nopriv_get_models_by_manufacturer', 'get_models_by_manufacturer' );
+
