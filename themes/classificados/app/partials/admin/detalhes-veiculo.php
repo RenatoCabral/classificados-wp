@@ -5,12 +5,6 @@
 
 
 <p class="item-detalhes">
-    <label>Ano</label>
-    <input type="text" id="ano" name="year" placeholder="1980" required value="<?= $year ?>">
-</p>
-
-
-<p class="item-detalhes">
     <label>Km</label>
     <input type="text" name="km" placeholder="1000" required value="<?= $km ?>">
 </p>
@@ -52,6 +46,14 @@ $conservations = get_conservations();
 <p class="item-detalhes item-modelo">
     <label>Modelo</label>
     <select name="model" class="modelo" data-modelo-selected="<?= $model; ?>">
+        <option value="">Selecione</option>
+
+    </select>
+</p>
+
+<p class="item-detalhes item-ano">
+    <label>Ano</label>
+    <select name="year" class="year" data-ano-selected="<?= $year; ?>">
         <option value="">Selecione</option>
 
     </select>

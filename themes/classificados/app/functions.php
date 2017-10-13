@@ -181,6 +181,7 @@ function admin_scripts(){
         jQuery(document).ready(function() {
             fipeMarcas();
             fipeModelos();
+//            fipeAno();
             mask();
             jQuery('.select-localizacao').select2();
             jQuery('.marca').select2();
@@ -201,8 +202,8 @@ function admin_scripts(){
                     var option = '';
                     data = jQuery.parseJSON(data);
                     jQuery.each(data, function(i, item) {
-                        var selected = marcaSelected === item.id ? 'selected' : '';
-                        option += '<option '+selected+'  value="' + item.id+ '">'+ item.name + '</option>';
+                        var selected = marcaSelected === item.key ? 'selected' : '';
+                        option += '<option '+selected+'  value="' + item.key+ '">'+ item.name + '</option>';
 
 
                     });
@@ -217,14 +218,28 @@ function admin_scripts(){
         }
 
 
-        jQuery('.marca').on('change', function () {
+
+        jQuery(document).on('change','.marca', function () {
+            jQuery('.modelo').html('').select2({data: {id:null, text: null}});
             fipeModelos()
+        });
+         jQuery(document).on('change','.modelo', function () {
+//            fipeAno()
         });
 
         function fipeModelos(){
-            var modeloSelected = jQuery('.modelo').data('modelo-selected');
-            var marca = jQuery('.marca').data('marca-selected');
+            var modeloSelected = jQuery('.modelo').data('modelo-selected'); // pega o modelo selecionado
+            var marcaId = jQuery('.marca').val();
+
+            var marca = marcaId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
+
+               if(marca === undefined){
+                     marca = jQuery('.marca').data('marca-selected').split(/-([^-]*)$/)[1];
+
+
+               }
              console.log('marca: '+marca);
+             console.log('modeloSelected: '+modeloSelected);
 
             var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca+".json");
             jQuery.ajax({
@@ -235,12 +250,11 @@ function admin_scripts(){
                 success: function (response) {
                     console.log('SUCCESS');
                     var data = response.contents;
-                    console.log(data);
                     var option = '';
                     data = jQuery.parseJSON(data);
                     jQuery.each(data, function(i, item) {
-                        var selected = modeloSelected === item.name ? 'selected' : '';
-                        option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
+                        var selected = modeloSelected === item.key ? 'selected' : '';
+                        option += '<option '+selected+'  value="' + item.key+ '">'+ item.name + '</option>';
                     });
                     jQuery('.modelo').append(option);
 
@@ -251,6 +265,40 @@ function admin_scripts(){
                 }
             });
         }
+
+//        function fipeAno(){
+//            var anoSelected = jQuery('.ano').data('ano-selected');
+//            var modeloId = jQuery('.modelo').data('modelo-selected');
+//
+//            var modelo = modeloId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
+//
+//             console.log('modelo: '+modelo);
+//
+////            var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculos/"+modelo+".json");
+////            jQuery.ajax({
+////                url: URL,
+////                type: 'post',
+////                dataType: "jsonp",
+////                cache: false,
+////                success: function (response) {
+////                    console.log('SUCCESS');
+////                    var data = response.contents;
+////                    console.log(data);
+////                    var option = '';
+////                    data = jQuery.parseJSON(data);
+////                    jQuery.each(data, function(i, item) {
+////                        var selected = anoSelected === item.name ? 'selected' : '';
+////                        option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
+////                    });
+////                    jQuery('.ano').append(option);
+////
+////                },
+////                error: function (response) {
+////                    console.log('ERROR modelo');
+////                    console.log(response)
+////                }
+////            });
+//        }
 
 
         function mask(){
