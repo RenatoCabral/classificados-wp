@@ -347,7 +347,6 @@ function render_search_veiculo( $code = '' ) {
 		$fabricante  = $_GET['fabricante'];
 		$modelo      = $_GET['modelo'];
 		$ano         = $_GET['ano'];
-		$price_min   = $_GET['price_min'];
 		$price_max   = $_GET['price_max'];
 
 		$final_query = [
@@ -376,6 +375,7 @@ function render_search_veiculo( $code = '' ) {
 		$query_conservacao = '';
 		$query_fabricante      = '';
 		$query_modelo      = '';
+
 		if ( $ano != '-1' ) {
 			$query_ano = [ 'key' => 'year', 'compare' => '==', 'value' => $ano ];
 			$has_ano   = true;
@@ -414,7 +414,7 @@ function render_search_veiculo( $code = '' ) {
 
 
 		$metas = [];
-		if ( $has_ano && $has_estado && $has_cidade && $has_conservacao && $has_modelo ) {
+		if ( $has_ano && $has_estado && $has_cidade && $has_conservacao && $has_modelo && $has_fabricante ) {
 			$metas = [
 				'meta_query' => [
 					'relation' => 'AND',
@@ -422,7 +422,8 @@ function render_search_veiculo( $code = '' ) {
 					$query_estado,
 					$query_cidade,
 					$query_conservacao,
-					$query_modelo
+					$query_modelo,
+                    $query_fabricante
 				]
 			];
 		}

@@ -1,3 +1,15 @@
+<?php
+$conservacao = get_conservations();
+global $wpdb;
+$sql_states   = "SELECT DISTINCT meta_value from $wpdb->postmeta WHERE meta_key = 'br_la_state' and meta_value <> ''";
+$valid_states = $wpdb->get_col( $sql_states );
+$tablename    = $wpdb->prefix . 'br_la_state';
+$fabricantes  = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'manufacturer'" );
+$modelos      = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'model'" );
+$anos         = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'year'" );
+
+
+?>
 <div class="container-fluid">
     <div class="row title_div_cars">
         <h5>Busque Rápido</h5>
@@ -9,10 +21,10 @@
         <form class="form-search" action="<?= home_url() ?>" method="get">
             <input type="hidden" name="s" value="-1">
             <input type="hidden" name="post_type" id="post_type" value="veiculo">
+
             <div class="row div-item-input-search-form">
 
                 <div class="col s12 m2 l2">
-					<?php $conservacao = get_conservations(); ?>
                     <select name="conservacao" id="conservacao" class="select-searchform">
                         <option value="-1">Conservação</option>
 
@@ -24,14 +36,8 @@
                 </div>
 
                 <div class="col s12 m2 l2">
-					<?php
-					global $wpdb;
-					$sql_states   = "SELECT DISTINCT meta_value from $wpdb->postmeta WHERE meta_key = 'br_la_state' and meta_value <> ''";
-					$valid_states = $wpdb->get_col( $sql_states );
-					?>
                     <select class="select-searchform" name="estado" id="estado">
 						<?php
-						$tablename = $wpdb->prefix . 'br_la_state';
 						echo '<option value="-1">Estado</option>';
 						foreach ( $valid_states as $key => $value ) {
 							$state = $wpdb->get_var( "SELECT nome from $tablename WHERE id = $value" );
@@ -47,7 +53,6 @@
                 </div>
 
                 <div class=" col s12 m2 l2">
-
 					<?php wp_dropdown_categories(
 						[
 							'show_option_none' => 'Categoria',
@@ -60,33 +65,20 @@
 							'class'            => 'select-searchform'
 						]
 					); ?>
-
-
                 </div>
 
                 <div class="col s12 m2 l2">
-	                <?php
-	                global $wpdb;
-	                $fabricantes = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'manufacturer'" );
-	                ?>
-
                     <select name="fabricante" id="fabricante" class="select-searchform">
                         <option value="-1">Fabricante</option>
-		                <?php foreach ( $fabricantes as $fabricante ) { ?>
+						<?php foreach ( $fabricantes as $fabricante ) { ?>
                             <option value="<?= $fabricante ?>"><?= $fabricante ?></option>
-		                <?php } ?>
+						<?php } ?>
+                    </select>
                 </div>
-
             </div>
 
             <div class="row div-item-input-search-form">
                 <div class="col s12 m2 l2">
-
-					<?php
-					global $wpdb;
-					$modelos = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'model'" );
-					?>
-
                     <select name="modelo" id="modelo" class="select-searchform">
                         <option value="-1">Modelos</option>
 						<?php foreach ( $modelos as $modelo ) { ?>
@@ -96,12 +88,7 @@
                     </select>
                 </div>
 
-                <div class=" col s12 m2 l2">
-					<?php
-					global $wpdb;
-					$anos = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'year'" );
-					?>
-
+                <div class="col s12 m2 l2">
                     <select name="ano" id="ano" class="select-searchform">
                         <option value="-1">Ano</option>
 						<?php foreach ( $anos as $ano ) { ?>
@@ -110,7 +97,6 @@
 
                     </select>
                 </div>
-
 
                 <div class="col s12 m2 l2">
                     <select name="price_max" id="price_max" class="select-searchform">
