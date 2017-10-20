@@ -69,8 +69,7 @@ function populate_state_meta_box( $state ) {
 		$id   = $res['id'];
 		$name = $res['nome'];
 		?>
-        <option
-                value='<?php echo $id; ?>' <?php echo $id == $state ? 'selected=selected' : ''; ?> ><?php echo $name; ?></option>
+        <option value='<?php echo $id; ?>' <?php echo $id == $state ? 'selected=selected' : ''; ?> ><?php echo $name; ?></option>
 		<?php
 	}
 }
@@ -92,10 +91,6 @@ function add_city_meta_box() {
 
 
 function js_handler() {
-	global $wpdb;
-	$region = $wpdb->get_col(
-		"SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'br_la_region'"
-	);
 	add_scripts();
 	?>
     <script>
@@ -113,6 +108,7 @@ function js_handler() {
 				?>
                 console.log(response);
                 response = jQuery.parseJSON(response);
+                console.log(response);
                 jQuery('#br_la_city').empty().append('<option>Cidade</option>');
                 jQuery.each(response, function (index, data) {
                     var cidade = "<?php echo $city; ?>";
@@ -125,14 +121,7 @@ function js_handler() {
             });
         });
 
-        var region = [];
-        jQuery(document).ready(function () {
-            region = <?php echo json_encode( array_filter( $region, 'strlen' ) ); ?>;
-            var reg = jQuery.map(region, function (value, index) {
-                return [value]
-            });
-            jQuery("#br_la_region").autocomplete({source: reg});
-        });
+
     </script>
 	<?php
 }

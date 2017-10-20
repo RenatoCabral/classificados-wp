@@ -32,6 +32,7 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
                 <p><?= the_title() ?></p>
                 <p><?= $km ?> Km</p>
                 <p><?= $fabricante ?> - <?= $year ?></p>
+
             </a>
         </div>
     </div>

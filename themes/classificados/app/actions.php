@@ -32,3 +32,6 @@ add_action( 'wp_ajax_get_valid_cities_by_state_id', 'get_valid_cities_by_state_i
 add_action( 'wp_ajax_get_models_by_manufacturer', 'get_models_by_manufacturer' );
 add_action( 'wp_ajax_nopriv_get_models_by_manufacturer', 'get_models_by_manufacturer' );
 
+add_action( 'wp_ajax_get_years_by_model', 'get_years_by_model' );
+add_action( 'wp_ajax_nopriv_get_years_by_model', 'get_years_by_model' );
+

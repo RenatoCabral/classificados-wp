@@ -141,7 +141,7 @@ function update_slide_details( $post_id ) {
 		return;
 	}
 
-	if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce1'], 'my_meta_box_nonce1' ) ) {
+	if ( ! isset( $_POST['meta_box_nonce1'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce1'], 'my_meta_box_nonce1' ) ) {
 		return;
 	}
 

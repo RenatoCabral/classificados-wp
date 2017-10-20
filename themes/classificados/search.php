@@ -7,6 +7,9 @@
             <div class="row title_div_cars ">
                 <h5>Resultado da Busca</h5>
             </div>
+            <div class="div-searchform-blog">
+		        <?php get_search_form(); ?>
+            </div>
         </div>
 
         <div class="col s12 m12 l12 info_return_search">

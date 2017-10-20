@@ -11,13 +11,7 @@ add_action('admin_enqueue_scripts', 'gallery_metabox_enqueue');
 function add_gallery_metabox($post_type) {
 	$types = array('veiculo');
 	if (in_array($post_type, $types)) {
-		add_meta_box(
-			'gallery-metabox',
-			'Galeria de Imagens',
-			'gallery_meta_callback',
-			$post_type,
-			'normal',
-			'high'
+		add_meta_box( 'gallery-metabox', 'Galeria de Imagens', 'gallery_meta_callback', $post_type, 'normal', 'high'
 		);
 	}
 }

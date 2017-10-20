@@ -206,9 +206,12 @@ function admin_scripts(){
                     var option = '';
                     data = jQuery.parseJSON(data);
                     jQuery.each(data, function(i, item) {
-                        var selected = marcaSelected === item.key ? 'selected' : '';
-                        option += '<option '+selected+'  value="' + item.key+ '">'+ item.name + '</option>';
-
+                        var elems_obj = {};
+                       elems_obj['id'] = item.id;
+                       elems_obj['name'] = item.name;
+                       var valueMarca = JSON.stringify(elems_obj);
+                       var selected = marcaSelected === item.id ? 'selected' : '';
+                       option += "<option "+selected+"  value='" + valueMarca + " '>"+ item.name + "</option>";
 
                     });
                     jQuery('.marca').append(option);
@@ -234,12 +237,17 @@ function admin_scripts(){
 
         function fipeModelos(){
             var modeloSelected = jQuery('.modelo').data('modelo-selected'); // pega o modelo selecionado
-            var marcaId = jQuery('.marca').val();
+            console.log('modelo selecionado salvo no db: '+modeloSelected);
+            var marca = jQuery('.marca').val();
+            console.log('marca selecionado: '+marca);
 
-            var marca = marcaId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
+               if(marca === ''){ // se a marca já estiver salva no banco ele pega de la. E o valor está atribuido no atributo data-marca-selected.
+//               Entao, ele será indefinido pois o javascript demora carregar. Mas se está salvo, eu já tenho o valor.
 
-               if(marca === undefined){
-                     marca = jQuery('.marca').data('marca-selected').split(/-([^-]*)$/)[1];
+                     marca = jQuery('.marca').data('marca-selected');
+                     console.log('entrou no if ');
+                     console.log(marca);
+
                }
 
 
@@ -255,8 +263,13 @@ function admin_scripts(){
                     var option = '';
                     data = jQuery.parseJSON(data);
                     jQuery.each(data, function(i, item) {
-                        var selected = modeloSelected === item.key ? 'selected' : '';
-                        option += '<option '+selected+'  value="' + item.key+ '">'+ item.name + '</option>';
+
+                       var elems_obj = {};
+                       elems_obj['id'] = item.id;
+                       elems_obj['name'] = item.name;
+                       var valueModel = JSON.stringify(elems_obj);
+                       var selected = modeloSelected == item.id ? 'selected' : '';
+                       option += "<option "+selected+"  value='" + valueModel + " '>"+ item.name + "</option>";
                     });
                     jQuery('.modelo').append(option);
 
@@ -269,20 +282,17 @@ function admin_scripts(){
         }
 
         function fipeAno(){
-           var marcaId = jQuery('.marca').val();
+           var marca = jQuery('.marca').val();
            var anoSelected = jQuery('.ano').data('ano-selected'); // pega o modelo selecionado
-           var modeloId = jQuery('.modelo').val();
+           var modelo= jQuery('.modelo').val();
 
-           var marca = marcaId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
 
-           if(marca === undefined){
-                marca = jQuery('.marca').data('marca-selected').split(/-([^-]*)$/)[1];
+           if(marca === ''){
+                marca = jQuery('.marca').data('marca-selected');
            }
 
-           var modelo = modeloId.split(/-([^-]*)$/)[1]; // remove a última ocorrecia de '-' pois a key de marca é marca-id
-
-           if(modelo === undefined){
-                 modelo = jQuery('.modelo').data('modelo-selected').split(/-([^-]*)$/)[1];
+           if(modelo === ''){
+                 modelo = jQuery('.modelo').data('modelo-selected');
            }
 
               var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculo/"+marca+"/"+modelo+".json");
@@ -298,8 +308,12 @@ function admin_scripts(){
                    var option = '';
                    data = jQuery.parseJSON(data);
                    jQuery.each(data, function(i, item) {
-                       var selected = anoSelected === item.name ? 'selected' : '';
-                       option += '<option '+selected+'  value="' + item.name+ '">'+ item.name + '</option>';
+                       var elems_obj = {};
+                       elems_obj['id'] = item.id;
+                       elems_obj['name'] = item.name;
+                       var valueAno = JSON.stringify(elems_obj);
+                       var selected = anoSelected == item.id ? 'selected' : '';
+                       option += "<option "+selected+"  value='" + valueAno + " '>"+ item.name + "</option>";
                    });
                    jQuery('.ano').append(option);
                },
@@ -338,8 +352,13 @@ function post_pagination($pages = '', $range = 2) {
 
 	if(1 != $pages){
 		echo "<div class='row paginacao'>";
-		if($paged > 2 && $paged > $range+1 && $showitems < $pages) {echo "<a href='".get_pagenum_link($paged - 1)."' class='current'>&laquo;</a>";}
-		if($paged > 6 && $showitems < $pages) {echo "<a href='".get_pagenum_link(1)."'>1</a> <span class='current'>...</span>";}
+		if($paged > 2 && $paged > $range+1 && $showitems < $pages) {
+		    echo "<a href='".get_pagenum_link($paged - 1)."' class='current'>&laquo;</a>";
+		}
+
+		if($paged > 6 && $showitems < $pages) {
+		    echo "<a href='".get_pagenum_link(1)."'>1</a> <span class='current'>...</span>";
+		}
 
 		for ($i=1; $i <= $pages; $i++) {
 			if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )) {
@@ -347,8 +366,12 @@ function post_pagination($pages = '', $range = 2) {
 			}
 		}
 
-		if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) {echo "<span class='current'>...</span> <a href='".get_pagenum_link($pages)."'>$pages</a>";}
-		if ($paged < $pages && $showitems < $pages) {echo "<a href='".get_pagenum_link($paged + 1)."' class='current'>&raquo;</a>";}
+		if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) {
+		    echo "<span class='current'>...</span> <a href='".get_pagenum_link($pages)."'>$pages</a>";
+		}
+		if ($paged < $pages && $showitems < $pages) {
+		    echo "<a href='".get_pagenum_link($paged + 1)."' class='current'>&raquo;</a>";
+		}
 		echo "</div>\n";
 	}
 }
@@ -375,19 +398,19 @@ function get_valid_cities_by_state_id() {
 
 function get_models_by_manufacturer() {
 	if ( isset( $_POST['fabricante'] ) ) {
-		$posts = new WP_Query([
-			'post_type'   => 'veiculo',
-			'post_status' => 'publish',
-			'posts_per_page' => -1,
-			'tax_query'   =>
-				[
-					[
-						'taxonomy' => 'fabricante',
-						'field'    => 'term_id',
-						'terms'    => $_POST['fabricante']
-					]
-				]
-		]);
+		$posts = new WP_Query(
+		        [
+			        'post_type'   => 'veiculo',
+			        'post_status' => 'publish',
+			        'posts_per_page' => -1,
+			        'meta_query'     => [
+			                [
+					    'key'   => 'manufacturer',
+					    'value' =>  $_POST['fabricante']
+					    ]
+		            ]
+		        ]
+		);
 
 		$models = [];
 		$output = '<option value="">Modelo</option>';
@@ -395,13 +418,53 @@ function get_models_by_manufacturer() {
 			$model = get_post_meta( get_the_ID(), 'model', true );
 			if ( ! empty( $model ) ) {
 				if ( ! in_array( $model, $models ) ) {
-					$output .= '<option value="' . $model . '">' . $model . '</option>';
+
+            	    $pattern = '/[^\-]+/';
+	                preg_match( $pattern, $model, $partes, PREG_OFFSET_CAPTURE );
+
+					$output .= '<option value="' . $model . '">' . ucfirst($partes[0][0]) . '</option>';
 					$models[] = $model;
 				}
 			}
 		endwhile;
 		echo $output;
 	}
-	exit;
+	die();
+}
+
+function get_years_by_model() {
+	if ( isset( $_POST['modelo'] ) ) {
+		$posts = new WP_Query(
+		        [
+			        'post_type'   => 'veiculo',
+			        'post_status' => 'publish',
+			        'posts_per_page' => -1,
+			        'meta_query'     => [
+			                [
+					    'key'   => 'model',
+					    'value' =>  $_POST['modelo']
+					    ]
+		            ]
+		        ]
+		);
+
+		$years = [];
+		$output = '<option value="">Ano</option>';
+		while ( $posts->have_posts() ) : $posts->the_post();
+			$year = get_post_meta( get_the_ID(), 'year', true );
+			if ( ! empty( $year ) ) {
+				if ( ! in_array( $year, $years ) ) {
+
+            	    $pattern = '/[^\-]+/';
+	                preg_match( $pattern, $year, $partes, PREG_OFFSET_CAPTURE );
+
+					$output .= '<option value="' . $year . '">' . ucfirst($partes[0][0]) . '</option>';
+					$years[] = $year;
+				}
+			}
+		endwhile;
+		echo $output;
+	}
+	die();
 }
 

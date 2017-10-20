@@ -20,8 +20,8 @@ jQuery('#estado').on('change', function () {
             response = jQuery.parseJSON(response);
 
             var option = '';
-            jQuery.each(response, function(index, data){
-                option += '<option value="' + data+ '">'+ data + '</option>';
+            jQuery.each(response, function (index, data) {
+                option += '<option value="' + data + '">' + data + '</option>';
                 jQuery('#cidade').append(option);
 
 
@@ -36,18 +36,44 @@ jQuery('#estado').on('change', function () {
 
 
 $('#fabricante').change(function () {
-    console.log('changed');
+    var fabricante = $('#fabricante').val();
+    console.log('fabricante: ' + fabricante);
     $('#modelo').empty().append('<option>Carregando...</option>');
     $.ajax({
         url: ajaxurl,
         type: 'post',
         data: {
             action: 'get_models_by_manufacturer',
-            fabricante: $('#fabricante').val()
+            fabricante: fabricante
         },
         success: function (response) {
-            console.log(response);
             $('#modelo').empty().append(response);
+        },
+        error: function () {
+            console.log('error fabricante');
+        }
+    });
+});
+
+
+$('#modelo').change(function () {
+    var modelo = $('#modelo').val();
+    console.log('modelo: ' + modelo);
+    $('#ano').empty().append('<option>Carregando...</option>');
+    $.ajax({
+        url: ajaxurl,
+        type: 'post',
+        data: {
+            action: 'get_years_by_model',
+            modelo: modelo
+        },
+        success: function (response) {
+            console.log('success');
+            console.log(response);
+            $('#ano').empty().append(response);
+        },
+        error: function () {
+            console.log('error modelo');
         }
     });
 });

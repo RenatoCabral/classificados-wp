@@ -144,7 +144,7 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
             </p>
         </div>
 	<?php }
-	if ( ! empty( $categoria != '' ) ) { ?>
+	if (  $categoria != '' ) { ?>
         <div class=" col s12 m6 l6 vehicle-details">
             <p>
                 <i class="material-icons small left vehicle-details-icon">insert_invitation</i><strong>Categoria: </strong> <?= $categoria ?>
@@ -167,14 +167,14 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
 	<?php }
 }
 
-function display_gallery() { ?>
+function display_gallery($post_id) { ?>
 
     <div class="col s12 m6 l6">
 		<?php
-		$thumb_id  = get_post_thumbnail_id( get_the_ID() );
+		$thumb_id  = get_post_thumbnail_id( $post_id);
 		$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full-single-slide-veiculo' );
-		$img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_directory' ) . "/images/no-image-slide-single";
-		$images    = get_post_meta( get_the_ID(), 'vdw_gallery_id', true );
+		$img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_directory' ) . "/img/no-image-slide-single.jpg";
+		$images    = get_post_meta($post_id, 'vdw_gallery_id', true );
 		?>
 
         <!-- Full-->
@@ -279,7 +279,7 @@ function render_most_viewed() {
 
         <div class="container-fluid">
             <div class="row title_div_cars">
-                <h5>Veículos em Destaque</h5>
+                <h5>Mais Vistos</h5>
             </div>
         </div>
 

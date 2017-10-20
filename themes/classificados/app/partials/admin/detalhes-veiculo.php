@@ -36,24 +36,29 @@ $conservations = get_conservations();
     </label
 </p>
 
+<?php
+$marca = json_decode($manufacturer);
+$modelo = json_decode($model);
+$ano = json_decode($year);
+?>
+
 <p class="item-detalhes item-marca">
     <label>Marca</label>
-    <select name="manufacturer" class="marca" data-marca-selected="<?= $manufacturer; ?>">
+    <select name="manufacturer" class="marca" data-marca-selected="<?= isset( $marca->id) ?  $marca->id : '' ?>">
         <option value="">Selecione</option>
     </select>
 </p>
 
 <p class="item-detalhes item-modelo">
     <label>Modelo</label>
-    <select name="model" class="modelo" data-modelo-selected="<?= $model; ?>">
+    <select name="model" class="modelo" data-modelo-selected="<?= isset( $modelo->id) ?  $modelo->id : '' ?>">
         <option value="">Selecione</option>
-
     </select>
 </p>
 
 <p class="item-detalhes item-ano">
     <label>Ano</label>
-    <select name="year" class="ano" data-ano-selected="<?= $year; ?>">
+    <select name="year" class="ano" data-ano-selected="<?= isset( $ano->id) ?  $ano->id : '' ?>">
         <option value="">Selecione</option>
     </select>
 </p>

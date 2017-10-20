@@ -55,6 +55,7 @@ function br_la_populate_country_table() {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'br_la_country';
 	$wpdb->insert( $tablename, [ 'id' => '1', 'nome' => 'Brasil', 'sigla' => 'BR' ] );
+
 }
 
 function br_la_populate_state_table() {
