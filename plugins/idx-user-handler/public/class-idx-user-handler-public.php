@@ -163,12 +163,6 @@ class Idx_User_Handler_Public
 		        return;
 	        }
 
-	        if (!isset($_POST["idx_new_password_confirmation"]) || empty($_POST['idx_new_password_confirmation'])) {
-		        WP_Flash_Messages::add('Confirme sua senha', WP_Flash_Messages::ERROR);
-
-		        return;
-	        }
-
 
 
             $user_login = $_POST["idx_user_email"];
@@ -189,12 +183,12 @@ class Idx_User_Handler_Public
 
             // So far so good, can create user.
             $new_user_id = wp_insert_user(array(
-                    'user_nicename' => $user_name,
-                    'user_login' => $user_name,
+                    'user_nicename' => $user_email,
+                    'user_login' => $user_email,
                     'user_pass' => $user_pass,
                     'user_email' => $user_email,
                     'user_registered' => date('Y-m-d H:i:s'),
-                    'role' => 'subscriber',
+                    'role' => 'vendedor',
                     'first_name' => $user_name,
                     'last_name' => $user_last_name,
                     'display_name' => $user_name

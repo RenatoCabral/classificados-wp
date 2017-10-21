@@ -156,6 +156,7 @@ function admin_scripts(){
        <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
 
         <style>
+
             .item-serie{
                 margin: 8px;
                 display: inline-block;
@@ -176,12 +177,23 @@ function admin_scripts(){
             #edit-slug-box{
             /*display: none;*/
             }
+
+            .info-cadastro{
+            color: red;
+            text-align: center;
+            padding: 10px;
+            }
+
         </style>
 
         <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
         <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
         <script>
+
+
+
         jQuery(document).ready(function() {
+            jQuery('#submitpost').append('<p class="info-cadastro">Seu cadastro está sujeito a aprovação.</p>');
             fipeMarcas();
             fipeModelos();
             fipeAno();
