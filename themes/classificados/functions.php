@@ -10,6 +10,7 @@ require 'app/gallery-metabox.php';
 require 'app/handler-users.php';
 require 'app/mais-vistos.php';
 require 'app/restrict_user_access.php';
+require 'app/fipe.php';
 
 
 //filtro para remover a tag span do formulario de contato

@@ -188,15 +188,16 @@ function admin_scripts(){
 
         <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
         <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
+        <script src="<?php bloginfo('template_directory') ?>/js/js-admin.js"></script>
         <script>
 
 
 
         jQuery(document).ready(function() {
             jQuery('#submitpost').append('<p class="info-cadastro">Seu cadastro está sujeito a aprovação.</p>');
-            fipeMarcas();
-            fipeModelos();
-            fipeAno();
+//            fipeMarcas();
+//            fipeModelos();
+//            fipeAno();
             mask();
             jQuery('.select-localizacao').select2();
             jQuery('.marca').select2();
