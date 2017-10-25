@@ -3,8 +3,8 @@ jQuery.ajax({
     type: "POST",
     data: "action=get_manufacturer"
 }).success(function (results) {
-    // console.log(results);
-    console.log(jQuery.parseJSON(results));
+    console.log(results);
+    // console.log(jQuery.parseJSON(results));
     console.log('sucesso');
     // console.log('------------//----------');
 
